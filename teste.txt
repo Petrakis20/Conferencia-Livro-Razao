@@ -1,0 +1,75 @@
+CFOP  {
+  contabil { 
+  la_contabil: x, 
+  d_contabil: x,
+  c_contabil: x, 
+  }, 
+  icms { 
+    la_icms: x,                              
+    d_icms: x,    
+    c_icms: x,                              
+    },            
+  ipi {                              
+    la_ipi: x,                              
+    d_ipi: x,    
+    c_ipi: x,                              
+  },            
+  icms_st {                              
+    la_icms_st: x,                              
+    d_icms_st: x,    
+    c_icms_st: x,                              
+  },  
+}   
+
+1101 {
+  contabil { 
+  la_contabil: 10066, 
+  d_contabil: 2415,
+  c_contabil: 630, 
+  }, 
+  icms { 
+    la_icms: 10067,                              
+    d_icms: 224,    
+    c_icms: 2415,                              
+    },            
+  ipi {                              
+    la_ipi: 10068,                              
+    d_ipi: 2541,    
+    c_ipi: 2415,                              
+  },            
+  icms_st {                              
+    la_icms_st: ,                              
+    d_icms_st: ,    
+    c_icms_st: ,                              
+  },  
+}   
+
+
+O valor do CFOP estará na coluna CFOP;
+O valor do la_contabil estará na coluna L.A. CONTÁBIL;
+O valor do d_contabil estará na coluna DÉBITO CONTÁBIL;
+O valor do c_contabil estará na coluna CRÉDITO CONTÁBIL;
+
+O valor do la_icms estará na coluna L.A. ICMS;
+O valor do d_icms estará na coluna DÉBITO ICMS;
+O valor do c_icms estará na coluna CRÉDITO ICMS;
+
+O valor do la_ipi estará na coluna L.A. IPI;
+O valor do d_ipi estará na coluna DÉBITO IPI;
+O valor do c_ipi estará na coluna CRÉDITO IPI;
+
+O valor do la_icms_st estará na coluna L.A. ICMS ST;
+O valor do d_icms_st estará na coluna DÉBITO ICMS ST;
+O valor do c_icms_st estará na coluna CRÉDITO ICMS ST;
+
+
+
+
+
+
+Agora vamos partir para a função principal da aplicação, a conferência.
+
+1 - farei o upload dos arquivos do livro fiscal de entrada e saída, e o arquivo do razão contábil.
+2 - Irei agrupar os valores do livro fiscal de acordo com o CFOP.
+3 - Agrupar os valores da coluna Valor Absoluto dos razões contábeis de acordo com a coluna Lançamento automático, caso a coluna C/D estiver com o valor C, considere o valor negativo.
+4 Crie duas tabelas, uma 
