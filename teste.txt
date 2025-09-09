@@ -73,3 +73,9 @@ Agora vamos partir para a função principal da aplicação, a conferência.
 2 - Irei agrupar os valores do livro fiscal de acordo com o CFOP.
 3 - Agrupar os valores da coluna Valor Absoluto dos razões contábeis de acordo com a coluna Lançamento automático, caso a coluna C/D estiver com o valor C, considere o valor negativo.
 4 Crie duas tabelas, uma 
+
+
+
+
+ICMS a recolher / ICMS a recuperar tenho que pegar os códigos de Lançamento automatico da coluna Lanc. Cont. Vl. ICMS e valor do ICMS da coluna Vl. ICMS
+E a mesma coisa para o ST 

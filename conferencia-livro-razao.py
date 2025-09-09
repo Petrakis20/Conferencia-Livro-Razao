@@ -1,185 +1,332 @@
-import streamlit as st
+from __future__ import annotations
+
+import re
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
 import pandas as pd
-from cfop import CFOP_DATA  # sua estrutura reorganizada de CFOPs
+import streamlit as st
 
-# Mapas de CFOP de entrada e saída
-entrada_cfop = CFOP_DATA.get('ENTRADA', {})
-saida_cfop = CFOP_DATA.get('SAIDA', {})
+st.set_page_config(page_title="Conferência BI x Razão (TXT)", layout="wide")
 
-# --- FUNÇÕES DE EXTRAÇÃO ---------------------------------------------------
+# ============================================================
+# Utilitários de normalização
+# ============================================================
+def norm_text(s: str) -> str:
+    s = str(s).strip().lower()
+    s = (s.replace("ã","a").replace("á","a").replace("à","a").replace("â","a")
+           .replace("ç","c").replace("é","e").replace("ê","e")
+           .replace("í","i").replace("ó","o").replace("ô","o").replace("ú","u"))
+    s = re.sub(r"[^a-z0-9 ]+"," ", s)
+    s = re.sub(r"\s+"," ", s).strip()
+    return s
 
-def extract_values(file) -> pd.DataFrame:
-    """Extrai e soma valor contábil por CFOP de um livro fiscal."""
-    df = pd.read_excel(file, dtype=str)
-    cfop_col, val_col = 'CFOP', 'Valor Contábil'
-    if cfop_col not in df.columns or val_col not in df.columns:
-        return pd.DataFrame(columns=['CFOP', 'Valor Contábil'])
-    df_sel = df[[cfop_col, val_col]].copy()
-    df_sel['CFOP'] = df_sel[cfop_col].astype(str).str.zfill(4)
-    df_sel['Valor Contábil'] = pd.to_numeric(df_sel[val_col], errors='coerce').fillna(0)
-    return df_sel.groupby('CFOP', as_index=False)['Valor Contábil'].sum()
+def clean_code(x: str) -> str:
+    """
+    Mantém só dígitos, remove '.0' e corrige zeros espúrios à direita.
+    Ex.: '10015.0' -> '10015', '100010' -> '10001', '001410' -> '00141'
+    """
+    if x is None:
+        return ""
+    s = str(x).strip()
+    if s == "":
+        return ""
+    s = re.sub(r"[^0-9]", "", s)        # somente dígitos
+    s = re.sub(r"\.0+$", "", s)         # tira .0 se houver
 
-def extract_razao(file) -> pd.DataFrame:
-    """Extrai o detalhamento bruto do razão contábil."""
+    # se vier esticado (Excel), corta zeros finais até voltar a 5+ dígitos úteis
+    # regra: enquanto tiver >5 dígitos e terminar com '0', corta 1 zero
+    while len(s) > 5 and s.endswith("0"):
+        s = s[:-1]
+    return s
+
+def to_number_br(v) -> float:
+    """Converte '226.755,32' -> 226755.32; aceita '(123,45)' como negativo."""
+    if v is None:
+        return 0.0
+    s = str(v).strip()
+    if s == "":
+        return 0.0
+    neg = s.startswith("(") and s.endswith(")")
+    if neg:
+        s = s[1:-1]
+    s = s.replace(".", "").replace(",", ".")
+    try:
+        val = float(s)
+    except Exception:
+        val = float(re.sub(r"[^0-9\.\-]", "", s) or 0)
+    return -val if neg else val
+
+# ============================================================
+# Leitura de Excel (pega a aba com mais colunas)
+# ============================================================
+def read_excel_best(file) -> pd.DataFrame:
     xls = pd.ExcelFile(file)
-    records = []
-    cols = ['Lançamento automático', 'Contrapartida', 'Valor Absoluto', 'C/D', 'Descrição']
-    for sheet in xls.sheet_names:
-        df = pd.read_excel(xls, sheet_name=sheet, dtype=str)
-        df.columns = df.columns.str.strip()
-        if not all(c in df.columns for c in cols):
-            continue
-        df_sel = df[cols].copy()
-        df_sel['Valor'] = pd.to_numeric(df_sel['Valor Absoluto'], errors='coerce').fillna(0)
-        df_sel.loc[df_sel['C/D'].str.upper() == 'C', 'Valor'] *= -1
-        df_sel['Sheet'] = sheet
-        records.append(df_sel)
-    if not records:
-        return pd.DataFrame(columns=cols + ['Valor', 'Sheet'])
-    return pd.concat(records, ignore_index=True)
+    best_df, best_cols = None, -1
+    for sh in xls.sheet_names:
+        df = xls.parse(sh)
+        if df.shape[1] > best_cols:
+            best_df, best_cols = df, df.shape[1]
+    return best_df if best_df is not None else pd.DataFrame()
 
-def extract_abs_grouped(file) -> pd.DataFrame:
+# ============================================================
+# BI Entradas/Saídas (quatro eixos: contábil, icms, st, ipi)
+# ============================================================
+def detect_bi_columns(df: pd.DataFrame) -> Dict[str, str]:
+    mapping = {c: norm_text(c) for c in df.columns}
+    aliases = {
+        "la_cont": ["lanc cont vl contabil","lanc cont vl"],
+        "la_icms": ["lanc cont vl icms"],
+        "la_st":   ["lanc cont vl subst trib","lanc cont vl icms st"],
+        "la_ipi":  ["lanc cont vl ipi"],
+        "v_cont":  ["valor contabil"],
+        "v_icms":  ["vl icms"],
+        "v_st":    ["vl subst trib","vl icms st","vl st"],
+        "v_ipi":   ["vl ipi"],
+    }
+    cols: Dict[str, Optional[str]] = {k: None for k in aliases}
+    for key, opts in aliases.items():
+        # match exato
+        for c, nm in mapping.items():
+            if nm in opts:
+                cols[key] = c
+                break
+        # fallback genérico p/ la_cont
+        if cols[key] is None and key == "la_cont":
+            for c, nm in mapping.items():
+                if nm.startswith("lanc cont vl") and not any(x in nm for x in ["icms","ipi","st","subst"]):
+                    cols[key] = c
+                    break
+    missing = [k for k,v in cols.items() if v is None]
+    if missing:
+        raise ValueError(f"Colunas do BI ausentes: {missing}")
+    return cols  # type: ignore[return-value]
+
+def load_bi(file) -> pd.DataFrame:
+    df = read_excel_best(file)
+    cols = detect_bi_columns(df)
+    out = pd.DataFrame({
+        "la_cont": df[cols["la_cont"]].map(clean_code),
+        "la_icms": df[cols["la_icms"]].map(clean_code),
+        "la_st":   df[cols["la_st"]].map(clean_code),
+        "la_ipi":  df[cols["la_ipi"]].map(clean_code),
+        "v_cont":  df[cols["v_cont"]].map(to_number_br),
+        "v_icms":  df[cols["v_icms"]].map(to_number_br),
+        "v_st":    df[cols["v_st"]].map(to_number_br),
+        "v_ipi":   df[cols["v_ipi"]].map(to_number_br),
+    })
+    # reforço de limpeza para evitar zeros espúrios
+    for c in ["la_cont","la_icms","la_st","la_ipi"]:
+        out[c] = out[c].map(clean_code)
+    return out
+
+def aggregate_bi_all(bi: pd.DataFrame) -> pd.DataFrame:
+    stacks = []
+    for c_l, c_v in [("la_cont","v_cont"), ("la_icms","v_icms"),
+                     ("la_st","v_st"), ("la_ipi","v_ipi")]:
+        tmp = bi[[c_l, c_v]].copy()
+        tmp.columns = ["lancamento","valor"]
+        tmp["lancamento"] = tmp["lancamento"].map(clean_code)
+        tmp = tmp[tmp["lancamento"] != ""]
+        stacks.append(tmp)
+    long = pd.concat(stacks, ignore_index=True) if stacks else pd.DataFrame(columns=["lancamento","valor"])
+    long["valor"] = long["valor"].fillna(0.0).astype(float)
+    return (long.groupby("lancamento", as_index=False)["valor"]
+                .sum()
+                .rename(columns={"valor":"valor_bi"}))
+
+# ============================================================
+# BI Serviços (códigos exatamente como especificado)
+# ============================================================
+def _find_col(df: pd.DataFrame, *alvos: str) -> Optional[str]:
+    m = {c: norm_text(c) for c in df.columns}
+    # igual
+    for alvo in alvos:
+        a = norm_text(alvo)
+        for c, n in m.items():
+            if n == a:
+                return c
+    # começa com
+    for alvo in alvos:
+        a = norm_text(alvo)
+        for c, n in m.items():
+            if n.startswith(a):
+                return c
+    return None
+
+def load_bi_servico(file) -> pd.DataFrame:
     """
-    Agrupa por Lançamento automático (ou Descrição, se vazio) e soma o Valor Ajustado,
-    retornando Lançamento automático, Contrapartida, Descrição e Valor Absoluto Total.
+    Códigos (lançamentos):
+      Lanc Cont. Valor Documento | Lanc.Cont.Vl.Cofins | Lanc.Cont.Vl.PIS |
+      Lanc Cont. Vl. ISS | Lanc Cont. Vl. ISS Ret. | Lanc Cont. Vl. IRRF |
+      Lanc Cont. Vl. PIS Ret. | Lanc Cont. Vl. COFINS Ret. |
+      Lanc Cont. Vl. INSS Ret. | Lanc Cont. Vl. CSLL Ret.
+    Valores:
+      Valor Documento | Vl. Cofins | Vl. PIS | Vl. ISS | Vl. ISS Ret. | Vl. IRRF |
+      Vl. PIS Ret. | Vl. COFINS Ret. | Vl. INSS Ret. | Vl. CSLL Ret.
     """
-    xls = pd.ExcelFile(file)
-    records = []
-    for sheet in xls.sheet_names:
-        df = pd.read_excel(xls, sheet_name=sheet, dtype=str)
-        df.columns = df.columns.str.strip()
-        lower_map = {c.lower(): c for c in df.columns}
-        req = ['lançamento automático', 'contrapartida', 'descrição', 'valor absoluto', 'c/d']
-        if not all(r in lower_map for r in req):
-            continue
-        la = lower_map['lançamento automático']
-        cont = lower_map['contrapartida']
-        desc = lower_map['descrição']
-        val = lower_map['valor absoluto']
-        cd  = lower_map['c/d']
-        df2 = df[[la, cont, desc, val, cd]].copy()
-        df2.columns = ['Lançamento automático', 'Contrapartida', 'Descrição', 'Valor Absoluto', 'C/D']
-        df2['Valor Absoluto'] = pd.to_numeric(df2['Valor Absoluto'], errors='coerce').fillna(0)
-        df2.loc[df2['C/D'].str.upper() == 'C', 'Valor Absoluto'] *= -1
-        # cria chave de agrupamento
-        df2['GroupKey'] = df2['Lançamento automático'].fillna('').str.strip()
-        df2['GroupKey'] = df2['GroupKey'].where(df2['GroupKey'] != '', df2['Descrição'])
-        records.append(df2)
-    if not records:
-        return pd.DataFrame(columns=['Lançamento automático', 'Contrapartida', 'Descrição', 'Valor Absoluto Total'])
-    all_df = pd.concat(records, ignore_index=True)
-    grouped = (
-        all_df
-        .groupby('GroupKey', as_index=False)['Valor Absoluto']
-        .sum()
-        .rename(columns={'Valor Absoluto': 'Valor Absoluto Total'})
-    )
-    results = []
-    for _, row in grouped.iterrows():
-        key = row['GroupKey']
-        total = row['Valor Absoluto Total']
-        subset = all_df[all_df['GroupKey'] == key]
-        la_vals = subset['Lançamento automático'].dropna().unique()
-        la_auto = la_vals[0] if len(la_vals) else ''
-        contr_mode = subset['Contrapartida'].mode()
-        contr = contr_mode.iloc[0] if not contr_mode.empty else ''
-        desc_mode = subset['Descrição'].mode()
-        descricao = desc_mode.iloc[0] if not desc_mode.empty else ''
-        results.append({
-            'Lançamento automático': la_auto,
-            'Contrapartida': contr,
-            'Descrição': descricao,
-            'Valor Absoluto Total': total
-        })
-    return pd.DataFrame(results)
+    df = read_excel_best(file)
 
-def process_comparativo(df_book: pd.DataFrame, df_abs: pd.DataFrame, cfop_map: dict, mode_label: str):
-    """
-    Para cada lançamento automático em df_abs, exibe:
-      - à esquerda: tabela de CFOPs do livro fiscal + soma
-      - à direita: CFOPs unificados da razão + valor absoluto total (pintado se discrepante)
-    """
-    st.subheader(f"Comparativo — {mode_label}")
-    for _, row in df_abs.iterrows():
-        la = row['Lançamento automático']
-        valor_razao = row['Valor Absoluto Total']
-        contr = row['Contrapartida']
-        # identifica todos os CFOPs que têm esse lançamento automático em algum tipo
-        cfops = [
-            cfop
-            for cfop, tipos in cfop_map.items()
-            for tipo, d in tipos.items()
-            if d.get(f'la_{tipo}') == la
-        ]
-        # filtra o livro fiscal
-        df_fiscal = df_book[df_book['CFOP'].isin(cfops)].copy()
-        total_fiscal = df_fiscal['Valor Contábil'].sum()
-        # cor de status
-        diff = abs(total_fiscal - valor_razao)
-        status = "🔴" if diff > 1e-2 else "🟢"
+    pares: List[Tuple[List[str], List[str], str]] = [
+        (["Lanc Cont. Valor Documento","Lanc Cont. Vl. Valor Documento","Lanc Cont Valor Documento"],
+         ["Valor Documento"], "doc"),
+        (["Lanc.Cont.Vl.Cofins","Lanc Cont. Vl. Cofins","Lanc Cont Vl Cofins"],
+         ["Vl. Cofins"], "cofins"),
+        (["Lanc.Cont.Vl.PIS","Lanc Cont. Vl. PIS","Lanc Cont Vl PIS"],
+         ["Vl. PIS"], "pis"),
+        (["Lanc Cont. Vl. ISS","Lanc Cont Vl ISS"],
+         ["Vl. ISS"], "iss"),
+        (["Lanc Cont. Vl. ISS Ret.","Lanc Cont Vl ISS Ret"],
+         ["Vl. ISS Ret.","Vl ISS Ret"], "iss_ret"),
+        (["Lanc Cont. Vl. IRRF","Lanc Cont Vl IRRF"],
+         ["Vl. IRRF","Vl IRRF"], "irrf"),
+        (["Lanc Cont. Vl. PIS Ret.","Lanc Cont Vl PIS Ret"],
+         ["Vl. PIS Ret.","Vl PIS Ret"], "pis_ret"),
+        (["Lanc Cont. Vl. COFINS Ret.","Lanc Cont Vl COFINS Ret"],
+         ["Vl. COFINS Ret.","Vl COFINS Ret"], "cofins_ret"),
+        (["Lanc Cont. Vl. INSS Ret.","Lanc Cont Vl INSS Ret"],
+         ["Vl. INSS Ret.","Vl INSS Ret"], "inss_ret"),
+        (["Lanc Cont. Vl. CSLL Ret.","Lanc Cont Vl CSLL Ret"],
+         ["Vl. CSLL Ret.","Vl CSLL Ret"], "csll_ret"),
+    ]
 
-        with st.expander(f"Lançamento Automático: {la}", expanded=True):
-            left, right = st.columns(2)
-            with left:
-                st.markdown("**Livro Fiscal**")
-                if df_fiscal.empty:
-                    st.write("_nenhum CFOP encontrado_")
-                else:
-                    st.table(df_fiscal)
-                st.markdown(f"**Total Livro:** R$ {total_fiscal:,.2f}")
-            with right:
-                st.markdown("**Razão Contábil**")
-                st.markdown(f"- **CFOPs:** {' / '.join(cfops) if cfops else '_nenhum_'}  ")
-                st.markdown(f"- **Contrapartida:** {contr or '-'}  ")
-                st.markdown(f"- **Valor Razão:** R$ {valor_razao:,.2f} {status}")
+    stacks = []
+    for cod_opts, val_opts, _rot in pares:
+        c_cod = _find_col(df, *cod_opts)
+        c_val = _find_col(df, *val_opts)
+        if c_cod and c_val:
+            tmp = pd.DataFrame({
+                "lancamento": df[c_cod].map(clean_code),
+                "valor": df[c_val].map(to_number_br),
+            })
+            tmp = tmp[(tmp["lancamento"] != "") & (tmp["valor"].notna())]
+            stacks.append(tmp)
 
-# --- FLUXO PRINCIPAL STREAMLIT ---------------------------------------------
+    if not stacks:
+        raise ValueError("Não encontrei nenhuma dupla código/valor do BI de Serviços.")
 
-st.set_page_config(page_title="Conferência Livro vs Razão", layout="wide")
-st.title("📊 Conferência de Livros Fiscais e Razão Contábil")
-st.markdown("""
-Carregue abaixo:
-- **Livro Fiscal de Entrada** e **Saída** para extrair valores por CFOP;
-- **Razão Contábil** para extrair lançamentos detalhados e valores absolutos agrupados.
-""")
+    long = pd.concat(stacks, ignore_index=True)
+    long["valor"] = long["valor"].fillna(0.0).astype(float)
+    return (long.groupby("lancamento", as_index=False)["valor"]
+                .sum()
+                .rename(columns={"valor":"valor_bi"}))
 
-# upload dos livros fiscais
-col1, col2 = st.columns(2)
-df_in = df_out = None
-with col1:
-    file_in = st.file_uploader("📥 Livro Fiscal - Entrada", type=["xls","xlsx"], key="in")
-    if file_in:
-        df_in = extract_values(file_in)
-        st.subheader("Resultados - Livro Fiscal de Entrada")
-        st.table(df_in)
+# ============================================================
+# Razão TXT (CSV por vírgula; usa col.2=código, col.4=valor)
+# ============================================================
+def read_razao_txt(file) -> pd.DataFrame:
+    df = pd.read_csv(file, sep=",", header=None, engine="python", dtype=str)
+    cod = df.iloc[:, 1].map(clean_code)
+    val = df.iloc[:, 3].map(to_number_br)
+    out = pd.DataFrame({"lancamento": cod, "valor_razao": val})
+    out = out[out["lancamento"] != ""]
+    return (out.groupby("lancamento", as_index=False)["valor_razao"].sum())
 
-with col2:
-    file_out = st.file_uploader("📤 Livro Fiscal - Saída", type=["xls","xlsx"], key="out")
-    if file_out:
-        df_out = extract_values(file_out)
-        st.subheader("Resultados - Livro Fiscal de Saída")
-        st.table(df_out)
+# ============================================================
+# Comparação
+# ============================================================
+def compare(bi: pd.DataFrame, razao: pd.DataFrame) -> pd.DataFrame:
+    comp = bi.merge(razao, on="lancamento", how="outer")
+    comp["valor_bi"] = comp["valor_bi"].fillna(0.0)
+    comp["valor_razao"] = comp["valor_razao"].fillna(0.0)
+    comp["dif"] = comp["valor_bi"] - comp["valor_razao"]
+    comp["ok"] = np.isclose(comp["dif"], 0.0, atol=0.01)
+    return comp.sort_values(["ok","lancamento"], ascending=[True, True])
 
-# upload e processamento do razão contábil + comparativo
-file_razao = st.file_uploader("📖 Razão Contábil", type=["xls","xlsx"], key="razao")
-if file_razao:
-    df_razao = extract_razao(file_razao)
-    st.subheader("Resultados - Razão Contábil (Detalhado)")
-    st.table(df_razao)
+# ============================================================
+# Interface
+# ============================================================
+st.title("🔎 Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
+st.caption("Usa TODOS os códigos de lançamento; Razão via TXT (coluna 2=código, coluna 4=valor). Python 3.12 + Streamlit.")
 
-    df_abs = extract_abs_grouped(file_razao)
-    st.subheader("Valores Absolutos Agrupados")
-    st.table(df_abs)
+c1, c2, c3 = st.columns(3)
+with c1:
+    bi_ent = st.file_uploader("📥 BI Entradas (.xls/.xlsx)", type=["xls","xlsx"], key="bi_ent")
+with c2:
+    bi_sai = st.file_uploader("📤 BI Saídas (.xls/.xlsx)", type=["xls","xlsx"], key="bi_sai")
+with c3:
+    bi_srv = st.file_uploader("🧾 BI Serviços (.xls/.xlsx)", type=["xls","xlsx"], key="bi_srv")
 
-    # exibe comparativo para Entrada e Saída
-    if df_in is not None:
-        process_comparativo(df_in, df_abs, entrada_cfop, "Entrada")
-    if df_out is not None:
-        process_comparativo(df_out, df_abs, saida_cfop, "Saída")
+razao_files = st.file_uploader("📚 Razões TXT (pode enviar vários)", type=["txt"], accept_multiple_files=True)
 
-# sidebar de ajuda
-st.sidebar.header("Ajuda")
-st.sidebar.markdown(
-    "- Faça upload dos livros fiscais para ver CFOP vs Valores.\n"
-    "- Faça upload do razão contábil para ver detalhes e comparativos."
-)
+st.divider()
+
+# ---- Processar BIs
+bi_parts: List[pd.DataFrame] = []
+
+if bi_ent is not None:
+    try:
+        agg = aggregate_bi_all(load_bi(bi_ent))
+        agg["origem"] = "entradas"
+        bi_parts.append(agg)
+        st.success("BI Entradas carregado.")
+    except Exception as e:
+        st.error(f"Erro no BI Entradas: {e}")
+
+if bi_sai is not None:
+    try:
+        agg = aggregate_bi_all(load_bi(bi_sai))
+        agg["origem"] = "saidas"
+        bi_parts.append(agg)
+        st.success("BI Saídas carregado.")
+    except Exception as e:
+        st.error(f"Erro no BI Saídas: {e}")
+
+if bi_srv is not None:
+    try:
+        agg = load_bi_servico(bi_srv)  # já retorna (lancamento, valor_bi)
+        agg["origem"] = "servicos"
+        bi_parts.append(agg)
+        st.success("BI Serviços carregado.")
+    except Exception as e:
+        st.error(f"Erro no BI Serviços: {e}")
+
+if not bi_parts:
+    st.info("Envie ao menos um BI (Entradas, Saídas ou Serviços).")
+    st.stop()
+
+bi_total = (pd.concat(bi_parts, ignore_index=True)
+              .groupby("lancamento", as_index=False)["valor_bi"]
+              .sum())
+
+st.subheader("📊 BI — Soma por Lançamento")
+st.dataframe(bi_total, use_container_width=True, height=300)
+
+st.divider()
+
+# ---- Processar Razões
+if not razao_files:
+    st.info("Envie ao menos um arquivo TXT de Razão.")
+    st.stop()
+
+razoes = []
+for f in razao_files:
+    try:
+        rz = read_razao_txt(f)
+        rz["arquivo"] = f.name
+        razoes.append(rz)
+        st.markdown(f"**{f.name}**")
+        st.dataframe(rz, use_container_width=True, height=220)
+    except Exception as e:
+        st.error(f"Erro lendo TXT {f.name}: {e}")
+
+razao_total = (pd.concat(razoes, ignore_index=True)
+                 .groupby("lancamento", as_index=False)["valor_razao"]
+                 .sum())
+
+st.subheader("📒 Razão consolidado (todos TXT)")
+st.dataframe(razao_total, use_container_width=True, height=260)
+
+st.divider()
+
+# ---- Comparação
+st.subheader("✅ Comparação BI × Razão por Lançamento")
+comp = compare(bi_total, razao_total)
+c1, c2, c3 = st.columns(3)
+c1.metric("Lançamentos BI", f"{len(bi_total)}")
+c2.metric("Lançamentos Razão", f"{len(razao_total)}")
+c3.metric("Divergências", f"{(~comp['ok']).sum()}")
+
+st.dataframe(comp, use_container_width=True, height=420)
+
+st.caption("Regras: limpeza dos códigos remove '.0' e zeros espúrios à direita; valores aceitam vírgula decimal e parênteses como negativo; tolerância |dif| ≤ 0,01.")
