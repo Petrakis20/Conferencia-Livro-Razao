@@ -2010,9 +2010,9 @@
   },
   "5117": {
     "nome": "VENDA MERC ADQ R T ORIG ENC ENTR FUTURA",
-    "contabil": "10016",
-    "icms": "10038",
-    "icms_subst": null,
+    "contabil": null,
+    "icms": "10016",
+    "icms_subst": "10038",
     "ipi": "10074"
   },
   "5118": {
@@ -2962,9 +2962,9 @@
   },
   "6102": {
     "nome": "VENDA MERCADORIA ADQUIRIDA RECEB TERCEIR",
-    "contabil": "10015",
+    "contabil": null,
     "icms": "10016",
-    "icms_subst": null,
+    "icms_subst": "10038",
     "ipi": "10074"
   },
   "6103": {
