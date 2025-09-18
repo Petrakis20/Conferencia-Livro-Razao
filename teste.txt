@@ -79,3 +79,11 @@ Agora vamos partir para a função principal da aplicação, a conferência.
 
 ICMS a recolher / ICMS a recuperar tenho que pegar os códigos de Lançamento automatico da coluna Lanc. Cont. Vl. ICMS e valor do ICMS da coluna Vl. ICMS
 E a mesma coisa para o ST 
+
+
+25981
+25982
+25987
+25989
+26018
+26042
