@@ -1,4160 +1,4139 @@
 {
   "1101": {
-    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUÇ RURAL",
+    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUC RURAL",
     "contabil": "10066",
     "icms": "10067",
-    "ipi": "10068",
-    "icms_subst": null
+    "icms_subst": "10068",
+"ipi": null
   },
   "1102": {
-    "nome": "COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "COMPRA PARA COMERCIALIZACAO",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1111": {
     "nome": "COMPRA P/INDUSTRIAL MERC REC CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1113": {
     "nome": "COMPRA P/COMERCL MERC REC CONSIG MERCANT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1116": {
     "nome": "COMPRA P/INDL ORIG ENCOM P/REC FUTURO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1117": {
     "nome": "COMPRA P/COML ORIG ENCOM P/REC FUTURO",
     "contabil": null,
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1118": {
     "nome": "COMPRA P/COML P/ADQ ORIG VENDA D A ORDEM",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1120": {
-    "nome": "COMPRA P/INDL VENDA ORD JÁ REC VEN REMET",
+    "nome": "COMPRA P/INDL VENDA ORD JA REC VEN REMET",
     "contabil": "10066",
     "icms": "10067",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1121": {
-    "nome": "COMPRA P/COML VENDA ORD JÁ REC VEN REMET",
+    "nome": "COMPRA P/COML VENDA ORD JA REC VEN REMET",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1122": {
     "nome": "COMPRA P/IND MERC REM FOR INDL SEM TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1124": {
-    "nome": "INDUSTRIALIZAÇ EFETUADA P/ OUTRA EMPRESA",
+    "nome": "INDUSTRIALIZAC EFETUADA P/ OUTRA EMPRESA",
     "contabil": "80532",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1125": {
-    "nome": "INDUSTRIALIZAÇ EF P/OUT EMP NÃO TR P/EST",
+    "nome": "INDUSTRIALIZAC EF P/OUT EMP NAO TR P/EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1126": {
-    "nome": "COMPRA P/UTILIZAÇÃO NA PRESTAÇÃO SERVIÇO",
-    "contabil": null,
+    "nome": "COMPRA P/UTILIZACAO NA PRESTACAO SERVICO",
+    "contabil": "10113",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1128": {
-    "nome": "COMPRA P/ UTILIZ PRESTAÇÃO SERVIÇ ISSQN",
+    "nome": "COMPRA P/ UTILIZ PRESTACAO SERVIC ISSQN",
     "contabil": "10113",
     "icms": "10115",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1131": {
-    "nome": "ENTRADA DE MERC C/ PREVISÃO DE POST AJUS",
+    "nome": "ENTRADA DE MERC C/ PREVISAO DE POST AJUS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1132": {
-    "nome": "FIXAÇÃO PREÇO DE PRODUÇÃO ESTAB PRODUTOR",
+    "nome": "FIXACAO PRECO DE PRODUCAO ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1135": {
-    "nome": "FIX PREÇO PROD ESTAB PRODUTOR",
+    "nome": "FIX PRECO PROD ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1151": {
-    "nome": "TRANSFERÊNCIA PARA INDUSTRIALIZAÇÃO",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
-  },
-  "1152": {
-    "nome": "TRANSFERÊNCIA PARA COMERCIALIZAÇÃO",
+    "nome": "TRANSFERENCIA PARA INDUSTRIALIZACAO",
     "contabil": "10003",
     "icms": "10004",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": "10128",
+"ipi": null
+  },
+  "1152": {
+    "nome": "TRANSFERENCIA PARA COMERCIALIZACAO",
+    "contabil": "10003",
+    "icms": "10004",
+    "icms_subst": null,
+"ipi": null
   },
   "1153": {
-    "nome": "TRANSFERÊNCIA DE ENERGIA ELÉTRICA DISTRI",
+    "nome": "TRANSFERENCIA DE ENERGIA ELETRICA DISTRI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1154": {
-    "nome": "TRANSFERÊNCIA P/UTILIZAÇÃO PREST SERVIÇO",
+    "nome": "TRANSFERENCIA P/UTILIZACAO PREST SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1159": {
     "nome": "ENTRADA FORNEC. PROD. D ATO COOPERATIVO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1201": {
-    "nome": "DEVOL VENDA PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "DEVOL VENDA PRODUCAO DO ESTABELECIMENTO",
     "contabil": "10069",
     "icms": "10070",
-    "ipi": "10071",
-    "icms_subst": null
+    "icms_subst": "10071",
+"ipi": null
   },
   "1202": {
     "nome": "DEVOL VENDA MERCAD ADQ OU RECEB TERCEIRO",
     "contabil": "10005",
     "icms": "10006",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1203": {
     "nome": "DEVOL VENDA PROD ESTAB DEST ZON F MANAUS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1204": {
     "nome": "DEVOL VENDA MERC REC T DEST ZON F MANAUS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1205": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1206": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV TRANSPO",
     "contabil": "10122",
     "icms": "10124",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1207": {
-    "nome": "ANULAÇÃO VLR RELATIVO VENDA ENE ELÉTRICA",
+    "nome": "ANULACAO VLR RELATIVO VENDA ENE ELETRICA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1208": {
-    "nome": "DEVOL PROD ESTAB REMET EM TRANSFERÊNCIA",
+    "nome": "DEVOL PROD ESTAB REMET EM TRANSFERENCIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1209": {
     "nome": "DEVOL MERC REC ADQ TER REMET EM TRANSFER",
     "contabil": "10103",
     "icms": "10104",
-    "ipi": null,
-    "icms_subst": "10121"
+    "icms_subst": "10121",
+"ipi": null
   },
   "1212": {
     "nome": "DEVOL VENDA MERCADO INT MERC INDUSTRIALI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1213": {
-    "nome": "DEVOL REMESSA PRODÇ DO ESTAB C/ PREVISÃO",
+    "nome": "DEVOL REMESSA PRODC DO ESTAB C/ PREVISAO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1214": {
-    "nome": "DEVOL DE FIXAÇÃO DE PREÇO DE PRODÇ ESTAB",
+    "nome": "DEVOL DE FIXACAO DE PRECO DE PRODC ESTAB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1216": {
-    "nome": "Devolução ato coperativo",
+    "nome": "Devolucao ato coperativo",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1251": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/DIST OU COMERC",
+    "nome": "COMPRA ENERGIA ELETRICA P/DIST OU COMERC",
     "contabil": "10041",
     "icms": "80064",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1252": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/ESTABELEC INDL",
+    "nome": "COMPRA ENERGIA ELETRICA P/ESTABELEC INDL",
     "contabil": "10041",
     "icms": "80064",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1253": {
-    "nome": "COMPRA ENERG ELÉTRICA P/ESTABELEC COMERL",
+    "nome": "COMPRA ENERG ELETRICA P/ESTABELEC COMERL",
     "contabil": "10041",
     "icms": "10107",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1254": {
-    "nome": "COMPRA E ELÉTRICA ESTAB PREST SERV TRANS",
+    "nome": "COMPRA E ELETRICA ESTAB PREST SERV TRANS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1255": {
-    "nome": "COMPRA E ELÉTRICA ESTAB PREST SERV COMUN",
+    "nome": "COMPRA E ELETRICA ESTAB PREST SERV COMUN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1256": {
-    "nome": "COMPRA ENERGIA ELÉTRICA ESTAB PROD RURAL",
+    "nome": "COMPRA ENERGIA ELETRICA ESTAB PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1257": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/DEMANDA P/CONS",
+    "nome": "COMPRA ENERGIA ELETRICA P/DEMANDA P/CONS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1301": {
-    "nome": "AQUISIÇÃO SERV COMUNIC P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV COMUNIC P/EXEC SERV M NAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1302": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUNIC P/ESTAB INDUSTL",
+    "nome": "AQUISICAO SERVIC COMUNIC P/ESTAB INDUSTL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1303": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUNIC P/ESTAB COMERCL",
+    "nome": "AQUISICAO SERVIC COMUNIC P/ESTAB COMERCL",
     "contabil": "10042",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1304": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/EST SERV TRANSP",
+    "nome": "AQUISICAO SERVIC COMUN P/EST SERV TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1305": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/DIST ENERG ELET",
+    "nome": "AQUISICAO SERVIC COMUN P/DIST ENERG ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1306": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/EST PROD RURAL",
+    "nome": "AQUISICAO SERVIC COMUN P/EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1351": {
-    "nome": "AQUISIÇÃO SERV TRANSP P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV TRANSP P/EXEC SERV M NAT",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1352": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB INDUSTL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB INDUSTL",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1353": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB COMERCL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB COMERCL",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1354": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST SERV COMU",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST SERV COMU",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1355": {
-    "nome": "AQUISIÇÃO SERV TRANSP P/DIST ENERG ELETR",
+    "nome": "AQUISICAO SERV TRANSP P/DIST ENERG ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1356": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST PROD RURAL",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1360": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP CONTRIB SUBST",
+    "nome": "AQUISICAO SERVIC TRANSP CONTRIB SUBST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1401": {
-    "nome": "COMPRA P/INDL OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "COMPRA P/INDL OPERACAO MERC SUJ SUB TRIB",
     "contabil": "10066",
-    "icms": null,
-    "ipi": "10068",
-    "icms_subst": null
+    "icms": "10068",
+    "icms_subst": null,
+"ipi": null
   },
   "1403": {
-    "nome": "COMPRA P/COML OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "COMPRA P/COML OPERACAO MERC SUJ SUB TRIB",
     "contabil": "10001",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1406": {
     "nome": "COMPRA BEM ATV IM PER MERC SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1407": {
-    "nome": "COMPRA USO CONS OPERAÇ MERC SUJ SUB TRIB",
+    "nome": "COMPRA USO CONS OPERAC MERC SUJ SUB TRIB",
     "contabil": "80147",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1408": {
-    "nome": "TRANSF P/INDL OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "TRANSF P/INDL OPERACAO MERC SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1409": {
-    "nome": "TRANSF P/COML OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "TRANSF P/COML OPERACAO MERC SUJ SUB TRIB",
     "contabil": "10003",
     "icms": "10004",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1410": {
     "nome": "DEVOL VEND PROD EST OP PROD SUJ SUB TRIB",
     "contabil": "10069",
     "icms": "10070",
-    "ipi": "10071",
-    "icms_subst": "10078"
+    "icms_subst": "10078",
+"ipi": "10071"
   },
   "1411": {
     "nome": "DEVOL VEND MERC A T OP PROD SUJ SUB TRIB",
     "contabil": "10005",
     "icms": "10006",
-    "ipi": null,
-    "icms_subst": "10088"
+    "icms_subst": "10088",
+"ipi": null
   },
   "1414": {
     "nome": "RETOR PROD EST REM V FO EST SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1415": {
     "nome": "RETOR MERC VENDA FORA EST SUJ SUB TRIB",
     "contabil": "10069",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1451": {
     "nome": "RETORNO DE ANIMAL DO ESTABELEC PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1452": {
-    "nome": "RETORNO INSUMO NÃO UTILIZADO NA PRODUÇÃO",
+    "nome": "RETORNO INSUMO NAO UTILIZADO NA PRODUCAO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1501": {
     "nome": "ENTRADA MERCAD RECEBIDA C/FIM ESP EXPORT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1503": {
     "nome": "ENTRADA DEC DVL P REM C/FIM ESP EXP P ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1504": {
     "nome": "ENTRADA DEC DVL M REM C/FIM ESP EXP A TE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1505": {
     "nome": "ENT DEVOL MER REMETIDA P/ LOTE DE EXP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1506": {
     "nome": "ENT DEVOL MER ADQUI OU RECEB D TERCEIRO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1551": {
     "nome": "COMPRA DE BEM PARA O ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1552": {
-    "nome": "TRANSFERÊNCIA DE BEM DO ATIVO IMOBILIZAD",
+    "nome": "TRANSFERENCIA DE BEM DO ATIVO IMOBILIZAD",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1553": {
     "nome": "DEVOL DE VENDA DE BEM DO ATIVO IMOBILIZ",
-    "contabil": "406",
+    "contabil": "00406",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1554": {
     "nome": "RETORNO BEM ATIVO IMOB REM USO FORA ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1555": {
     "nome": "ENTRADA BEM ATIVO IMOBIL TERC P/USO ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1556": {
     "nome": "COMPRA DE MATERIAL PARA USO OU CONSUMO",
     "contabil": "10043",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1557": {
-    "nome": "TRANSFERÊNCIA MATERIAL PARA USO CONSUMO",
+    "nome": "TRANSFERENCIA MATERIAL PARA USO CONSUMO",
     "contabil": "10126",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1601": {
-    "nome": "RECEBIMENTO, P/TRANSFER, CRÉDITO DE ICMS",
+    "nome": "RECEBIMENTO, P/TRANSFER, CREDITO DE ICMS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1602": {
     "nome": "RECEB, P/TRANSF, S CR ICMS OUT EST M EMP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1603": {
     "nome": "RESSARCIMENTO ICMS RETIDO P/SUBSTIT TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1604": {
-    "nome": "LANÇAMENTO CRÉDITO DE COMPRA ATIVO IMOB",
+    "nome": "LANCAMENTO CREDITO DE COMPRA ATIVO IMOB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1605": {
     "nome": "RECEBE TRANSF SALDO ICMS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1651": {
     "nome": "COMPRA DE COBUST. OU LUBR.P/ IND. SUBS.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1652": {
     "nome": "COMPRA DE COMB. OU LUBR.P/ COMER.",
     "contabil": "10001",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1653": {
     "nome": "COMPRA DE COMB.OU LUBR. P/ CONS. FINAL",
     "contabil": "80182",
     "icms": "80126",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1658": {
     "nome": "TRANSF.DE COMB.OU LUBR.P/ IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1659": {
     "nome": "TRANSF.DE COMB.OU LUBR.P/ COMER.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1660": {
     "nome": "DEV. DE VENDA DE COMB. E LUBR. P/ COMERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1661": {
     "nome": "DEV. DE VENDA DE COMB. OU LUBR. P/ COMER",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1662": {
     "nome": "DEV. DE VENDA DE COMB. OU LUBR. CONS.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1663": {
     "nome": "ENTR. DE COMB. OU LUBR. P/ ARMAZENAGEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1664": {
     "nome": "RETORNO DE COMB. OU LUBR. REM. P/ ARMAZ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1901": {
-    "nome": "ENTRADA P/INDUSTRIALIZAÇÃO POR ENCOMENDA",
+    "nome": "ENTRADA P/INDUSTRIALIZACAO POR ENCOMENDA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1902": {
     "nome": "RETORNO MERCAD REMETIDA P/INDL P/ENCOMEN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1903": {
     "nome": "ENTRADA MERC REMET P INDL N/APLIC PROCES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1904": {
     "nome": "RETORNO REMESSA P/VENDA FORA ESTABELECIM",
     "contabil": "10069",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1905": {
     "nome": "ENTRADA MERCAD REC P DEP FECH ARM GERAL",
     "contabil": "10092",
     "icms": "10096",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1906": {
     "nome": "RETORNO MERCAD REC P DEP FECH ARM GERAL",
     "contabil": "10093",
     "icms": "10097",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1907": {
     "nome": "RETORNO S MERCAD REM DEP FCH ARM GERAL",
     "contabil": "10093",
     "icms": "10097",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1908": {
     "nome": "ENTRADA BEM P/CONTA CONTRATO DE COMODATO",
     "contabil": "80123",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1909": {
     "nome": "RETORNO BEM P/CONTA CONTRATO DE COMODATO",
-    "contabil": null,
-    "icms": "80100",
-    "ipi": null,
-    "icms_subst": null
+    "contabil": "80100",
+    "icms": null,
+    "icms_subst": null,
+"ipi": null
   },
   "1910": {
-    "nome": "ENTRADA DE BONIFICAÇÃO, DOAÇÃO OU BRINDE",
+    "nome": "ENTRADA DE BONIFICACAO, DOACAO OU BRINDE",
     "contabil": "10011",
     "icms": "10012",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1911": {
-    "nome": "ENTRADA DE AMOSTRA GRÁTIS",
+    "nome": "ENTRADA DE AMOSTRA GRATIS",
     "contabil": "10011",
     "icms": "10012",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1912": {
-    "nome": "ENTRADA MERCAD OU BEM RECEB P/DEMONSTRAÇ",
+    "nome": "ENTRADA MERCAD OU BEM RECEB P/DEMONSTRAC",
     "contabil": "80164",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1913": {
-    "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAÇ",
+    "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1914": {
     "nome": "RETORNO MERC OU BEM REM P/EXPOS OU FEIRA",
     "contabil": "10030",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1915": {
     "nome": "ENTRADA MERC BEM RECEBIDO P/CONSER REPAR",
     "contabil": "80148",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1916": {
     "nome": "RETORNO MERC BEM RECEBIDO P/CONSER REPAR",
     "contabil": "80148",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1917": {
     "nome": "ENTRADA MERCAD REC EM CONSIGN MERCL INDL",
     "contabil": "80060",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1918": {
-    "nome": "DEVOLUÇ MERCAD REC EM CONSIGN MERCL INDL",
+    "nome": "DEVOLUC MERCAD REC EM CONSIGN MERCL INDL",
     "contabil": "80062",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1919": {
     "nome": "DVL SIMB MERC V PR INDL REM ANT CONS M I",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1920": {
     "nome": "ENTRADA DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1921": {
     "nome": "RETORNO DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1922": {
-    "nome": "LANÇ EFET TÍTULO SIMP FAT C P/ REC FUTU",
+    "nome": "LANC EFET TITULO SIMP FAT C P/ REC FUTU",
     "contabil": "80534",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1923": {
     "nome": "ENTRADA MERC REC VENDR REM VEN A ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1924": {
-    "nome": "ENTR P/INDL P/CONTA ORD ADQ M NÃO TR ES",
+    "nome": "ENTR P/INDL P/CONTA ORD ADQ M NAO TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1925": {
-    "nome": "RETR P/INDL P/CONTA ORD ADQ M NÃO TR ES",
+    "nome": "RETR P/INDL P/CONTA ORD ADQ M NAO TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1926": {
-    "nome": "LANÇ EFET TÍT RECLASS M DR F KIT S/DESAG",
+    "nome": "LANC EFET TIT RECLASS M DR F KIT S/DESAG",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1931": {
-    "nome": "LANÇAMENTO EFETUADO PELO TOMADOR D SERVI",
+    "nome": "LANCAMENTO EFETUADO PELO TOMADOR D SERVI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1932": {
-    "nome": "AQUISIÇÃO DE SERVIÇ TRANSP INICIADO FED",
+    "nome": "AQUISICAO DE SERVIC TRANSP INICIADO FED",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1933": {
-    "nome": "AQUISIÇÃO DE SERVIÇO TRIBUTADO PELO ISSQ",
+    "nome": "AQUISICAO DE SERVICO TRIBUTADO PELO ISSQ",
     "contabil": "80514",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1934": {
     "nome": "ENTRADA SIMB MERC P/DEPOSITO OU ARMAZEM",
     "contabil": "10092",
     "icms": "10096",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "1949": {
-    "nome": "OUTRA ENTRADA MERC PREST SERV NÃO ESPECI",
-    "contabil": null,
-    "icms": "10111",
-    "ipi": null,
-    "icms_subst": null
-  },
-  "2003": {
-    "nome": "efeitos a partir de 1º de janeiro de",
-    "contabil": null,
+    "nome": "OUTRA ENTRADA MERC PREST SERV NAO ESPECI",
+    "contabil": "10111",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
-  },
-  "2018": {
-    "nome": "AJUSTE SINIEF N° 011, DE 05 DE JULHO DE",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
-  },
-  "2025": {
-    "nome": "Ano.............:",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2101": {
-    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUÇ RURAL",
+    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUC RURAL",
     "contabil": "10066",
     "icms": "10067",
-    "ipi": "10068",
-    "icms_subst": null
+    "icms_subst": "10068",
+"ipi": null
   },
   "2102": {
-    "nome": "COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "COMPRA PARA COMERCIALIZACAO",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2105": {
-    "nome": "Venda de produção do estabelecimento que",
+    "nome": "Venda de producao do estabelecimento que",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2111": {
     "nome": "COMPRA P/INDUSTRIAL MERC REC CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2113": {
     "nome": "COMPRA P/COMERCL MERC REC CONSIG MERCANT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2116": {
     "nome": "COMPRA P/INDL ORIG ENCOM P/REC FUTURO",
     "contabil": "80533",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2117": {
     "nome": "COMPRA P/COML ORIG ENCOM P/REC FUTURO",
     "contabil": "80533",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2118": {
     "nome": "COMPRA P/COML P/ADQ ORIG VENDA D A ORDEM",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2120": {
-    "nome": "COMPRA P/INDL VENDA ORD JÁ REC VEN REMET",
+    "nome": "COMPRA P/INDL VENDA ORD JA REC VEN REMET",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": "10068",
-    "icms_subst": null
+    "icms_subst": "10068",
+"ipi": null
   },
   "2121": {
-    "nome": "COMPRA P/COML VENDA ORD JÁ REC VEN REMET",
+    "nome": "COMPRA P/COML VENDA ORD JA REC VEN REMET",
     "contabil": "10001",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2122": {
     "nome": "COMPRA P/IND MERC REM FOR INDL SEM TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2123": {
     "nome": "Venda de mercadoria adquirida ou recebid",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2124": {
-    "nome": "INDUSTRIALIZAÇ EFETUADA P/ OUTRA EMPRESA",
+    "nome": "INDUSTRIALIZAC EFETUADA P/ OUTRA EMPRESA",
     "contabil": "80532",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2125": {
-    "nome": "INDUSTRIALIZAÇ EF P/OUT EMP NÃO TR P/EST",
+    "nome": "INDUSTRIALIZAC EF P/OUT EMP NAO TR P/EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2126": {
-    "nome": "COMPRA P/UTILIZAÇÃO NA PRESTAÇÃO SERVIÇO",
+    "nome": "COMPRA P/UTILIZACAO NA PRESTACAO SERVICO",
     "contabil": "10113",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2128": {
-    "nome": "COMPRA P/ UTILIZ PRESTAÇÃO SERVIÇ ISSQN",
+    "nome": "COMPRA P/ UTILIZ PRESTACAO SERVIC ISSQN",
     "contabil": "10113",
     "icms": "10115",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2131": {
-    "nome": "ENTRADA DE MERC COM PREVISÃO DE POSTERIO",
+    "nome": "ENTRADA DE MERC COM PREVISAO DE POSTERIO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2132": {
-    "nome": "FIXA PREÇ PROD ESTAB PRODUTOR, INCLUSIVE",
+    "nome": "FIXA PREC PROD ESTAB PRODUTOR, INCLUSIVE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2135": {
-    "nome": "FIXA PREÇ PRODUÇ ESTAB PRODUTOR",
+    "nome": "FIXA PREC PRODUC ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2151": {
-    "nome": "TRANSFERÊNCIA PARA INDUSTRIALIZAÇÃO",
+    "nome": "TRANSFERENCIA PARA INDUSTRIALIZACAO",
     "contabil": "10003",
     "icms": "10004",
-    "ipi": "10128",
-    "icms_subst": null
+    "icms_subst": "10128",
+"ipi": null
   },
   "2152": {
-    "nome": "TRANSFERÊNCIA PARA COMERCIALIZAÇÃO",
+    "nome": "TRANSFERENCIA PARA COMERCIALIZACAO",
     "contabil": "10003",
     "icms": "10004",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2153": {
-    "nome": "TRANSFERÊNCIA DE ENERGIA ELÉTRICA DISTRI",
+    "nome": "TRANSFERENCIA DE ENERGIA ELETRICA DISTRI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2154": {
-    "nome": "TRANSFERÊNCIA P/UTILIZAÇÃO PREST SERVIÇO",
+    "nome": "TRANSFERENCIA P/UTILIZACAO PREST SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2159": {
     "nome": "ENTRADA DECOR. FORNEC. PROD. DE ATO COOP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2201": {
-    "nome": "DEVOL VENDA PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "DEVOL VENDA PRODUCAO DO ESTABELECIMENTO",
     "contabil": "10069",
     "icms": "10070",
-    "ipi": "10071",
-    "icms_subst": null
+    "icms_subst": "10071",
+"ipi": null
   },
   "2202": {
     "nome": "DEVOL VENDA MERCAD ADQ OU RECEB TERCEIRO",
     "contabil": "10005",
     "icms": "10006",
-    "ipi": "10071",
-    "icms_subst": null
+    "icms_subst": "10071",
+"ipi": null
   },
   "2203": {
     "nome": "DEVOL VENDA PROD ESTAB DEST ZON F MANAUS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2204": {
     "nome": "DEVOL VENDA MERC REC T DEST ZON F MANAUS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2205": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2206": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV TRANSPO",
     "contabil": "10122",
     "icms": "10123",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2207": {
-    "nome": "ANULAÇÃO VLR RELATIVO VENDA ENE ELÉTRICA",
+    "nome": "ANULACAO VLR RELATIVO VENDA ENE ELETRICA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2208": {
-    "nome": "DEVOL PROD ESTAB REMET EM TRANSFERÊNCIA",
+    "nome": "DEVOL PROD ESTAB REMET EM TRANSFERENCIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2209": {
     "nome": "DEVOL MERC REC ADQ TER REMET EM TRANSFER",
     "contabil": "10103",
     "icms": "10104",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2212": {
     "nome": "DEVOL VEND MERCADO INT MERC INDUSTRI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2213": {
-    "nome": "DEVOL DE REMESSA PRODUÇ DO ESTAB C/PREV",
+    "nome": "DEVOL DE REMESSA PRODUC DO ESTAB C/PREV",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2214": {
-    "nome": "DEVOL DE FIXAÇÃO PREÇ DE PRODUÇÃO DO EST",
+    "nome": "DEVOL DE FIXACAO PREC DE PRODUCAO DO EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2251": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/DIST OU COMERC",
+    "nome": "COMPRA ENERGIA ELETRICA P/DIST OU COMERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2252": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/ESTABELEC INDL",
+    "nome": "COMPRA ENERGIA ELETRICA P/ESTABELEC INDL",
     "contabil": "10041",
     "icms": "10107",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2253": {
-    "nome": "COMPRA ENERG ELÉTRICA P/ESTABELEC COMERL",
+    "nome": "COMPRA ENERG ELETRICA P/ESTABELEC COMERL",
     "contabil": "10041",
     "icms": "10107",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2254": {
-    "nome": "COMPRA E ELÉTRICA ESTAB PREST SERV TRANS",
+    "nome": "COMPRA E ELETRICA ESTAB PREST SERV TRANS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2255": {
-    "nome": "COMPRA E ELÉTRICA ESTAB PREST SERV COMUN",
+    "nome": "COMPRA E ELETRICA ESTAB PREST SERV COMUN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2256": {
-    "nome": "COMPRA ENERGIA ELÉTRICA ESTAB PROD RURAL",
+    "nome": "COMPRA ENERGIA ELETRICA ESTAB PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2257": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/DEMANDA P/CONS",
+    "nome": "COMPRA ENERGIA ELETRICA P/DEMANDA P/CONS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2301": {
-    "nome": "AQUISIÇÃO SERV COMUNIC P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV COMUNIC P/EXEC SERV M NAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2302": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUNIC P/ESTAB INDUSTL",
+    "nome": "AQUISICAO SERVIC COMUNIC P/ESTAB INDUSTL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2303": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUNIC P/ESTAB COMERCL",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "nome": "AQUISICAO SERVIC COMUNIC P/ESTAB COMERCL",
+    "contabil": "10042",
+    "icms": "10412",
+    "icms_subst": null,
+"ipi": null
   },
   "2304": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/EST SERV TRANSP",
+    "nome": "AQUISICAO SERVIC COMUN P/EST SERV TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2305": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/DIST ENERG ELET",
+    "nome": "AQUISICAO SERVIC COMUN P/DIST ENERG ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2306": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/EST PROD RURAL",
+    "nome": "AQUISICAO SERVIC COMUN P/EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2351": {
-    "nome": "AQUISIÇÃO SERV TRANSP P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV TRANSP P/EXEC SERV M NAT",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2352": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB INDUSTL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB INDUSTL",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2353": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB COMERCL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB COMERCL",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2354": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST SERV COMU",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST SERV COMU",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2355": {
-    "nome": "AQUISIÇÃO SERVIÇ COMUN P/DIST ENERG ELET",
+    "nome": "AQUISICAO SERVIC COMUN P/DIST ENERG ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2356": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST PROD RURAL",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2401": {
     "nome": "COMPRA P/INDL OU P RURAL MERC SUJ SUBIST",
     "contabil": "10066",
-    "icms": null,
-    "ipi": "10068",
-    "icms_subst": null
+    "icms": "10068",
+    "icms_subst": null,
+"ipi": null
   },
   "2403": {
-    "nome": "COMPRA P/COML OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "COMPRA P/COML OPERACAO MERC SUJ SUB TRIB",
     "contabil": "10001",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2406": {
-    "nome": "COMPRA BEM ATIV OPERAÇ MERC SUJ SUB TRIB",
+    "nome": "COMPRA BEM ATIV OPERAC MERC SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2407": {
-    "nome": "COMPRA USO CONS OPERAÇ MERC SUJ SUB TRIB",
+    "nome": "COMPRA USO CONS OPERAC MERC SUJ SUB TRIB",
     "contabil": "80147",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2408": {
-    "nome": "TRANSF P/INDL OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "TRANSF P/INDL OPERACAO MERC SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2409": {
-    "nome": "TRANSF P/COML OPERAÇÃO MERC SUJ SUB TRIB",
+    "nome": "TRANSF P/COML OPERACAO MERC SUJ SUB TRIB",
     "contabil": "10003",
     "icms": "10004",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2410": {
     "nome": "DEVOL VEND PROD EST OP PROD SUJ SUB TRIB",
     "contabil": "10069",
     "icms": "10070",
-    "ipi": "10071",
-    "icms_subst": "10078"
+    "icms_subst": "10078",
+"ipi": "10071"
   },
   "2411": {
     "nome": "DEVOL VEND MERC A T OP PROD SUJ SUB TRIB",
     "contabil": "10005",
     "icms": "10006",
-    "ipi": null,
-    "icms_subst": "10088"
+    "icms_subst": "10088",
+"ipi": null
   },
   "2414": {
     "nome": "RETOR PROD EST REM V FO EST SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2415": {
     "nome": "RETOR MERC VENDA FORA EST SUJ SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2501": {
     "nome": "ENTRADA MERCAD RECEBIDA C/FIM ESP EXPORT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2503": {
     "nome": "ENTRADA DEC DVL P REM C/FIM ESP EXP P ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2504": {
     "nome": "ENTRADA DEC DVL M REM C/FIM ESP EXP A TE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2505": {
     "nome": "ENT DEVOL MER REMETIDA P/ LOTE DE EXP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2506": {
     "nome": "ENT DEVOL MER ADQUI OU RECEB D TERCEIRO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2551": {
     "nome": "COMPRA DE BEM PARA O ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2552": {
-    "nome": "TRANSFERÊNCIA DE BEM DO ATIVO IMOBILIZAD",
+    "nome": "TRANSFERENCIA DE BEM DO ATIVO IMOBILIZAD",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2553": {
-    "nome": "DEVOLUÇÃO DE VENDA BEM ATIVO IMOBILIZADO",
+    "nome": "DEVOLUCAO DE VENDA BEM ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2554": {
     "nome": "RETORNO BEM ATIVO IMOB REM USO FORA ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2555": {
     "nome": "ENTRADA BEM ATIVO IMOBIL TERC P/USO ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2556": {
     "nome": "COMPRA DE MATERIAL PARA USO OU CONSUMO",
     "contabil": "10043",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2557": {
-    "nome": "TRANSFERÊNCIA MATERIAL PARA USO CONSUMO",
+    "nome": "TRANSFERENCIA MATERIAL PARA USO CONSUMO",
     "contabil": "10126",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2603": {
     "nome": "RESSARCIMENTO ICMS RETIDO P/SUBSTIT TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2651": {
     "nome": "COMPRA DE COBUST. OU LUBR.P/ IND. SUBS.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2652": {
     "nome": "COMPRA DE COMB. OU LUBR.P/ COMER.",
     "contabil": "10101",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2653": {
     "nome": "COMPRA DE COMB.OU LUBR. P/ CONS. FINAL",
     "contabil": "10048",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2658": {
     "nome": "TRANSF.DE COMB.OU LUBR.P/ IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2659": {
     "nome": "TRANSF.DE COMB.OU LUBR.P/ COMER.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2660": {
     "nome": "DEV. DE VENDA DE COMB. E LUBR. P/ COMERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2661": {
     "nome": "DEV. DE VENDA DE COMB. OU LUBR. P/ COMER",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2662": {
     "nome": "DEV. DE VENDA DE COMB. OU LUBR. CONS.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2663": {
     "nome": "ENTR. DE COMB. OU LUBR. P/ ARMAZENAGEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2664": {
     "nome": "RETORNO DE COMB. OU LUBR. REM. P/ ARMAZ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2901": {
-    "nome": "ENTRADA P/INDUSTRIALIZAÇÃO POR ENCOMENDA",
+    "nome": "ENTRADA P/INDUSTRIALIZACAO POR ENCOMENDA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2902": {
     "nome": "RETORNO MERCAD REMETIDA P/INDL P/ENCOMEN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2903": {
     "nome": "ENTRADA MERC REMET P INDL N/APLIC PROCES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2904": {
     "nome": "RETORNO REMESSA P/VENDA FORA ESTABELECIM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2905": {
     "nome": "ENTRADA MERCAD REC P DEP FECH ARM GERAL",
     "contabil": "10092",
     "icms": "10095",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2906": {
     "nome": "RETORNO MERCAD REC P DEP FECH ARM GERAL",
     "contabil": "10093",
     "icms": "10097",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2907": {
     "nome": "RETORNO S MERCAD REM DEP FCH ARM GERAL",
     "contabil": "10093",
     "icms": "10097",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2908": {
     "nome": "ENTRADA BEM P/CONTA CONTRATO DE COMODATO",
     "contabil": "80123",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2909": {
     "nome": "RETORNO BEM P/CONTA CONTRATO DE COMODATO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2910": {
-    "nome": "ENTRADA DE BONIFICAÇÃO, DOAÇÃO OU BRINDE",
+    "nome": "ENTRADA DE BONIFICACAO, DOACAO OU BRINDE",
     "contabil": "10011",
     "icms": "10012",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2911": {
-    "nome": "ENTRADA DE AMOSTRA GRÁTIS",
+    "nome": "ENTRADA DE AMOSTRA GRATIS",
     "contabil": "10011",
     "icms": "10012",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2912": {
-    "nome": "ENTRADA MERCAD OU BEM RECEB P/DEMONSTRAÇ",
+    "nome": "ENTRADA MERCAD OU BEM RECEB P/DEMONSTRAC",
     "contabil": "10028",
     "icms": "10031",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2913": {
-    "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAÇ",
+    "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2914": {
     "nome": "RETORNO MERC OU BEM REM P/EXPOS OU FEIRA",
     "contabil": "10028",
     "icms": "10031",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2915": {
     "nome": "ENTRADA MERC BEM RECEBIDO P/CONSER REPAR",
     "contabil": "80148",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2916": {
     "nome": "RETORNO MERC BEM RECEBIDO P/CONSER REPAR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2917": {
     "nome": "ENTRADA MERCAD REC EM CONSIGN MERCL INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2918": {
-    "nome": "DEVOLUÇ MERCAD REC EM CONSIGN MERCL INDL",
+    "nome": "DEVOLUC MERCAD REC EM CONSIGN MERCL INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2919": {
     "nome": "DVL SIMB MERC V PR INDL REM ANT CONS M I",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2920": {
     "nome": "ENTRADA DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2921": {
     "nome": "RETORNO DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2922": {
-    "nome": "LANÇ EFET TÍTULO SIMPL FAT C P/REC FUTU",
+    "nome": "LANC EFET TITULO SIMPL FAT C P/REC FUTU",
     "contabil": "80534",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2923": {
     "nome": "ENTRADA MERC REC VENDR REM VEN A ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2924": {
-    "nome": "ENTR P/INDL P/CONTA ORD ADQ M NÃO TR ES",
+    "nome": "ENTR P/INDL P/CONTA ORD ADQ M NAO TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2925": {
-    "nome": "RETR P/INDL P/CONTA ORD ADQ M NÃO TR ES",
+    "nome": "RETR P/INDL P/CONTA ORD ADQ M NAO TR ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2931": {
-    "nome": "LANÇAMENTO PELO TOMADOR DO SERVÇ TRANSP",
+    "nome": "LANCAMENTO PELO TOMADOR DO SERVC TRANSP",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2932": {
-    "nome": "AQUISIÇÃO DE SERVIÇ TRANSP INICIADO FED",
+    "nome": "AQUISICAO DE SERVIC TRANSP INICIADO FED",
     "contabil": "10044",
     "icms": "10045",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2933": {
-    "nome": "AQUISIÇÃO DE SERVIÇO TRIBUTADO PELO ISSQ",
+    "nome": "AQUISICAO DE SERVICO TRIBUTADO PELO ISSQ",
     "contabil": "80514",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2934": {
     "nome": "ENTRADA SIMB MERC RECEB P/DEPOS OU ARMAZ",
     "contabil": "10092",
     "icms": "10096",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "2949": {
-    "nome": "OUTRA ENTRADA MERC PREST SERV NÃO ESPECI",
-    "contabil": null,
-    "icms": "10111",
-    "ipi": null,
-    "icms_subst": null
+    "nome": "OUTRA ENTRADA MERC PREST SERV NAO ESPECI",
+    "contabil": "10111",
+    "icms": null,
+    "icms_subst": null,
+"ipi": null
   },
   "3101": {
-    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUÇ RURAL",
+    "nome": "COMPRA PARA INDUSTRIALIZ OU PRODUC RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3102": {
-    "nome": "COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "COMPRA PARA COMERCIALIZACAO",
     "contabil": "80127",
     "icms": "10002",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3126": {
-    "nome": "COMPRA P/UTILIZAÇÃO NA PRESTAÇÃO SERVIÇO",
+    "nome": "COMPRA P/UTILIZACAO NA PRESTACAO SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3127": {
     "nome": "COMPRA P/INDUSTRIALIZ SOB REGIM DRAWBACK",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3128": {
-    "nome": "COMPRA P/ UTILIZ PRESTAÇÃO SERVIÇ ISSQN",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "nome": "COMPRA P/ UTILIZ PRESTACAO SERVIC ISSQN",
+    "contabil": "15212",
+    "icms": "80128",
+    "icms_subst": null,
+"ipi": null
   },
   "3129": {
-    "nome": "COMPRA P/INDUSTRIALIZAÇÃO SOB REG ADUAN",
+    "nome": "COMPRA P/INDUSTRIALIZACAO SOB REG ADUAN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3201": {
-    "nome": "DEVOL VENDA PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "DEVOL VENDA PRODUCAO DO ESTABELECIMENTO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3202": {
     "nome": "DEVOL VENDA MERCAD ADQ OU RECEB TERCEIRO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3205": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3206": {
-    "nome": "ANULAÇÃO VLR RELATIVO PREST SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO PREST SERV TRANSPO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3207": {
-    "nome": "ANULAÇÃO VLR RELATIVO VENDA ENE ELÉTRICA",
+    "nome": "ANULACAO VLR RELATIVO VENDA ENE ELETRICA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3211": {
     "nome": "DEVOL VENDA PROD ESTABELEC REG DRAWBACK",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3212": {
     "nome": "DEVOL VENDA MERCADO EXTERNO PROD INDUSTR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3251": {
-    "nome": "COMPRA ENERGIA ELÉTRICA P/DISTRIB COMERL",
+    "nome": "COMPRA ENERGIA ELETRICA P/DISTRIB COMERL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3301": {
-    "nome": "AQUISIÇÃO SERV COMUNIC P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV COMUNIC P/EXEC SERV M NAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3351": {
-    "nome": "AQUISIÇÃO SERV TRANSP P/EXEC SERV M NAT",
+    "nome": "AQUISICAO SERV TRANSP P/EXEC SERV M NAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3352": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB INDUSTL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB INDUSTL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3353": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/ESTAB COMERCL",
+    "nome": "AQUISICAO SERVIC TRANSP P/ESTAB COMERCL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3354": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST SERV COMU",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST SERV COMU",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3355": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/DIST ENER ELET",
+    "nome": "AQUISICAO SERVIC TRANSP P/DIST ENER ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3356": {
-    "nome": "AQUISIÇÃO SERVIÇ TRANSP P/EST PROD RURAL",
+    "nome": "AQUISICAO SERVIC TRANSP P/EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3503": {
     "nome": "DEVOL MERC EXPORT REC C/FIM ESP EXPORTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3551": {
     "nome": "COMPRA DE BEM PARA O ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3553": {
-    "nome": "DEVOLUÇÃO DE VENDA BEM ATIVO IMOBILIZADO",
+    "nome": "DEVOLUCAO DE VENDA BEM ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3556": {
     "nome": "COMPRA DE MATERIAL PARA USO OU CONSUMO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3651": {
     "nome": "COMPRA DE COBUST. OU LUBR.P/ IND. SUBS.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3652": {
     "nome": "COMPRA DE COMB. OU LUBR.P/ COMER.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3653": {
     "nome": "COMPRA DE COMB.OU LUBR. P/ CONS. FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3930": {
-    "nome": "LANÇT EF TITL ENT BEM SOB REG ESP ADUAN",
+    "nome": "LANCT EF TITL ENT BEM SOB REG ESP ADUAN",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "3949": {
-    "nome": "OUTRA ENTRADA MERC PREST SERV NÃO ESPECI",
+    "nome": "OUTRA ENTRADA MERC PREST SERV NAO ESPECI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5101": {
-    "nome": "VENDA DE PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "VENDA DE PRODUCAO DO ESTABELECIMENTO",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": null
   },
   "5102": {
     "nome": "VENDA MERCADORIA ADQUIRIDA RECEB TERCEIR",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": "10038"
+    "icms_subst": "10038",
+"ipi": null
   },
   "5103": {
-    "nome": "VENDA PRODUÇÃO ESTAB, EFET FORA ESTABELE",
+    "nome": "VENDA PRODUCAO ESTAB, EFET FORA ESTABELE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5104": {
     "nome": "VENDA MERC ADQ REC TERC EFET FORA ESTAB",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5105": {
-    "nome": "VENDA PRODUÇ ESTAB, NÃO DEVA P/ELE TRANS",
+    "nome": "VENDA PRODUC ESTAB, NAO DEVA P/ELE TRANS",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": null
   },
   "5106": {
-    "nome": "VENDA MERC ADQ TER, NÃO DEVA P/ELE TRANS",
+    "nome": "VENDA MERC ADQ TER, NAO DEVA P/ELE TRANS",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5109": {
     "nome": "VENDA PROD ESTAB, DEST Z F MANAUS A L CO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5110": {
     "nome": "VENDA MERC REC T, DEST Z F MANAUS A L CO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5111": {
-    "nome": "VENDA PRODUÇ ESTAB REMET ANT CONSIG INDL",
+    "nome": "VENDA PRODUC ESTAB REMET ANT CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5112": {
     "nome": "VENDA MERC REC TER REMET ANT CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5113": {
-    "nome": "VENDA PRODUÇ ESTAB REMET ANT CONSIG MERC",
+    "nome": "VENDA PRODUC ESTAB REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5114": {
     "nome": "VENDA MERC REM TER REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5115": {
     "nome": "VENDA MERC REC TER REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5116": {
-    "nome": "VENDA PRODUÇ ESTAB ORIG ENC ENTR FUTURA",
+    "nome": "VENDA PRODUC ESTAB ORIG ENC ENTR FUTURA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5117": {
     "nome": "VENDA MERC ADQ R T ORIG ENC ENTR FUTURA",
-    "contabil": null,
-    "icms": "10016",
-    "ipi": "10074",
-    "icms_subst": "10038"
+    "contabil": "10016",
+    "icms": "10038",
+    "icms_subst": "10074",
+"ipi": null
   },
   "5118": {
     "nome": "VENDA PROD EST ENT DEST ADQ VEND A ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5119": {
     "nome": "VENDA MERC A T ENT DEST ADQ VEND A ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5120": {
     "nome": "VENDA MERC A T ENT DEST ADQ P/VEND A ORD",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": "10038"
+    "icms_subst": "10038",
+"ipi": null
   },
   "5122": {
     "nome": "VENDA PROD EST R INDL CT ORD ADQ S/T P/E",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5123": {
     "nome": "VENDA MERC AD R INDL CT ORD ADQ S/T P/ES",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5124": {
-    "nome": "INDUSTRIALIZAÇÃO EFETUADA P/OUT EMPRESA",
+    "nome": "INDUSTRIALIZACAO EFETUADA P/OUT EMPRESA",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": "18012"
   },
   "5125": {
-    "nome": "INDL EFET P/OUT EMP Q MERC NÃO TR P/EST",
+    "nome": "INDL EFET P/OUT EMP Q MERC NAO TR P/EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5129": {
     "nome": "VENDA INSUMO IMPORT E MERC INDUSTRIALIZA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5131": {
-    "nome": "REMESSA DE PRODUÇÃO DO ESTAB C/PREV POST",
+    "nome": "REMESSA DE PRODUCAO DO ESTAB C/PREV POST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5132": {
-    "nome": "FIXA PREÇO PRODUÇÃO DO ESTAB, QND REMET",
+    "nome": "FIXA PRECO PRODUCAO DO ESTAB, QND REMET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5151": {
-    "nome": "TRANSFERÊNCIA DE PRODUÇÃO DO ESTABELECIM",
+    "nome": "TRANSFERENCIA DE PRODUCAO DO ESTABELECIM",
     "contabil": "10019",
     "icms": "10020",
-    "ipi": "10129",
-    "icms_subst": null
+    "icms_subst": "10129",
+"ipi": "18312"
   },
   "5152": {
-    "nome": "TRANSFERÊNCIA MERCAD ADQ REC TERCEIREIRO",
+    "nome": "TRANSFERENCIA MERCAD ADQ REC TERCEIREIRO",
     "contabil": "10019",
     "icms": "10020",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5153": {
-    "nome": "TRANSFERÊNCIA DE ENERGIA ELÉTRICA",
+    "nome": "TRANSFERENCIA DE ENERGIA ELETRICA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5155": {
-    "nome": "TRANSF PROD ESTAB NÃO DEVA P/ELE TRANSIT",
+    "nome": "TRANSF PROD ESTAB NAO DEVA P/ELE TRANSIT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5156": {
-    "nome": "TRANSF MERC ADQ T NÃO DEVA P/ELE TRANSIT",
+    "nome": "TRANSF MERC ADQ T NAO DEVA P/ELE TRANSIT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5159": {
-    "nome": "FORNEC. DE PRODUÇAO ESTAB. D ATO COOP",
+    "nome": "FORNEC. DE PRODUCAO ESTAB. D ATO COOP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5160": {
     "nome": "FORNEC. MERCAD. ADIQ. OU RECEB. DE COOP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5201": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA INDUSTRIALIZAÇÃ",
+    "nome": "DEVOLUCAO DE COMPRA PARA INDUSTRIALIZACA",
     "contabil": "10075",
     "icms": "10076",
-    "ipi": "10077",
-    "icms_subst": null
+    "icms_subst": "10077",
+"ipi": null
   },
   "5202": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "DEVOLUCAO DE COMPRA PARA COMERCIALIZACAO",
     "contabil": "10021",
     "icms": "10022",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5205": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5206": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV TRANSPO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5207": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV E ELETR",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV E ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5208": {
-    "nome": "DEVOLUÇÃO MERC REC EM TRANSF P/INDUSTRLZ",
+    "nome": "DEVOLUCAO MERC REC EM TRANSF P/INDUSTRLZ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5209": {
-    "nome": "DEVOLUÇÃO MERC REC EM TRANSF P/COMERCIAL",
+    "nome": "DEVOLUCAO MERC REC EM TRANSF P/COMERCIAL",
     "contabil": "10105",
     "icms": "10106",
-    "ipi": null,
-    "icms_subst": "10114"
+    "icms_subst": "10114",
+"ipi": null
   },
   "5210": {
-    "nome": "DEVOLUÇÃO COMPRA P/UTILIZ PRESTA SERVIÇO",
+    "nome": "DEVOLUCAO COMPRA P/UTILIZ PRESTA SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5213": {
-    "nome": "DEVOLUÇÃO DE ENTRADA MERCADORIA C/PREV P",
+    "nome": "DEVOLUCAO DE ENTRADA MERCADORIA C/PREV P",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5214": {
-    "nome": "DEVOL FIXA PREÇO PRODUÇ ESTAB PRODUTOR",
+    "nome": "DEVOL FIXA PRECO PRODUC ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5215": {
-    "nome": "DEVOL FIXA PREÇ ESTAB PRODUTOR",
+    "nome": "DEVOL FIXA PREC ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5251": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/DISTRIB COMERCI",
+    "nome": "VENDA ENERGIA ELETRICA P/DISTRIB COMERCI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5252": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/ESTAB INDUSTRIA",
-    "contabil": "97",
-    "icms": "108",
-    "ipi": "112",
-    "icms_subst": null
+    "nome": "VENDA ENERGIA ELETRICA P/ESTAB INDUSTRIA",
+    "contabil": "00097",
+    "icms": "00108",
+    "icms_subst": "00112",
+"ipi": "19412"
   },
   "5253": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/ESTAB COMERCIAL",
+    "nome": "VENDA ENERGIA ELETRICA P/ESTAB COMERCIAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5254": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB P SE TRANSP",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB P SE TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5255": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB P SE COMUNI",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB P SE COMUNI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5256": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB PROD RURAL",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5257": {
-    "nome": "VENDA ENERG ELÉTRICA P/CONS DEMA CONTRAT",
+    "nome": "VENDA ENERG ELETRICA P/CONS DEMA CONTRAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5258": {
-    "nome": "VENDA ENERGIA ELÉTRICA A NÃO CONTRIBUINT",
+    "nome": "VENDA ENERGIA ELETRICA A NAO CONTRIBUINT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5301": {
-    "nome": "PRESTAÇÃO SERV COMUNIC P/EX SERV M NATUR",
+    "nome": "PRESTACAO SERV COMUNIC P/EX SERV M NATUR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5302": {
-    "nome": "PRESTAÇÃO SERVIÇO COMUNICAÇÃO EST INDUST",
+    "nome": "PRESTACAO SERVICO COMUNICACAO EST INDUST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5303": {
-    "nome": "PRESTAÇÃO SERVIÇO COMUNICAÇÃO EST COMERC",
+    "nome": "PRESTACAO SERVICO COMUNICACAO EST COMERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5304": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST SE TRANSP",
+    "nome": "PRESTACAO SERV COMUNICACAO EST SE TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5305": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST D E ELÉTR",
+    "nome": "PRESTACAO SERV COMUNICACAO EST D E ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5306": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST PRD RURAL",
+    "nome": "PRESTACAO SERV COMUNICACAO EST PRD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5307": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST PRD RURAL",
+    "nome": "PRESTACAO SERV COMUNICACAO EST PRD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5351": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT P/EX SERV M NAT",
+    "nome": "PRESTACAO SERV TRANSPORT P/EX SERV M NAT",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": "20112",
+"ipi": null
   },
   "5352": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT A ESTAB INDUSTR",
+    "nome": "PRESTACAO SERV TRANSPORT A ESTAB INDUSTR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5353": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT A ESTAB COMERCL",
+    "nome": "PRESTACAO SERV TRANSPORT A ESTAB COMERCL",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5354": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT ESTAB P SE COMU",
+    "nome": "PRESTACAO SERV TRANSPORT ESTAB P SE COMU",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5355": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT EST DIST E ELÉT",
+    "nome": "PRESTACAO SERV TRANSPORT EST DIST E ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5356": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT EST PROD RURAL",
+    "nome": "PRESTACAO SERV TRANSPORT EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5357": {
-    "nome": "PRESTAÇÃO SERV TRANSPORTE A NÃO CONTRIB",
+    "nome": "PRESTACAO SERV TRANSPORTE A NAO CONTRIB",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5359": {
-    "nome": "PRESTAÇÃO DE SERVIÇ DE TRANSPORTE",
+    "nome": "PRESTACAO DE SERVIC DE TRANSPORTE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5360": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT C/CONTRIB SUBST",
+    "nome": "PRESTACAO SERV TRANSPORT C/CONTRIB SUBST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5401": {
     "nome": "VENDA PROD E OP P SUJ REG SUB TRIB C SUB",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "contabil": "20612",
+    "icms": "10072",
+    "icms_subst": "10073",
+"ipi": "10079"
   },
   "5402": {
     "nome": "VENDA PROD E OP P SUJ REG SUB TRIB C S P",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5403": {
     "nome": "VENDA MERC R OP P SUJ REG SUB TRIB C SUB",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": "10038"
+    "icms_subst": "10038",
+"ipi": null
   },
   "5405": {
     "nome": "VENDA MERC R OP P SUJ REG SUB TRIB C C S",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5408": {
     "nome": "TRANSF PROD EST OP PRD SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5409": {
     "nome": "TRANSF MERC R T OP PRD SUJ REG SUB TRIB",
     "contabil": "10019",
     "icms": "10020",
-    "ipi": null,
-    "icms_subst": "10114"
+    "icms_subst": "10114",
+"ipi": null
   },
   "5410": {
     "nome": "DEVOL COMP P/IN OP PRD SUJ REG SUB TRIB",
     "contabil": "10075",
     "icms": "10076",
-    "ipi": "10077",
-    "icms_subst": null
+    "icms_subst": "10077",
+"ipi": null
   },
   "5411": {
     "nome": "DEVOL COMP P/CO OP PRD SUJ REG SUB TRIB",
     "contabil": "10021",
     "icms": "10022",
-    "ipi": null,
-    "icms_subst": "10116"
+    "icms_subst": "10116",
+"ipi": null
   },
   "5412": {
     "nome": "DEVOL BENS AT IMOB PRD SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5413": {
     "nome": "DEVOL MERC USO CONS ME SUJ REG SUB TRIB",
     "contabil": "10053",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5414": {
     "nome": "REMESSA PROD V FOR EST SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5415": {
     "nome": "REMESSA MERC V FOR EST SUJ REG SUB TRIB",
-    "contabil": null,
-    "icms": "80150",
-    "ipi": null,
-    "icms_subst": null
+    "contabil": "80150",
+    "icms": null,
+    "icms_subst": null,
+"ipi": null
   },
   "5451": {
     "nome": "REMESSA ANIMAL E DE INSUMO P/ESTAB PRODR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5455": {
-    "nome": "RETORNO DE INSUMOS NÃO UTILIZADOS NA PRO",
+    "nome": "RETORNO DE INSUMOS NAO UTILIZADOS NA PRO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5501": {
-    "nome": "REMESSA PRODUÇ ESTAB, C/FIM ESP EXPORTAÇ",
+    "nome": "REMESSA PRODUC ESTAB, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5502": {
-    "nome": "REMESSA MERC A REC T, C/FIM ESP EXPORTAÇ",
+    "nome": "REMESSA MERC A REC T, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5503": {
-    "nome": "DEVOLUÇ MERC RECEBID, C/FIM ESP EXPORTAÇ",
+    "nome": "DEVOLUC MERC RECEBID, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5504": {
     "nome": "REMESSA MERC P/ EXP INDUSTR OU PROD PROP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5505": {
     "nome": "REMESSA MERC ADQUI OU RECEB TERCEI P/EXP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5551": {
     "nome": "VENDA DE BEM DO ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5552": {
-    "nome": "TRANSFERÊNCIA DE BEM DO ATIVO IMOBILIZAD",
+    "nome": "TRANSFERENCIA DE BEM DO ATIVO IMOBILIZAD",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5553": {
-    "nome": "DEVOLUÇÃO COMPRA DE BEM P/ATIVO IMOBILIZ",
+    "nome": "DEVOLUCAO COMPRA DE BEM P/ATIVO IMOBILIZ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5554": {
     "nome": "REMESSA BEM ATIVO IMOBILIZ P/U FORA ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5555": {
-    "nome": "DEVOLUÇÃO BEM ATIVO IMOB TERC P/U FR EST",
+    "nome": "DEVOLUCAO BEM ATIVO IMOB TERC P/U FR EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5556": {
-    "nome": "DEVOLUÇÃO COMPRA MATERIAL USO OU CONSUMO",
+    "nome": "DEVOLUCAO COMPRA MATERIAL USO OU CONSUMO",
     "contabil": "10053",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5557": {
-    "nome": "TRANSFERÊNCIA DE MATERIAL USO OU CONSUMO",
+    "nome": "TRANSFERENCIA DE MATERIAL USO OU CONSUMO",
     "contabil": "10127",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5601": {
-    "nome": "TRANSFERÊNCIA CRÉDITO DE ICMS ACUMULADO",
+    "nome": "TRANSFERENCIA CREDITO DE ICMS ACUMULADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5602": {
     "nome": "TRANSFER S CRD ICMS P/O E M EMP C D ICMS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5603": {
     "nome": "RESSARCIMENTO ICMS RETIDO P/SUBSTIT TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5605": {
-    "nome": "TRANFERÊNCIA DE SALDO DEVEDOR ICMS",
+    "nome": "TRANFERENCIA DE SALDO DEVEDOR ICMS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5606": {
-    "nome": "UTILIZAÇÃO SAL CRED ICMS P/ EXT COMP DEB",
+    "nome": "UTILIZACAO SAL CRED ICMS P/ EXT COMP DEB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5651": {
     "nome": "VENDA COMB.OU LUBR.PROD.DO EST.A IND.SUB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5652": {
-    "nome": "VENDA COMB.OU LUBR.PROD EST. À COMERC.",
+    "nome": "VENDA COMB.OU LUBR.PROD EST. A COMERC.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5653": {
-    "nome": "VENDA COMB.OU LUBR.PROD.EST.À CONS.FINAL",
+    "nome": "VENDA COMB.OU LUBR.PROD.EST.A CONS.FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5654": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/ IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5655": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/ COM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5656": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/CONS.FINAL",
     "contabil": "10015",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5657": {
     "nome": "REM.COMB.OU LUBR.REC.TERC.P/VENDA F/EST.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5658": {
     "nome": "TRANSF.COMB.OU LUBR.PROD.EST.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5659": {
     "nome": "TRANSF.COMB.OU LUBR.REC.TERC.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5660": {
     "nome": "DEV.COMB.OU LUBR.REC.P/IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5661": {
     "nome": "DEV.COMB.OU LUBR.REC. P/ COMER",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5662": {
     "nome": "DEV.COMB.OU LUBR. REC. P/ CONS.FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5663": {
     "nome": "REMESSA P/ARM. COMB.OU LUBR.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5664": {
     "nome": "RETORNO COMB.OU LUBR.REC.ARMA.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5665": {
     "nome": "RETORNO SIMB.COMB.OU LUBR.REC.P/ARM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5666": {
     "nome": "REM.P/ORD.TERC.COMB.OU LUBR.P/ARM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5667": {
     "nome": "VEND COMB OU LUBR. CONS OU USUARIO FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5901": {
-    "nome": "REMESSA PARA INDUSTRIALIZAÇÃO P/ENCOMEND",
+    "nome": "REMESSA PARA INDUSTRIALIZACAO P/ENCOMEND",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5902": {
     "nome": "RETORNO MERC UTILIZADA INDUST P/ENCOMEND",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5903": {
-    "nome": "RETORNO MERC REC P/INDUST NÃO APL REF PR",
+    "nome": "RETORNO MERC REC P/INDUST NAO APL REF PR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5904": {
     "nome": "REMESSA PR VENDA FORA DO ESTABELECIMENTO",
-    "contabil": null,
-    "icms": "80150",
-    "ipi": null,
-    "icms_subst": null
+    "contabil": "80150",
+    "icms": null,
+    "icms_subst": null,
+"ipi": null
   },
   "5905": {
-    "nome": "REMESSA P/DEPÓSITO FECHADO ARMAZÉM GERAL",
+    "nome": "REMESSA P/DEPOSITO FECHADO ARMAZEM GERAL",
     "contabil": "10094",
     "icms": "10098",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5906": {
-    "nome": "RETORNO P/DEPÓSITO FECHADO ARMAZÉM GERAL",
+    "nome": "RETORNO P/DEPOSITO FECHADO ARMAZEM GERAL",
     "contabil": "10099",
     "icms": "10095",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5907": {
-    "nome": "RETORNO SIMB MERC DEP FECH ARMAZÉM GERAL",
+    "nome": "RETORNO SIMB MERC DEP FECH ARMAZEM GERAL",
     "contabil": "10099",
     "icms": "10095",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5908": {
     "nome": "REMESSA BEM POR CONTA CONTRATO COMODATO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5909": {
     "nome": "RETORNO BEM REC P/CONTA CONTR COMODATO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5910": {
-    "nome": "REMESSA EM BONIFICAÇÃO, DOAÇÃO OU BRINDE",
+    "nome": "REMESSA EM BONIFICACAO, DOACAO OU BRINDE",
     "contabil": "10039",
     "icms": "10040",
-    "ipi": null,
-    "icms_subst": "10117"
+    "icms_subst": "10117",
+"ipi": null
   },
   "5911": {
-    "nome": "REMESSA DE AMOSTRA GRÁTIS",
+    "nome": "REMESSA DE AMOSTRA GRATIS",
     "contabil": "10039",
     "icms": "10040",
-    "ipi": null,
-    "icms_subst": "10117"
+    "icms_subst": "10117",
+"ipi": null
   },
   "5912": {
-    "nome": "REMESSA MERCADORIA OU BEM P/DEMONSTRAÇÃO",
+    "nome": "REMESSA MERCADORIA OU BEM P/DEMONSTRACAO",
     "contabil": "10026",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5913": {
-    "nome": "RETORNO MERCAD OU BEM REC P/DEMONSTRAÇÃO",
+    "nome": "RETORNO MERCAD OU BEM REC P/DEMONSTRACAO",
     "contabil": "10029",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5914": {
-    "nome": "REMESSA MERCAD OU BEM P/EXPOSIÇÃO FEIRA",
+    "nome": "REMESSA MERCAD OU BEM P/EXPOSICAO FEIRA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5915": {
     "nome": "REMESSA MERCAD OU BEM P/CONSERTO REPARO",
     "contabil": "80159",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5916": {
     "nome": "RETORNO MERCAD OU BEM RECE P/CONS REPARO",
     "contabil": "10036",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5917": {
     "nome": "REMESSA MERCAD EM CONSIGN MERCTL OU INDL",
     "contabil": "10090",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5918": {
-    "nome": "DEVOLUÇ MERCAD REC CONSIG MERCTL OU INDL",
+    "nome": "DEVOLUC MERCAD REC CONSIG MERCTL OU INDL",
     "contabil": "10091",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5919": {
     "nome": "DEVOL SIMB MERC VEND UTL P/INDL R A CONS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5920": {
     "nome": "REMESSA DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5921": {
-    "nome": "DEVOLUÇÃO DE VASILHAME OU SACARIA",
+    "nome": "DEVOLUCAO DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5922": {
-    "nome": "LANÇ EFET A TÍT SIMPL FAT VDA P/ENTR FUT",
+    "nome": "LANC EFET A TIT SIMPL FAT VDA P/ENTR FUT",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5923": {
     "nome": "REMESSA MERC P/CONTA ORDEM TERC VD ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5924": {
-    "nome": "REMESSA P/INDL P/CTA NÃO TRAN P/EST ADQ",
+    "nome": "REMESSA P/INDL P/CTA NAO TRAN P/EST ADQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5925": {
-    "nome": "RETORNO P/INDL P/CTA NÃO TRAN P/EST ADQ",
+    "nome": "RETORNO P/INDL P/CTA NAO TRAN P/EST ADQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5926": {
-    "nome": "LANÇ EFET TÍTULO RECLAS FORM KIT OU DESG",
+    "nome": "LANC EFET TITULO RECLAS FORM KIT OU DESG",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5927": {
-    "nome": "LANÇ EFET TÍT BXA ESTQ P/PERDA ROUB DETE",
+    "nome": "LANC EFET TIT BXA ESTQ P/PERDA ROUB DETE",
     "contabil": "10064",
     "icms": "10100",
-    "ipi": null,
-    "icms_subst": "10118"
+    "icms_subst": "10118",
+"ipi": null
   },
   "5928": {
-    "nome": "LANÇ EFET TÍTL BX EST DEC ENCR ATIV EMPR",
+    "nome": "LANC EFET TITL BX EST DEC ENCR ATIV EMPR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5929": {
-    "nome": "LANÇ EFET DEC EMIS DOC FISC CP FISC ECF",
+    "nome": "LANC EFET DEC EMIS DOC FISC CP FISC ECF",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5931": {
-    "nome": "LANÇ EFET DEC RESP RET I SUB TRIB N INSC",
+    "nome": "LANC EFET DEC RESP RET I SUB TRIB N INSC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5932": {
     "nome": "PREST SERV TRANSP INIC U FED DIV O I PRE",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5933": {
-    "nome": "PRESTAÇÃO DE SERVIÇO TRIBUTADO PELO ISSQ",
+    "nome": "PRESTACAO DE SERVICO TRIBUTADO PELO ISSQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5934": {
     "nome": "REMESSA SIMB DE MERC DESPOS ARMAZEM OU D",
     "contabil": "10094",
     "icms": "10098",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "5949": {
-    "nome": "OUTRA SAÍDA MERCAD OU PREST SERV NÃO ESP",
-    "contabil": null,
-    "icms": "10112",
-    "ipi": null,
-    "icms_subst": "10119"
+    "nome": "OUTRA SAIDA MERCAD OU PREST SERV NAO ESP",
+    "contabil": "10112",
+    "icms": "10119",
+    "icms_subst": null,
+"ipi": null
   },
   "6101": {
-    "nome": "VENDA DE PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "VENDA DE PRODUCAO DO ESTABELECIMENTO",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": null
   },
   "6102": {
     "nome": "VENDA MERCADORIA ADQUIRIDA RECEB TERCEIR",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+    "ipi": null
   },
   "6103": {
-    "nome": "VENDA PRODUÇÃO ESTAB, EFET FORA ESTABELE",
+    "nome": "VENDA PRODUCAO ESTAB, EFET FORA ESTABELE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6104": {
     "nome": "VENDA MERC ADQ REC TERC EFET FORA ESTAB",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": null
   },
   "6105": {
-    "nome": "VENDA PRODUÇ ESTAB, NÃO DEVA P/ELE TRANS",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
-  },
-  "6106": {
-    "nome": "VENDA MERC ADQ TER, NÃO DEVA P/ELE TRANS",
-    "contabil": "10015",
-    "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
-  },
-  "6107": {
-    "nome": "VENDA PRODUÇ ESTAB, DESTINADO A NÃO CONT",
+    "nome": "VENDA PRODUC ESTAB, NAO DEVA P/ELE TRANS",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": "10074",
+"ipi": "25912"
   },
-  "6108": {
-    "nome": "VENDA MERC ADQ TER, DESTINADO A NÃO CONT",
+  "6106": {
+    "nome": "VENDA MERC ADQ TER, NAO DEVA P/ELE TRANS",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
+  },
+  "6107": {
+    "nome": "VENDA PRODUC ESTAB, DESTINADO A NAO CONT",
+    "contabil": "10072",
+    "icms": "10073",
+    "icms_subst": null,
+"ipi": null
+  },
+  "6108": {
+    "nome": "VENDA MERC ADQ TER, DESTINADO A NAO CONT",
+    "contabil": "10015",
+    "icms": "10016",
+    "icms_subst": null,
+"ipi": null
   },
   "6109": {
     "nome": "VENDA PROD ESTAB, DEST Z F MANAUS A L CO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6110": {
     "nome": "VENDA MERC REC T, DEST Z F MANAUS A L CO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6111": {
-    "nome": "VENDA PRODUÇ ESTAB REMET ANT CONSIG INDL",
+    "nome": "VENDA PRODUC ESTAB REMET ANT CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6112": {
     "nome": "VENDA MERC REC TER REMET ANT CONSIG INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6113": {
-    "nome": "VENDA PRODUÇ ESTAB REMET ANT CONSIG MERC",
+    "nome": "VENDA PRODUC ESTAB REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6114": {
     "nome": "VENDA MERC REM TER REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6115": {
     "nome": "VENDA MERC REC TER REMET ANT CONSIG MERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6116": {
-    "nome": "VENDA PRODUÇ ESTAB ORIG ENC ENTR FUTURA",
+    "nome": "VENDA PRODUC ESTAB ORIG ENC ENTR FUTURA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6117": {
     "nome": "VENDA MERC ADQ R T ORIG ENC ENTR FUTURA",
-    "contabil": null,
-    "icms": "10016",
-    "ipi": "10074",
-    "icms_subst": "10038"
+    "contabil": "10016",
+    "icms": "10038",
+    "icms_subst": "10074",
+"ipi": null
   },
   "6118": {
     "nome": "VENDA PROD EST ENT DEST ADQ VEND A ORDEM",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": "10079"
+    "icms_subst": "10079",
+"ipi": "10074"
   },
   "6119": {
     "nome": "VENDA MERC A T ENT DEST ADQ VEND A ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6120": {
     "nome": "VENDA MERC A T ENT DEST ADQ P/VEND A ORD",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6122": {
     "nome": "VENDA PROD EST R INDL CT ORD ADQ S/T P/E",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6123": {
     "nome": "VENDA MERC AD R INDL CT ORD ADQ S/T P/ES",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6124": {
-    "nome": "INDUSTRIALIZAÇÃO EFETUADA P/OUT EMPRESA",
+    "nome": "INDUSTRIALIZACAO EFETUADA P/OUT EMPRESA",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6125": {
-    "nome": "INDL EFET P/OUT EMP Q MERC NÃO TR P/EST",
+    "nome": "INDL EFET P/OUT EMP Q MERC NAO TR P/EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6129": {
     "nome": "VENDA INSUMO IMPORT E MERC INDUSTR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6131": {
-    "nome": "REMESSA DE PRODUÇÃO DE ESTABELECIMENTO",
+    "nome": "REMESSA DE PRODUCAO DE ESTABELECIMENTO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6132": {
-    "nome": "FIXA PREÇO PRODUÇ ESTAB, INCLUSIVE QND R",
+    "nome": "FIXA PRECO PRODUC ESTAB, INCLUSIVE QND R",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6151": {
-    "nome": "TRANSFERÊNCIA DE PRODUÇÃO DO ESTABELECIM",
-    "contabil": null,
-    "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "nome": "TRANSFERENCIA DE PRODUCAO DO ESTABELECIM",
+    "contabil": "27312",
+    "icms": "80122",
+    "icms_subst": "10020",
+"ipi": "10129"
   },
   "6152": {
-    "nome": "TRANSFERÊNCIA MERCAD ADQ REC TERCEIREIRO",
+    "nome": "TRANSFERENCIA MERCAD ADQ REC TERCEIREIRO",
     "contabil": "10019",
     "icms": "10020",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6153": {
-    "nome": "TRANSFERÊNCIA DE ENERGIA ELÉTRICA",
+    "nome": "TRANSFERENCIA DE ENERGIA ELETRICA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6155": {
-    "nome": "TRANSF PROD ESTAB NÃO DEVA P/ELE TRANSIT",
+    "nome": "TRANSF PROD ESTAB NAO DEVA P/ELE TRANSIT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6156": {
-    "nome": "TRANSF MERC ADQ T NÃO DEVA P/ELE TRANSIT",
+    "nome": "TRANSF MERC ADQ T NAO DEVA P/ELE TRANSIT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6159": {
     "nome": "FORNEC. PROD. DO ESTAB. D ATO COOP.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6160": {
     "nome": "FORNEC. MERCAD. ADIQ. OU RECEB. D COOP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6201": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA INDUSTRIALIZAÇÃ",
+    "nome": "DEVOLUCAO DE COMPRA PARA INDUSTRIALIZACA",
     "contabil": "10075",
     "icms": "10076",
-    "ipi": "10077",
-    "icms_subst": null
+    "icms_subst": "10077",
+"ipi": null
   },
   "6202": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "DEVOLUCAO DE COMPRA PARA COMERCIALIZACAO",
     "contabil": "10021",
     "icms": "10022",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6205": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6206": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV TRANSPO",
     "contabil": "10124",
     "icms": "10125",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6207": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV E ELETR",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV E ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6208": {
-    "nome": "DEVOLUÇÃO MERC REC EM TRANSF P/INDUSTRLZ",
+    "nome": "DEVOLUCAO MERC REC EM TRANSF P/INDUSTRLZ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6209": {
-    "nome": "DEVOLUÇÃO MERC REC EM TRANSF P/COMERCIAL",
+    "nome": "DEVOLUCAO MERC REC EM TRANSF P/COMERCIAL",
     "contabil": "10105",
     "icms": "10106",
-    "ipi": "10129",
-    "icms_subst": null
+    "icms_subst": "10129",
+"ipi": null
   },
   "6210": {
-    "nome": "DEVOLUÇÃO COMPRA P/UTILIZ PRESTA SERVIÇO",
+    "nome": "DEVOLUCAO COMPRA P/UTILIZ PRESTA SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6213": {
     "nome": "DEVOL ENTRADA MERCADORIA C/PREV POST AJU",
     "contabil": "10075",
     "icms": "10076",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6214": {
-    "nome": "DEVOL FIXA PREÇ PRODUÇ PRODUTOR",
+    "nome": "DEVOL FIXA PREC PRODUC PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6215": {
-    "nome": "DEVOL FIXA PREÇO PRODUÇ ESTAB PRODUTOR",
+    "nome": "DEVOL FIXA PRECO PRODUC ESTAB PRODUTOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6251": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/DISTRIB COMERCI",
+    "nome": "VENDA ENERGIA ELETRICA P/DISTRIB COMERCI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6252": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/ESTAB INDUSTRIA",
+    "nome": "VENDA ENERGIA ELETRICA P/ESTAB INDUSTRIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6253": {
-    "nome": "VENDA ENERGIA ELÉTRICA P/ESTAB COMERCIAL",
+    "nome": "VENDA ENERGIA ELETRICA P/ESTAB COMERCIAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6254": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB P SE TRANSP",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB P SE TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6255": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB P SE COMUNI",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB P SE COMUNI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6256": {
-    "nome": "VENDA ENERG ELÉTRICA P/ESTAB PROD RURAL",
+    "nome": "VENDA ENERG ELETRICA P/ESTAB PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6257": {
-    "nome": "VENDA ENERG ELÉTRICA P/CONS DEMA CONTRAT",
+    "nome": "VENDA ENERG ELETRICA P/CONS DEMA CONTRAT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6258": {
-    "nome": "VENDA ENERGIA ELÉTRICA A NÃO CONTRIBUINT",
+    "nome": "VENDA ENERGIA ELETRICA A NAO CONTRIBUINT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6301": {
-    "nome": "PRESTAÇÃO SERV COMUNIC P/EX SERV M NATUR",
+    "nome": "PRESTACAO SERV COMUNIC P/EX SERV M NATUR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6302": {
-    "nome": "PRESTAÇÃO SERVIÇO COMUNICAÇÃO EST INDUST",
+    "nome": "PRESTACAO SERVICO COMUNICACAO EST INDUST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6303": {
-    "nome": "PRESTAÇÃO SERVIÇO COMUNICAÇÃO EST COMERC",
+    "nome": "PRESTACAO SERVICO COMUNICACAO EST COMERC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6304": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST SE TRANSP",
+    "nome": "PRESTACAO SERV COMUNICACAO EST SE TRANSP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6305": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST D E ELÉTR",
+    "nome": "PRESTACAO SERV COMUNICACAO EST D E ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6306": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST PRD RURAL",
+    "nome": "PRESTACAO SERV COMUNICACAO EST PRD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6307": {
-    "nome": "PRESTAÇÃO SERV COMUNICAÇÃO EST PRD RURAL",
+    "nome": "PRESTACAO SERV COMUNICACAO EST PRD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6351": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT P/EX SERV M NAT",
+    "nome": "PRESTACAO SERV TRANSPORT P/EX SERV M NAT",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": "29112",
+"ipi": null
   },
   "6352": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT A ESTAB INDUSTR",
+    "nome": "PRESTACAO SERV TRANSPORT A ESTAB INDUSTR",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6353": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT A ESTAB COMERCI",
+    "nome": "PRESTACAO SERV TRANSPORT A ESTAB COMERCI",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6354": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT ESTAB P SE COMU",
+    "nome": "PRESTACAO SERV TRANSPORT ESTAB P SE COMU",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6355": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT EST DIST E ELÉT",
+    "nome": "PRESTACAO SERV TRANSPORT EST DIST E ELET",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6356": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT EST PROD RURAL",
+    "nome": "PRESTACAO SERV TRANSPORT EST PROD RURAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6357": {
-    "nome": "PRESTAÇÃO SERV TRANSPORT A NÃO CONTRIBUI",
+    "nome": "PRESTACAO SERV TRANSPORT A NAO CONTRIBUI",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6359": {
-    "nome": "PRESTAÇÃO SERVIÇ TRANSP CONTRIB OU N CON",
+    "nome": "PRESTACAO SERVIC TRANSP CONTRIB OU N CON",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6360": {
-    "nome": "PRESTAÇÃO SERVIÇO TRANSP CONTRIB SUBST",
+    "nome": "PRESTACAO SERVICO TRANSP CONTRIB SUBST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6401": {
     "nome": "VENDA PROD E OP P SUJ REG SUB TRIB C SUB",
     "contabil": "10072",
     "icms": "10073",
-    "ipi": "10074",
-    "icms_subst": "10079"
+    "icms_subst": "10079",
+"ipi": "10074"
   },
   "6402": {
     "nome": "VENDA PROD E OP P SUJ REG SUB TRIB C S P",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6403": {
     "nome": "VENDA MERC R OP P SUJ REG SUB TRIB C SUB",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6404": {
     "nome": "VENDA MERC R TERC REG SUB TRIB I RET ANT",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6408": {
     "nome": "TRANSF PROD EST OP PRD SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6409": {
     "nome": "TRANSF MERC R T OP PRD SUJ REG SUB TRIB",
     "contabil": "10019",
     "icms": "10020",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6410": {
     "nome": "DEVOL COMP P/IN OP PRD SUJ REG SUB TRIB",
     "contabil": "10075",
     "icms": "10076",
-    "ipi": "10077",
-    "icms_subst": null
+    "icms_subst": "10077",
+"ipi": "30012"
   },
   "6411": {
     "nome": "DEVOL COMP P/CO OP PRD SUJ REG SUB TRIB",
     "contabil": "10021",
     "icms": "10022",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6412": {
     "nome": "DEVOL BENS AT IMOB PRD SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6413": {
     "nome": "DEVOL MERC USO CONS ME SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6414": {
     "nome": "REMESSA PROD V FOR EST SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6415": {
     "nome": "REMESSA MERC V FOR EST SUJ REG SUB TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6501": {
-    "nome": "REMESSA PRODUÇ ESTAB, C/FIM ESP EXPORTAÇ",
+    "nome": "REMESSA PRODUC ESTAB, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6502": {
-    "nome": "REMESSA MERC A REC T, C/FIM ESP EXPORTAÇ",
+    "nome": "REMESSA MERC A REC T, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6503": {
-    "nome": "DEVOLUÇ MERC RECEBID, C/FIM ESP EXPORTAÇ",
+    "nome": "DEVOLUC MERC RECEBID, C/FIM ESP EXPORTAC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6504": {
     "nome": "REMESSA MERC P/ EXP INDUSTR OU PROD PROP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6505": {
     "nome": "REMESSA MERC ADQUI OU RECEB TERCEI P/EXP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6551": {
     "nome": "VENDA DE BEM DO ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6552": {
-    "nome": "TRANSFERÊNCIA DE BEM DO ATIVO IMOBILIZAD",
+    "nome": "TRANSFERENCIA DE BEM DO ATIVO IMOBILIZAD",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6553": {
-    "nome": "DEVOLUÇÃO DE COMPRA DE BEM PARA O ATIVO",
+    "nome": "DEVOLUCAO DE COMPRA DE BEM PARA O ATIVO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6554": {
     "nome": "REMESSA BEM ATIVO IMOBILIZ P/U FORA ESTA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6555": {
-    "nome": "DEVOLUÇÃO BEM ATIVO IMOB TERC P/U FR EST",
+    "nome": "DEVOLUCAO BEM ATIVO IMOB TERC P/U FR EST",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6556": {
-    "nome": "DEVOLUÇÃO COMPRA MATERIAL USO OU CONSUMO",
+    "nome": "DEVOLUCAO COMPRA MATERIAL USO OU CONSUMO",
     "contabil": "10053",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6557": {
-    "nome": "TRANSFERÊNCIA DE MATERIAL USO OU CONSUMO",
+    "nome": "TRANSFERENCIA DE MATERIAL USO OU CONSUMO",
     "contabil": "10127",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6603": {
     "nome": "RESSARCIMENTO ICMS RETIDO P/SUBSTIT TRIB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6651": {
     "nome": "VENDA COMB.OU LUBR.PROD.DO EST.A IND.SUB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6652": {
-    "nome": "VENDA COMB.OU LUBR.PROD EST. À COMERC.",
+    "nome": "VENDA COMB.OU LUBR.PROD EST. A COMERC.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6653": {
-    "nome": "VENDA COMB.OU LUBR.PROD.EST.À CONS.FINAL",
+    "nome": "VENDA COMB.OU LUBR.PROD.EST.A CONS.FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6654": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/ IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6655": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/ COM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6656": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/CONS.FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6657": {
     "nome": "REM.COMB.OU LUBR.REC.TERC.P/VENDA F/EST.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6658": {
     "nome": "TRANSF.COMB.OU LUBR.PROD.EST.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6659": {
     "nome": "TRANSF.COMB.OU LUBR.REC.TERC.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6660": {
     "nome": "DEV.COMB.OU LUBR.REC.P/IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6661": {
     "nome": "DEV.COMB.OU LUBR.REC. P/ COMER",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6662": {
     "nome": "DEV.COMB.OU LUBR. REC. P/ CONS.FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6663": {
     "nome": "REMESSA P/ARM. COMB.OU LUBR.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6664": {
     "nome": "RETORNO COMB.OU LUBR.REC.ARMA.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6665": {
     "nome": "RETORNO SIMB.COMB.OU LUBR.REC.P/ARM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6666": {
     "nome": "REM.P/ORD.TERC.COMB.OU LUBR.P/ARM.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6667": {
     "nome": "VD COMB.OU LUBR.PROD CONS OU USUAR FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6901": {
-    "nome": "REMESSA PARA INDUSTRIALIZAÇÃO P/ENCOMEND",
+    "nome": "REMESSA PARA INDUSTRIALIZACAO P/ENCOMEND",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6902": {
     "nome": "RETORNO MERC UTILIZADA INDUST P/ENCOMEND",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6903": {
-    "nome": "RETORNO MERC REC P/INDUST NÃO APL REF PR",
+    "nome": "RETORNO MERC REC P/INDUST NAO APL REF PR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6904": {
     "nome": "REMESSA PR VENDA FORA DO ESTABELECIMENTO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6905": {
-    "nome": "REMESSA P/DEPÓSITO FECHADO ARMAZÉM GERAL",
+    "nome": "REMESSA P/DEPOSITO FECHADO ARMAZEM GERAL",
     "contabil": "10094",
     "icms": "10098",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6906": {
-    "nome": "RETORNO P/DEPÓSITO FECHADO ARMAZÉM GERAL",
+    "nome": "RETORNO P/DEPOSITO FECHADO ARMAZEM GERAL",
     "contabil": "10099",
     "icms": "10096",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6907": {
-    "nome": "RETORNO SIMB MERC DEP FECH ARMAZÉM GERAL",
+    "nome": "RETORNO SIMB MERC DEP FECH ARMAZEM GERAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6908": {
     "nome": "REMESSA BEM POR CONTA CONTRATO COMODATO",
     "contabil": "80124",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6909": {
     "nome": "RETORNO BEM POR CONTA CONTRATO COMODATO",
     "contabil": "80124",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6910": {
-    "nome": "REMESSA EM BONIFICAÇÃO, DOAÇÃO OU BRINDE",
+    "nome": "REMESSA EM BONIFICACAO, DOACAO OU BRINDE",
     "contabil": "10039",
     "icms": "10040",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6911": {
-    "nome": "REMESSA DE AMOSTRA GRÁTIS",
+    "nome": "REMESSA DE AMOSTRA GRATIS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6912": {
-    "nome": "REMESSA MERCADORIA OU BEM P/DEMONSTRAÇÃO",
+    "nome": "REMESSA MERCADORIA OU BEM P/DEMONSTRACAO",
     "contabil": "10026",
     "icms": "10027",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6913": {
-    "nome": "RETORNO MERCAD OU BEM REC P/DEMONSTRAÇÃO",
+    "nome": "RETORNO MERCAD OU BEM REC P/DEMONSTRACAO",
     "contabil": "10029",
     "icms": "10029",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6914": {
-    "nome": "REMESSA MERCAD OU BEM P/EXPOSIÇÃO FEIRA",
+    "nome": "REMESSA MERCAD OU BEM P/EXPOSICAO FEIRA",
     "contabil": "10026",
     "icms": "10027",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6915": {
     "nome": "REMESSA MERCAD OU BEM P/CONSERTO REPARO",
     "contabil": "80159",
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6916": {
     "nome": "RETORNO MERCAD OU BEM RECE P/CONS REPARO",
     "contabil": "10036",
     "icms": "10037",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6917": {
     "nome": "REMESSA MERCAD EM CONSIGN MERCTL OU INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6918": {
-    "nome": "DEVOLUÇ MERCAD REC CONSIG MERCTL OU INDL",
+    "nome": "DEVOLUC MERCAD REC CONSIG MERCTL OU INDL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6919": {
     "nome": "DEVOL SIMB MERC VEND UTL P/INDL R A CONS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6920": {
     "nome": "REMESSA DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6921": {
-    "nome": "DEVOLUÇÃO DE VASILHAME OU SACARIA",
+    "nome": "DEVOLUCAO DE VASILHAME OU SACARIA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6922": {
-    "nome": "LANÇ EFET A TÍT SIMPL FAT VDA P/ENTR FUT",
+    "nome": "LANC EFET A TIT SIMPL FAT VDA P/ENTR FUT",
     "contabil": "10015",
     "icms": "10016",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6923": {
     "nome": "REMESSA MERC P/CONTA ORDEM TERC VD ORDEM",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6924": {
-    "nome": "REMESSA P/INDL P/CTA NÃO TRAN P/EST ADQ",
+    "nome": "REMESSA P/INDL P/CTA NAO TRAN P/EST ADQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6925": {
-    "nome": "RETORNO P/INDL P/CTA NÃO TRAN P/EST ADQ",
+    "nome": "RETORNO P/INDL P/CTA NAO TRAN P/EST ADQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6929": {
-    "nome": "LANÇ EFET DEC EMIS DOC FISC CP FISC ECF",
+    "nome": "LANC EFET DEC EMIS DOC FISC CP FISC ECF",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6931": {
-    "nome": "LANÇ EFET DEC RESP RET I SUB TRIB N INSC",
+    "nome": "LANC EFET DEC RESP RET I SUB TRIB N INSC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6932": {
     "nome": "PREST SERV TRANSP INIC U FED DIV O I PRE",
     "contabil": "10049",
     "icms": "10050",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6933": {
-    "nome": "PRESTAÇÃO DE SERVIÇO TRIBUTADO PELO ISSQ",
+    "nome": "PRESTACAO DE SERVICO TRIBUTADO PELO ISSQ",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "6934": {
     "nome": "REMESSA SIMB DE MERC DESPOS ARMAZEM OU D",
     "contabil": "10094",
     "icms": "10098",
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": "34012",
+"ipi": null
   },
   "6949": {
-    "nome": "OUTRA SAÍDA MERCAD OU PREST SERV NÃO ESP",
-    "contabil": null,
-    "icms": "10112",
-    "ipi": null,
-    "icms_subst": null
+    "nome": "OUTRA SAIDA MERCAD OU PREST SERV NAO ESP",
+    "contabil": "10112",
+    "icms": null,
+    "icms_subst": null,
+"ipi": null
   },
   "7101": {
-    "nome": "VENDA DE PRODUÇÃO DO ESTABELECIMENTO",
+    "nome": "VENDA DE PRODUCAO DO ESTABELECIMENTO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7102": {
     "nome": "VENDA MERCADORIA ADQUIRIDA RECEB TERCEIR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7105": {
-    "nome": "VENDA PRODUÇ ESTAB, NÃO DEVA P/ELE TRANS",
+    "nome": "VENDA PRODUC ESTAB, NAO DEVA P/ELE TRANS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7106": {
-    "nome": "VENDA MERC ADQ TER, NÃO DEVA P/ELE TRANS",
+    "nome": "VENDA MERC ADQ TER, NAO DEVA P/ELE TRANS",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7127": {
     "nome": "VENDA PROD ESTAB SOB REG DRAWBACK",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7129": {
-    "nome": "VENDA PRODUÇÃO MERC EXT DE MERC INDUSTRI",
+    "nome": "VENDA PRODUCAO MERC EXT DE MERC INDUSTRI",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7201": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA INDUSTRIALIZAÇÃ",
+    "nome": "DEVOLUCAO DE COMPRA PARA INDUSTRIALIZACA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7202": {
-    "nome": "DEVOLUÇÃO DE COMPRA PARA COMERCIALIZAÇÃO",
+    "nome": "DEVOLUCAO DE COMPRA PARA COMERCIALIZACAO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7205": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV COMUNIC",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV COMUNIC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7206": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV TRANSPO",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV TRANSPO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7207": {
-    "nome": "ANULAÇÃO VLR RELATIVO AQUIS SERV E ELETR",
+    "nome": "ANULACAO VLR RELATIVO AQUIS SERV E ELETR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7210": {
-    "nome": "DEVOLUÇÃO COMPRA P/UTILIZ PRESTA SERVIÇO",
+    "nome": "DEVOLUCAO COMPRA P/UTILIZ PRESTA SERVICO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7211": {
-    "nome": "DEVOLUÇÃO COMPRA P/INDL REGIME DRAWBACK",
+    "nome": "DEVOLUCAO COMPRA P/INDL REGIME DRAWBACK",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7212": {
-    "nome": "DEVOL COMPRA P/INDUSTRIALIZAÇÃO REG ADUA",
+    "nome": "DEVOL COMPRA P/INDUSTRIALIZACAO REG ADUA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7251": {
-    "nome": "VENDA ENERGIA ELÉTRICA PARA O EXTERIOR",
+    "nome": "VENDA ENERGIA ELETRICA PARA O EXTERIOR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7301": {
-    "nome": "PRESTAÇÃO SERV COMUNIC P/EX SERV M NATUR",
+    "nome": "PRESTACAO SERV COMUNIC P/EX SERV M NATUR",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7358": {
-    "nome": "PRESTAÇÃO DE SERVIÇO DE TRANSPORTE",
+    "nome": "PRESTACAO DE SERVICO DE TRANSPORTE",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7501": {
-    "nome": "EXPORTAÇÃO MERCAD RECEB C/FIM ESP EXPORT",
+    "nome": "EXPORTACAO MERCAD RECEB C/FIM ESP EXPORT",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7504": {
-    "nome": "EXPT. D MERC. OBJETO D LOTE DE EXPORTAÇÃ",
+    "nome": "EXPT. D MERC. OBJETO D LOTE DE EXPORTACA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7551": {
     "nome": "VENDA DE BEM DO ATIVO IMOBILIZADO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7553": {
-    "nome": "DEVOLUÇÃO COMPRA BEM P/O ATIVO IMOBILIZA",
+    "nome": "DEVOLUCAO COMPRA BEM P/O ATIVO IMOBILIZA",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7556": {
-    "nome": "DEVOLUÇÃO COMPRA MATERIAL USO OU CONSUMO",
+    "nome": "DEVOLUCAO COMPRA MATERIAL USO OU CONSUMO",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7651": {
     "nome": "VENDA COMB.OU LUBR.PROD.DO EST.A IND.SUB",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7654": {
     "nome": "VENDA COMB.OU LUBR.REC.TERC.P/ IND.",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7667": {
     "nome": "VD COMB.OU LUBR.PROD CONS OU USUAR FINAL",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7930": {
-    "nome": "LANÇT EFET TIT DEVL BEM R E ADU ADM TEMP",
+    "nome": "LANCT EFET TIT DEVL BEM R E ADU ADM TEMP",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   },
   "7949": {
-    "nome": "OUTRA SAÍDA MERC OU PREST SERV NÃO ESPEC",
+    "nome": "OUTRA SAIDA MERC OU PREST SERV NAO ESPEC",
     "contabil": null,
     "icms": null,
-    "ipi": null,
-    "icms_subst": null
+    "icms_subst": null,
+"ipi": null
   }
 }
