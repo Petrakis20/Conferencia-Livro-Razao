@@ -13,6 +13,29 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+def kpi_card(title: str, value, bg="#ffffff", border="#e5e7eb", fg="#111827"):
+    st.markdown(
+        f"""
+        <div style="
+             border-radius:16px;
+             padding:24px 28px;
+             background:{bg};
+             border:1px solid {border};
+             box-shadow:0 4px 16px rgba(0,0,0,.06);
+             height: 200px;
+        ">
+          <div style="font-weight:800;font-size:22px;line-height:1.2;margin-bottom:6px;">
+            {title}
+          </div>
+          <div style="font-size:48px;font-weight:900;color:{fg};">
+            {value}
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 # =============================================================================
 # Config
 # =============================================================================
@@ -72,6 +95,59 @@ INTERNAL_VALUE_KEYS = {
     "Vl. IPI": "vl_ipi",
 }
 
+def bi_excluir_lixo(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Parte 1: remove linhas do BI quando CFOP está vazio E as 4 colunas de valores estão todas = 0.
+    Observação: só aplica a regra se TODAS as 4 colunas existirem no DF e a coluna CFOP existir.
+    """
+    if df is None or df.empty or ("CFOP" not in df.columns):
+        return df
+
+    # use apenas as colunas que existem; se faltar alguma das 4, não arrisca excluir
+    val_cols = [c for c in ["valor_contabil", "vl_icms", "vl_st", "vl_ipi"] if c in df.columns]
+    if len(val_cols) < 4:
+        return df
+
+    df = df.copy()
+    for c in val_cols:
+        df[c] = df[c].map(to_number_br)
+
+    # CFOP vazio = sem dígitos após limpeza (None/NaN, '-', espaços => vazio)
+    cfop_digits = (
+        df["CFOP"].map(clean_code).astype(str).fillna("").str.replace(r"\D+", "", regex=True)
+    )
+    cfop_empty = cfop_digits.str.len().eq(0)
+
+    # todas as 4 colunas zeradas?
+    all_zero = df[val_cols].fillna(0.0).astype(float).abs().sum(axis=1).eq(0.0)
+
+    drop_mask = cfop_empty & all_zero
+    return df.loc[~drop_mask].reset_index(drop=True)
+
+
+def bi_es_excluir_lixo(out: pd.DataFrame, cfop_series: pd.Series) -> Tuple[pd.DataFrame, pd.Series]:
+    """
+    Parte 2 (Entradas/Saídas): remove linhas quando CFOP vazio E (v_cont, v_icms, v_st, v_ipi) = 0.
+    """
+    if out is None or out.empty or cfop_series is None:
+        return out, cfop_series
+
+    # garante que as colunas existem
+    req = ["v_cont", "v_icms", "v_st", "v_ipi"]
+    if not all(c in out.columns for c in req):
+        return out, cfop_series
+
+    sum_vals = out[req].fillna(0.0).astype(float).abs().sum(axis=1)
+    cfop_digits = cfop_series.map(clean_code).astype(str).fillna("").str.replace(r"\D+", "", regex=True)
+    cfop_empty = cfop_digits.str.len().eq(0)
+    all_zero = sum_vals.eq(0.0)
+
+    drop_mask = cfop_empty & all_zero
+    return (
+        out.loc[~drop_mask].reset_index(drop=True),
+        cfop_series.loc[~drop_mask].reset_index(drop=True),
+    )
+
 def normalize_code(val: Optional[str]) -> Optional[str]:
     if pd.isna(val):
         return None
@@ -89,7 +165,7 @@ def compare_row(cfop_code: str, row: Dict[str, Optional[str]], base_map: Dict[st
     base = base_map.get(str(cfop)) if cfop is not None else None
 
     if base is None:
-        status = "⚠️ CFOP não encontrado na base"
+        status = "⚠️ CFOP não cadastrado"
         details = "CFOP não existe na base."
         expected = None
     else:
@@ -122,11 +198,11 @@ def compare_row(cfop_code: str, row: Dict[str, Optional[str]], base_map: Dict[st
         resumo_valores = " | ".join(valores_resumo) if valores_resumo else ""
 
         if mismatches:
-            status = "❌ Diferente da base"
+            status = "❌ Código de lançamento incorreto"
             det = "; ".join(mismatches + zeros)
             details = f"{det}" + (f"  •  Valores (BI): {resumo_valores}" if resumo_valores else "")
         elif zeros:
-            status = "🟡 Zerado no BI"
+            status = "🟡 Ausência de lançamento automático"
             details = "; ".join(zeros) + (f"  •  Valores (BI): {resumo_valores}" if resumo_valores else "")
         else:
             status = "OK"
@@ -199,6 +275,7 @@ def load_bi_strict(file, label_for_errors: str) -> Optional[pd.DataFrame]:
     keep = REQUIRED_COLS_DISPLAY + present_optional
     df = df[keep].copy()
 
+    # Mapeia para nomes internos usados no restante do app
     for src, dst in INTERNAL_KEYS.items():
         if src in df.columns and dst != src:
             df[dst] = df[src]
@@ -206,7 +283,35 @@ def load_bi_strict(file, label_for_errors: str) -> Optional[pd.DataFrame]:
         if src in df.columns:
             df[dst] = df[src]
 
+    # ==================== LIMPEZA pedida ====================
+    # Regra: excluir somente quando CFOP vazio E todos os 4 valores zerados
+    # (linhas com CFOP preenchido permanecem, mesmo com valores = 0)
+    # 1) Normaliza os valores para número
+    val_cols = [c for c in ["valor_contabil", "vl_icms", "vl_st", "vl_ipi"] if c in df.columns]
+    for c in val_cols:
+        df[c] = df[c].map(to_number_br)
+
+    # 2) CFOP vazio (após normalização para dígitos)
+    cfop_series = df["CFOP"] if "CFOP" in df.columns else pd.Series([""] * len(df), index=df.index)
+    cfop_digits = cfop_series.map(clean_code)         # "" para None/NaN/"-"/"nan"/etc.
+    cfop_empty = cfop_digits.eq("")
+
+    # 3) Todos os valores = 0? (só entre as colunas que EXISTIREM)
+    all_zero = (
+        df[val_cols].fillna(0.0).astype(float).abs().sum(axis=1).eq(0.0)
+        if val_cols else pd.Series(False, index=df.index)  # se não há colunas de valor, não exclui por isso
+    )
+
+    # 4) Excluir: CFOP vazio E todos valores zerados
+    drop_mask = cfop_empty & all_zero
+    if drop_mask.any():
+        st.caption(f"🧹 Removidas do BI (CFOP vazio + valores zerados): {int(drop_mask.sum())}")
+
+    df = df.loc[~drop_mask].reset_index(drop=True)
+    # ================== FIM LIMPEZA pedida ==================
+
     return df
+
 
 # =============================================================================
 # PARTE 2 — Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)
@@ -303,12 +408,27 @@ def detect_bi_columns(df: pd.DataFrame) -> Dict[str, Optional[str]]:
     return cols
 
 def load_bi_es(file) -> Tuple[pd.DataFrame, pd.Series]:
+    """
+    Lê BI de Entradas/Saídas, normaliza campos e remove 'lixo' segundo a regra:
+    - manter se CFOP tem valor; OU
+    - manter se CFOP vazio e pelo menos um entre v_cont/v_icms/v_st/v_ipi for != 0;
+    - remover nos demais casos.
+    Retorna: (out_df_normalizado, cfop_series_filtrado)
+    """
     df = read_excel_best(file)
     cols = detect_bi_columns(df)
-    cfop_series = pd.Series([], dtype="object")
-    if cols.get("cfop"):
-        cfop_series = df[cols["cfop"]].map(clean_code)
 
+    # --- CFOP: sempre com mesmo comprimento do DF (evita desalinhamento do keep_mask)
+    if cols.get("cfop"):
+        cfop_raw = df[cols["cfop"]]
+    else:
+        # planilha sem CFOP: cria série vazia alinhada
+        cfop_raw = pd.Series([""] * len(df), index=df.index)
+
+    # Apenas dígitos; vazio para None/nan/"None"/etc.
+    cfop_series = cfop_raw.map(clean_code)
+
+    # --- Monta dataframe normalizado
     out = pd.DataFrame({
         "la_cont": df[cols["la_cont"]].map(clean_code),
         "la_icms": df[cols["la_icms"]].map(clean_code),
@@ -319,9 +439,35 @@ def load_bi_es(file) -> Tuple[pd.DataFrame, pd.Series]:
         "v_st":    df[cols["v_st"]].map(to_number_br),
         "v_ipi":   df[cols["v_ipi"]].map(to_number_br),
     })
-    for c in ["la_cont","la_icms","la_st","la_ipi"]:
+    for c in ["la_cont", "la_icms", "la_st", "la_ipi"]:
         out[c] = out[c].map(clean_code)
+
+    # === LIMPEZA DE LIXO DO BI (regra: CFOP vazio E todos os valores zerados) ===
+    # out: v_cont, v_icms, v_st, v_ipi; cfop_series: CFOP por linha
+
+    # Normaliza CFOP para apenas dígitos (None/NaN/'-' etc. => vazio)
+    cfop_digits = (
+        cfop_series.astype(str)
+        .fillna("")
+        .str.replace(r"\D+", "", regex=True)
+    )
+    cfop_empty = cfop_digits.str.len().eq(0)
+
+    # Todos os valores = 0?
+    all_zero = (
+        out[["v_cont", "v_icms", "v_st", "v_ipi"]]
+        .fillna(0.0).astype(float).abs().sum(axis=1).eq(0.0)
+    )
+
+    # Excluir somente quando CFOP vazio E todos valores zerados
+    drop_mask = cfop_empty & all_zero
+    out = out.loc[~drop_mask].reset_index(drop=True)
+    cfop_series = cfop_series.loc[~drop_mask].reset_index(drop=True)
+    # === FIM DA LIMPEZA ===
+
+
     return out, cfop_series
+
 
 def aggregate_bi_all(bi: pd.DataFrame) -> pd.DataFrame:
     stacks = []
@@ -486,6 +632,7 @@ with tab1:
         st.info("Envie ao menos um arquivo de BI para conferir.")
     else:
         bi_all = pd.concat(dfs, ignore_index=True)
+        bi_all = bi_excluir_lixo(bi_all)  # 👈 aplica a regra CFOP vazio + valores zerados
 
         results = []
         for _, r in bi_all.iterrows():
@@ -520,35 +667,66 @@ with tab1:
                 "Encontrado IPI": None if expected is None else found.get("ipi"),
             }
 
-            if status in ("❌ Diferente da base", "🟡 Zerado no BI"):
-                if "valor_contabil" in bi_all.columns:
-                    row_out["Valor Contábil"] = r.get("valor_contabil")
-                if "vl_icms" in bi_all.columns:
-                    row_out["Vl. ICMS"] = r.get("vl_icms")
-                if "vl_st" in bi_all.columns:
-                    row_out["Vl. ST"] = r.get("vl_st")
-                if "vl_ipi" in bi_all.columns:
-                    row_out["Vl. IPI"] = r.get("vl_ipi")
+            # Sempre incluir os valores do BI no Resultado da Validação
+            for k, label in (
+                ("valor_contabil", "Valor Contábil"),
+                ("vl_icms",       "Vl. ICMS"),
+                ("vl_st",         "Vl. ST"),
+                ("vl_ipi",        "Vl. IPI"),
+            ):
+                row_out[label] = r.get(k) if k in bi_all.columns else None
+
 
             results.append(row_out)
 
         out_df = pd.DataFrame(results)
+                # Deixar as colunas de valor visíveis e ordenadas
+        col_order = [
+            "origem", "CFOP", "Nome (Base)", "Status", "Detalhes",
+            "Esperado Contábil", "Encontrado Contábil","Valor Contábil",
+            "Esperado ICMS", "Encontrado ICMS","Vl. ICMS", 
+            "Esperado ICMS Subst. Trib.", "Encontrado ICMS Subst. Trib.","Vl. ST", 
+            "Esperado IPI", "Encontrado IPI","Vl. IPI"
+        ]
+        out_df = out_df.reindex(columns=[c for c in col_order if c in out_df.columns])
+
 
         # persistir para eventual uso futuro
         st.session_state["p1_bi_all"] = bi_all
         st.session_state["p1_result"] = out_df
 
         st.subheader("Resultado da Validação")
-        ok_count = int((out_df["Status"] == "OK").sum())
-        diff_count = int((out_df["Status"] == "❌ Diferente da base").sum())
-        zero_count = int((out_df["Status"] == "🟡 Zerado no BI").sum())
-        notfound_count = int((out_df["Status"].str.contains("CFOP não encontrado", na=False)).sum())
+
+        ok_count        = int((out_df["Status"] == "OK").sum())
+        diff_count      = int((out_df["Status"] == "❌ Código de lançamento incorreto").sum())
+        zero_count      = int((out_df["Status"] == "🟡 Ausência de lançamento automático").sum())
+        notfound_count  = int((out_df["Status"].str.contains("⚠️ CFOP não cadastrado", na=False)).sum())
 
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric("OK", ok_count)
-        c2.metric("Diferente", diff_count)
-        c3.metric("Zerado no BI", zero_count)
-        c4.metric("CFOP ausente na base", notfound_count)
+        with c1:
+            kpi_card("OK ✅", ok_count, bg="#ECFFF1", border="#C8F3D4", fg="#16A34A")
+        with c2:
+            kpi_card("Código de lançamento incorreto ❌", diff_count, bg="#FFF1F2", border="#FECDD3", fg="#E11D48")
+        with c3:
+            kpi_card("Ausência de Lançamento Automático 🟡", zero_count, bg="#FFF1F2", border="#FECDD3", fg="#E11D48")
+        with c4:
+            kpi_card("⚠️ CFOP não cadastrado", notfound_count, bg="#FFF1F2", border="#FECDD3", fg="#E11D48")
+
+        # with c1:
+        #     kpi_card("OK ✅", ok_count, bg="#ECFFF1", border="#C8F3D4", fg="#16A34A")
+        # with c2:
+        #     kpi_card("Código de lançamento incorreto ❌", diff_count, bg="#FFF1F2", border="#FECDD3", fg="#E11D48")
+        # with c3:
+        #     kpi_card("Ausência de L.A. 🟡", zero_count, bg="#FFF9E6", border="#FDE68A", fg="#EAB308")
+        # with c4:
+        #     kpi_card("CFOP não cadastrado ⚠️", notfound_count, bg="#FFF9E6", border="#FDE68A", fg="#CA8A04")
+
+
+        # c1, c2, c3, c4 = st.columns(4)
+        # c1.metric("OK", ok_count)
+        # c2.metric("Diferente", diff_count)
+        # c3.metric("Zerado no BI", zero_count)
+        # c4.metric("CFOP ausente na base", notfound_count)
 
         status_filter = st.multiselect("Filtrar por Status", options=sorted(out_df["Status"].dropna().unique().tolist()))
         origem_filter = st.multiselect("Filtrar por Origem", options=sorted(out_df["origem"].dropna().unique().tolist()))
@@ -742,6 +920,10 @@ with tab2:
         st.download_button("Baixar Razão (Excel)", data=ex2, file_name=nm2, mime=mm2)
     with cex3:
         st.download_button("Baixar Comparação (Excel)", data=ex3, file_name=nm3, mime=mm3)
+    
+antes = len(bi_all)
+bi_all = bi_excluir_lixo(bi_all)
+st.caption(f"🧹 Removidas (CFOP vazio + 4 valores zerados): {antes - len(bi_all)}")
 
 # =============================================================================
 # Fim
