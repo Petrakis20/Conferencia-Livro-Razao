@@ -826,18 +826,18 @@ with tab2:
     st.dataframe(bi_total, use_container_width=True, height=280)
 
     # Lacunas por CFOP
-    if lacunas_es_parts or (not lacunas_srv_tbl.empty):
-        st.divider()
-        st.subheader("⚠️ CFOP × Lançamentos faltantes")
-        if lacunas_es_parts:
-            tbl_es = pd.concat(lacunas_es_parts, ignore_index=True)
-            st.markdown("**Entradas/Saídas**")
-            st.dataframe(tbl_es, use_container_width=True, height=280)
-        if not lacunas_srv_tbl.empty:
-            st.markdown("**Serviços**")
-            st.dataframe(lacunas_srv_tbl, use_container_width=True, height=280)
-    else:
-        st.info("Nenhuma lacuna de lançamento por CFOP identificada (ou planilhas sem coluna CFOP).")
+    # if lacunas_es_parts or (not lacunas_srv_tbl.empty):
+    #     st.divider()
+    #     st.subheader("⚠️ CFOP × Lançamentos faltantes")
+    #     if lacunas_es_parts:
+    #         tbl_es = pd.concat(lacunas_es_parts, ignore_index=True)
+    #         st.markdown("**Entradas/Saídas**")
+    #         st.dataframe(tbl_es, use_container_width=True, height=280)
+    #     if not lacunas_srv_tbl.empty:
+    #         st.markdown("**Serviços**")
+    #         st.dataframe(lacunas_srv_tbl, use_container_width=True, height=280)
+    # else:
+    #     st.info("Nenhuma lacuna de lançamento por CFOP identificada (ou planilhas sem coluna CFOP).")
 
     st.divider()
 
@@ -868,14 +868,52 @@ with tab2:
     st.divider()
 
     # Comparação
+        # Comparação
     st.subheader("✅ Comparação BI × Razão por Lançamento")
     comp = compare_bi_vs_razao(bi_total, razao_total)
 
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Lançamentos BI", f"{len(bi_total)}")
-    c2.metric("Lançamentos Razão", f"{len(razao_total)}")
-    c3.metric("Divergências", f"{(~comp['ok']).sum()}")
+    # --- KPI cards no estilo do mock ---
+    # helper (só define se ainda não existir)
+    if "kpi_card" not in globals():
+        def kpi_card(title: str, value, bg="#ffffff", border="#e5e7eb", fg="#111827"):
+            st.markdown(
+                f"""
+                <div style="
+                     border-radius:18px;
+                     padding:22px 26px;
+                     background:{bg};
+                     border:2px solid {border};
+                     box-shadow:0 6px 18px rgba(0,0,0,.06);
+                     margin-bottom: 20px;
+                ">
+                  <div style="font-weight:800;font-size:24px;line-height:1.2;margin-bottom:10px;">
+                    {title}
+                  </div>
+                  <div style="font-size:46px;font-weight:900;color:{fg};">
+                    {value}
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
+    bi_count    = int(len(bi_total))
+    razao_count = int(len(razao_total))
+    ok_count    = int(comp.get("ok", pd.Series([], dtype=bool)).sum())
+    div_count   = int((~comp.get("ok", pd.Series([], dtype=bool))).sum())
+
+    kc1, kc2, kc3, kc4 = st.columns(4)
+    with kc1:
+        kpi_card("Lançamentos BI", bi_count, bg="#FFFFFF", border="#E5E7EB", fg="#111827")
+    with kc2:
+        kpi_card("Lançamentos Razão", razao_count, bg="#F0F7FF", border="#93C5FD", fg="#1D4ED8")  # azul
+    with kc3:
+        kpi_card("Divergências", div_count, bg="#FEE2E2", border="#FCA5A5", fg="#DC2626")          # vermelho
+    with kc4:
+        kpi_card("OK ✅", ok_count, bg="#DCFCE7", border="#86EFAC", fg="#16A34A")                  # verde
+    # --- fim KPI cards ---
+
+    # Tabela de comparação (mantida)
     styled = (
         comp.style
             .format({"valor_bi": "{:,.2f}", "valor_razao": "{:,.2f}", "dif": "{:,.2f}"})
@@ -920,10 +958,6 @@ with tab2:
         st.download_button("Baixar Razão (Excel)", data=ex2, file_name=nm2, mime=mm2)
     with cex3:
         st.download_button("Baixar Comparação (Excel)", data=ex3, file_name=nm3, mime=mm3)
-    
-antes = len(bi_all)
-bi_all = bi_excluir_lixo(bi_all)
-st.caption(f"🧹 Removidas (CFOP vazio + 4 valores zerados): {antes - len(bi_all)}")
 
 # =============================================================================
 # Fim
