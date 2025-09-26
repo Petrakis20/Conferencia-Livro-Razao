@@ -211,3 +211,88 @@ def compare_by_lancamento(agg_bi_valor: pd.DataFrame, agg_bi_icms: pd.DataFrame,
     df["valor_razao"] = df["valor_razao"].fillna(0.0)
     df["diferenca"] = df["valor_bi"] - df["valor_razao"]
     return df.sort_values("lancamento", key=lambda s: s.astype(str))
+
+
+# =============================================================================
+# Funções adicionales do sistema principal
+# =============================================================================
+EMPTY_TOKENS_MAIN = {"", "nan", "none", "nao possui", "não possui", "x"}
+
+
+def norm_text_main(s: str) -> str:
+    """Normaliza texto removendo acentos e caracteres especiais."""
+    s = str(s).strip().lower()
+    s = (s.replace("ã","a").replace("á","a").replace("à","a").replace("â","a")
+           .replace("ç","c").replace("é","e").replace("ê","e")
+           .replace("í","i").replace("ó","o").replace("ô","o").replace("ú","u"))
+    s = re.sub(r"[^a-z0-9 ]+"," ", s)
+    s = re.sub(r"\s+"," ", s).strip()
+    return s
+
+
+def clean_code_main(x: str) -> str:
+    """Limpa e normaliza códigos (CFOP, lançamentos, etc.)."""
+    if x is None:
+        return ""
+    s = str(x).strip()
+    if s == "" or norm_text_main(s) in EMPTY_TOKENS_MAIN:
+        return ""
+    s = re.sub(r"[^0-9]", "", s)
+    s = re.sub(r"\.0+$", "", s)
+    while len(s) > 5 and s.endswith("0"):
+        s = s[:-1]
+    return s
+
+
+def is_empty_code_main(x: str) -> bool:
+    """Verifica se um código está vazio ou zerado."""
+    s = clean_code_main(x)
+    return s == "" or set(s) == {"0"}
+
+
+def to_number_br_main(v) -> float:
+    """Converte valores em formato brasileiro para float."""
+    if v is None:
+        return 0.0
+    s = str(v).strip()
+    if s == "" or norm_text_main(s) in EMPTY_TOKENS_MAIN:
+        return 0.0
+    neg = s.startswith("(") and s.endswith(")")
+    if neg:
+        s = s[1:-1]
+    s = s.replace(".", "").replace(",", ".")
+    try:
+        val = float(s)
+    except Exception:
+        val = float(re.sub(r"[^0-9\.\-]", "", s) or 0)
+    return -val if neg else val
+
+
+def extract_desc_before_first_digit_main(s: str) -> str:
+    """Extrai descrição até o primeiro dígito encontrado."""
+    if s is None:
+        return ""
+    txt = str(s).strip()
+    if not txt:
+        return ""
+    part = re.split(r"\d", txt, maxsplit=1)[0]
+    return part.strip(" -–—•|:;/,.").strip()
+
+
+def read_excel_best_main(file) -> pd.DataFrame:
+    """Lê a planilha Excel com mais colunas (melhor estrutura)."""
+    xls = pd.ExcelFile(file)
+    best_df, best_cols = None, -1
+    for sh in xls.sheet_names:
+        df = xls.parse(sh)
+        if df.shape[1] > best_cols:
+            best_df, best_cols = df, df.shape[1]
+    return best_df if best_df is not None else pd.DataFrame()
+
+
+def format_brazilian_number(x: float) -> str:
+    """Formata número no padrão brasileiro (1.234,56)."""
+    try:
+        return f"{float(x):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    except Exception:
+        return "0,00"

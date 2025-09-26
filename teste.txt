@@ -87,3 +87,18 @@ E a mesma coisa para o ST
 25989
 26018
 26042
+
+
+
+
+
+Chat, precisamos fazer uma melhoria no nosso relatório final dessa nova tab de simples nacional.
+
+Preciso que na tabela final, mostre a composição dos lançamentos, como por exemplo.
+Além disso, adicionar a descrição presente no txt, que está na coluna oito do TXT, e na mesma coluna, pegar todo o texto que vai até aparecer o primeiro número.
+Tendo como resultado final a adição desse formato.
+
+ISso aqui é um mero exemplo usando valores ficticios.
+Composição do Lançamento(CFOP) | Lançamento | Descrição | Livro ICMS | Livro ICMS ST | Lote Contábil | Diferença | Status
+1102, 1202, 1353 | 10048 | Compra de Mercadoria para Revenda cfe NF | 2,224.00 | - | 2,224.00 | 0.00 | OK
+5102 | 10048 | Compra de Mercadoria para Revenda cfe NF | - | 200.00 | 200.00 | 0.00 | OK
