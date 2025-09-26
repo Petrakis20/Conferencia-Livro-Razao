@@ -57,7 +57,7 @@ streamlit run conferencia-livro-razao.py
 - Comparação BI vs Razão
 - Cálculo de divergências
 
-### 5. **simples_nacional.py** - Simples Nacional
+### 5. **simples_nacional.py** - Livro de ICMS x Lote Contábil
 - Processamento de PDFs (ICMS/ICMS ST)
 - Processamento de TXT contábil
 - Mapeamento CFOP → Lançamentos
@@ -84,7 +84,7 @@ streamlit run conferencia-livro-razao.py
 - Comparação por lançamento
 - Análise de divergências
 
-### Aba 3: Simples Nacional
+### Aba 3: Livro de ICMS x Lote Contábil
 - Análise de PDFs de livros fiscais
 - Comparação com lote contábil
 - Mapeamento automático via base CFOP
@@ -95,7 +95,7 @@ streamlit run conferencia-livro-razao.py
 O sistema inclui uma animação de fogos de artifício que é disparada automaticamente quando:
 - **Aba 1**: Todas as análises CFOP estão OK (sem divergências)
 - **Aba 2**: Todas as comparações BI × Razão estão OK
-- **Aba 3**: Todas as análises do Simples Nacional estão OK
+- **Aba 3**: Todas as análises do Livro de ICMS x Lote Contábil estão OK
 
 ## 📋 Requisitos
 

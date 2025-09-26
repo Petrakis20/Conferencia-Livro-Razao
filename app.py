@@ -71,7 +71,7 @@ except Exception as e:
 tab1, tab2, tab3 = st.tabs([
     "① Análise do BI (CFOP × Base CFOP)",
     "② Conferência BI × Razão (TXT)",
-    "Simples Nacional",
+    "Livro de ICMS x Lote Contábil",
 ])
 
 
@@ -251,10 +251,10 @@ with tab2:
 
 
 # =============================================================================
-# TAB 3: Simples Nacional
+# TAB 3: Livro de ICMS x Lote Contábil
 # =============================================================================
 with tab3:
-    st.header("Simples Nacional — Livro de Apuração (PDF)")
+    st.header("Livro de ICMS x Lote Contábil — Livro de Apuração (PDF)")
 
     cpdf, ctxt = st.columns(2)
     with cpdf:
@@ -317,7 +317,7 @@ with tab3:
 
     # Verifica se todas as análises estão OK
     if is_simples_nacional_perfect(metrics):
-        show_success_message("Todas as análises do Simples Nacional estão perfeitas - sem divergências!")
+        show_success_message("Todas as análises do Livro de ICMS x Lote Contábil estão perfeitas - sem divergências!")
 
     # Tabela final
     styled = format_comparison_table(comp)

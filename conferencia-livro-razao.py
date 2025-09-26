@@ -774,7 +774,7 @@ def compare_bi_vs_razao(bi: pd.DataFrame, razao: pd.DataFrame) -> pd.DataFrame:
 tab1, tab2, tab3 = st.tabs([
     "① Análise do BI (CFOP × Base CFOP)",
     "② Conferência BI × Razão (TXT)",
-    "Simples Nacional",          
+    "Livro de ICMS x Lote Contábil",
 ])
 
 
@@ -1128,12 +1128,12 @@ with tab2:
     else:
         st.info("Para comparar, envie ao menos um BI e ao menos um TXT de Razão.")
 
-# === Aba 3: Simples Nacional ===
+# === Aba 3: Livro de ICMS x Lote Contábil ===
 with tab3:
     import io, os, re, csv
     import numpy as np
 
-    st.header("Simples Nacional — Livro de Apuração (PDF)")
+    st.header("Livro de ICMS x Lote Contábil — Livro de Apuração (PDF)")
 
     cpdf, ctxt = st.columns(2)
     with cpdf:
@@ -1461,9 +1461,9 @@ with tab3:
     with kc3: kpi_card("Divergências",      div_count, bg="#FEE2E2", border="#FCA5A5", fg="#DC2626")
     with kc4: kpi_card("OK ✅",              ok_count,  bg="#DCFCE7", border="#86EFAC", fg="#16A34A")
 
-    # Verifica se todas as análises do Simples Nacional estão OK (sem divergências)
+    # Verifica se todas as análises do Livro de ICMS x Lote Contábil estão OK (sem divergências)
     if div_count == 0 and ok_count > 0:
-        st.success("🎉 **PARABÉNS!** Todas as análises do Simples Nacional estão perfeitas - sem divergências!")
+        st.success("🎉 **PARABÉNS!** Todas as análises do Livro de ICMS x Lote Contábil estão perfeitas - sem divergências!")
         trigger_fireworks()
 
     # Tabela final — ÚNICA

@@ -63,7 +63,7 @@ def display_comparison_kpis(bi_count: int, razao_count: int, div_count: int, ok_
 
 
 def display_simples_nacional_kpis(pdf_lanc_count: int, rz_count: int, div_count: int, ok_count: int) -> None:
-    """Exibe KPIs do Simples Nacional."""
+    """Exibe KPIs do Livro de ICMS x Lote Contábil."""
     kc1, kc2, kc3, kc4 = st.columns(4)
     with kc1:
         kpi_card("Lançamentos (PDF)", pdf_lanc_count, bg="#FFFFFF", border="#E5E7EB", fg="#111827")

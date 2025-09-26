@@ -1,6 +1,6 @@
 """
-Módulo para processamento do Simples Nacional.
-Responsável por processar PDFs e TXTs do Simples Nacional.
+Módulo para processamento do Livro de ICMS x Lote Contábil.
+Responsável por processar PDFs e TXTs do Livro de ICMS x Lote Contábil.
 """
 
 import io
@@ -240,7 +240,7 @@ def parse_txt_lancamento_valor_desc(txt_file) -> Tuple[pd.DataFrame, pd.DataFram
 def compare_simples_nacional(pdf_icms: pd.DataFrame, pdf_icms_st: pd.DataFrame,
                            txt_lanc_tot: pd.DataFrame, txt_desc: pd.DataFrame,
                            comp_map_union: Dict) -> pd.DataFrame:
-    """Compara dados do Simples Nacional: PDF (ICMS + ST) vs TXT."""
+    """Compara dados do Livro de ICMS x Lote Contábil: PDF (ICMS + ST) vs TXT."""
     # Composição por lançamento
     comp_cfop_union = (
         pd.DataFrame([{"lancamento": k, "cfops": ", ".join(sorted(v))} for k, v in comp_map_union.items()])
@@ -289,7 +289,7 @@ def compare_simples_nacional(pdf_icms: pd.DataFrame, pdf_icms_st: pd.DataFrame,
 
 def calculate_simples_nacional_metrics(comp: pd.DataFrame, pdf_icms: pd.DataFrame,
                                      pdf_icms_st: pd.DataFrame, txt_lanc_tot: pd.DataFrame) -> Dict[str, int]:
-    """Calcula métricas do Simples Nacional."""
+    """Calcula métricas do Livro de ICMS x Lote Contábil."""
     pdf_lanc_count = int(len(set(pdf_icms.get("lancamento", pd.Series([]))) |
                             set(pdf_icms_st.get("lancamento", pd.Series([])))))
     ok_count = int((comp["Status"]=="OK ✅").sum())
@@ -305,5 +305,5 @@ def calculate_simples_nacional_metrics(comp: pd.DataFrame, pdf_icms: pd.DataFram
 
 
 def is_simples_nacional_perfect(metrics: Dict[str, int]) -> bool:
-    """Verifica se a análise do Simples Nacional está perfeita."""
+    """Verifica se a análise do Livro de ICMS x Lote Contábil está perfeita."""
     return metrics["div_count"] == 0 and metrics["ok_count"] > 0
