@@ -16,7 +16,7 @@ from cfop_analyzer import (
 )
 from bi_processor import (
     load_bi_strict, bi_excluir_lixo, load_bi_es,
-    aggregate_bi_all, load_bi_servico
+    aggregate_bi_all, load_bi_servico, filter_cancelada
 )
 from razao_processor import (
     consolidate_razao_files, compare_bi_vs_razao,

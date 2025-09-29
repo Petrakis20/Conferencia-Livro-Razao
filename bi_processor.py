@@ -29,6 +29,7 @@ OPTIONAL_VALUE_COLS = [
     "Vl. ICMS",
     "Vl. ST",
     "Vl. IPI",
+    "Cancelada",
 ]
 
 INTERNAL_KEYS = {
@@ -44,6 +45,7 @@ INTERNAL_VALUE_KEYS = {
     "Vl. ICMS": "vl_icms",
     "Vl. ST": "vl_st",
     "Vl. IPI": "vl_ipi",
+    "Cancelada": "cancelada",
 }
 
 SERV_COLS = [
@@ -104,6 +106,23 @@ def _try_read_as_csv(data: bytes) -> Optional[pd.DataFrame]:
 # =============================================================================
 # Funções de Limpeza de BI
 # =============================================================================
+def filter_cancelada(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove linhas onde a coluna 'Cancelada' está vazia."""
+    if df is None or df.empty or "cancelada" not in df.columns:
+        return df
+
+    df = df.copy()
+    # Considera vazio: NaN, None, "", espaços em branco, "nan", etc.
+    cancelada_empty = (
+        df["cancelada"].isna() |
+        df["cancelada"].astype(str).str.strip().eq("") |
+        df["cancelada"].astype(str).str.lower().isin(["nan", "none", "null"])
+    )
+
+    # Remove linhas onde Cancelada está vazia
+    return df.loc[~cancelada_empty].reset_index(drop=True)
+
+
 def bi_excluir_lixo(df: pd.DataFrame) -> pd.DataFrame:
     """Remove linhas do BI quando CFOP está vazio E as 4 colunas de valores estão todas = 0."""
     if df is None or df.empty or ("CFOP" not in df.columns):
@@ -203,6 +222,9 @@ def load_bi_strict(file, label_for_errors: str) -> Optional[pd.DataFrame]:
     drop_mask = cfop_empty & all_zero
     df = df.loc[~drop_mask].reset_index(drop=True)
 
+    # Aplicar filtro da coluna "Cancelada" se ela existir
+    df = filter_cancelada(df)
+
     return df
 
 
@@ -219,6 +241,7 @@ def detect_bi_columns(df: pd.DataFrame) -> Dict[str, Optional[str]]:
         "v_icms": ["vl icms"],
         "v_st":   ["vl subst trib", "vl icms st", "vl st"],
         "v_ipi":  ["vl ipi"],
+        "cancelada": ["cancelada"],
     }
     cols: Dict[str, Optional[str]] = {k: None for k in aliases}
     for key, opts in aliases.items():
@@ -259,8 +282,25 @@ def load_bi_es(file) -> Tuple[pd.DataFrame, pd.Series]:
         "v_st":    df[cols["v_st"]].map(to_number_br_main),
         "v_ipi":   df[cols["v_ipi"]].map(to_number_br_main),
     })
+
+    # Adicionar coluna cancelada se existir
+    if cols.get("cancelada"):
+        out["cancelada"] = df[cols["cancelada"]]
+
     for c in ["la_cont", "la_icms", "la_st", "la_ipi"]:
         out[c] = out[c].map(clean_code_main)
+
+    # Aplicar filtro da coluna "Cancelada" antes da limpeza de lixo
+    if "cancelada" in out.columns:
+        cancelada_empty = (
+            out["cancelada"].isna() |
+            out["cancelada"].astype(str).str.strip().eq("") |
+            out["cancelada"].astype(str).str.lower().isin(["nan", "none", "null"])
+        )
+        # Remove linhas onde Cancelada está vazia
+        keep_mask = ~cancelada_empty
+        out = out.loc[keep_mask].reset_index(drop=True)
+        cfop_series = cfop_series.loc[keep_mask].reset_index(drop=True)
 
     # Limpeza de lixo
     cfop_digits = (
@@ -344,6 +384,18 @@ def _find_col(df: pd.DataFrame, *alvos: str) -> Optional[str]:
 def load_bi_servico(file) -> Tuple[pd.DataFrame, pd.Series, pd.DataFrame]:
     """Carrega BI de Serviços."""
     df = read_excel_best_main(file)
+
+    # Filtrar pela coluna "Cancelada" se ela existir
+    cancelada_col = _find_col(df, "cancelada")
+    if cancelada_col:
+        cancelada_empty = (
+            df[cancelada_col].isna() |
+            df[cancelada_col].astype(str).str.strip().eq("") |
+            df[cancelada_col].astype(str).str.lower().isin(["nan", "none", "null"])
+        )
+        # Remove linhas onde Cancelada está vazia
+        df = df.loc[~cancelada_empty].reset_index(drop=True)
+
     cfop_col = _find_col(df, "cfop")
     cfop_series = pd.Series([], dtype="object")
     if cfop_col:
