@@ -22,7 +22,7 @@ from sn_pdf import (
 # Constantes - Códigos de Serviços Prestados
 # =============================================================================
 CODIGOS_SERVICOS_PRESTADOS = {
-    "00141", "00142", "00413", "80083", "80514",
+    "00141", "00142", "00143", "00413", "80083", "80514",
     "80535", "80107", "00000", "00406"
 }
 
@@ -30,10 +30,10 @@ CODIGOS_SERVICOS_PRESTADOS = {
 # =============================================================================
 # Funções de Processamento de PDF
 # =============================================================================
-def process_icms_pdf(pdf_file, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame, pd.DataFrame, List[str]]:
+def process_icms_pdf(pdf_file, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame, pd.DataFrame, List[str], Dict]:
     """Processa PDF de ICMS (Entradas + Saídas)."""
     if pdf_file is None:
-        return pd.DataFrame(), pd.DataFrame(), []
+        return pd.DataFrame(), pd.DataFrame(), [], {}
 
     try:
         df_ent = parse_livro_icms_pdf_entradas(pdf_file, keep_numeric=True)
@@ -61,7 +61,7 @@ def process_icms_pdf(pdf_file, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame,
     both = pd.concat([e_num, s_num], ignore_index=True)
 
     if both.empty:
-        return pd.DataFrame(), pd.DataFrame(), []
+        return pd.DataFrame(), pd.DataFrame(), [], {}
 
     # Soma E+S por CFOP
     both = both.groupby("CFOP", as_index=False)[["vc_num","icms_num"]].sum()
@@ -104,13 +104,13 @@ def process_icms_pdf(pdf_file, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame,
         if rows:
             pdf_lanc_tot = pd.DataFrame(rows).groupby("lancamento", as_index=False)["valor"].sum()
 
-    return pdf_lanc_tot, log_df, cfop_sem_mapa
+    return pdf_lanc_tot, log_df, cfop_sem_mapa, comp_map
 
 
-def process_icms_st_pdf(pdf_file_st, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame, List[str]]:
+def process_icms_st_pdf(pdf_file_st, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame, List[str], Dict]:
     """Processa PDF de ICMS ST."""
     if pdf_file_st is None or not base_map:
-        return pd.DataFrame(columns=["lancamento","valor"]), []
+        return pd.DataFrame(columns=["lancamento","valor"]), [], {}
 
     try:
         df_st = parse_livro_icms_st_pdf(pdf_file_st, keep_numeric=True)
@@ -118,6 +118,7 @@ def process_icms_st_pdf(pdf_file_st, base_map: Dict[str, Dict]) -> Tuple[pd.Data
 
         rows_st = []
         cfop_st_sem_mapa = []
+        comp_map_st = {}
 
         for _, r in df_st.iterrows():
             cf = clean_code_main(r["CFOP"])
@@ -127,6 +128,7 @@ def process_icms_st_pdf(pdf_file_st, base_map: Dict[str, Dict]) -> Tuple[pd.Data
                 val = float(r["total_st_num"])
                 if val != 0.0:
                     rows_st.append({"lancamento": lanc_st, "valor": val})
+                    comp_map_st.setdefault(lanc_st, set()).add(cf)
             else:
                 cfop_st_sem_mapa.append(cf)
 
@@ -135,7 +137,7 @@ def process_icms_st_pdf(pdf_file_st, base_map: Dict[str, Dict]) -> Tuple[pd.Data
         else:
             st_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
 
-        return st_lanc_tot, cfop_st_sem_mapa
+        return st_lanc_tot, cfop_st_sem_mapa, comp_map_st
 
     except Exception as e:
         raise ValueError(f"Falha ao ler o PDF de ICMS ST: {e}")
@@ -321,17 +323,18 @@ def is_simples_nacional_perfect(metrics: Dict[str, int]) -> bool:
 # =============================================================================
 # Funções para Filtrar Serviços Prestados
 # =============================================================================
-def filter_servicos_prestados_txt(txt_lanc_tot: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def filter_servicos_prestados_txt(txt_lanc_tot: pd.DataFrame, txt_desc: pd.DataFrame = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Separa lançamentos de serviços prestados do TXT principal.
 
     Args:
         txt_lanc_tot: DataFrame com dados do TXT consolidado
+        txt_desc: DataFrame com descrições dos lançamentos (opcional)
 
     Returns:
         tuple: (txt_sem_servicos, txt_servicos)
             - txt_sem_servicos: DataFrame sem os códigos de serviços
-            - txt_servicos: DataFrame apenas com os códigos de serviços
+            - txt_servicos: DataFrame apenas com os códigos de serviços (com descrição se fornecida)
     """
     if txt_lanc_tot.empty:
         return txt_lanc_tot, pd.DataFrame(columns=txt_lanc_tot.columns)
@@ -342,5 +345,9 @@ def filter_servicos_prestados_txt(txt_lanc_tot: pd.DataFrame) -> tuple[pd.DataFr
     # Separar em dois DataFrames
     txt_servicos = txt_lanc_tot[mask_servicos].copy()
     txt_sem_servicos = txt_lanc_tot[~mask_servicos].copy()
+
+    # Adicionar descrição se fornecida
+    if txt_desc is not None and not txt_desc.empty and not txt_servicos.empty:
+        txt_servicos = txt_servicos.merge(txt_desc, on="lancamento", how="left")
 
     return txt_sem_servicos, txt_servicos

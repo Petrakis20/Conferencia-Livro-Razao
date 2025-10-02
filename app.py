@@ -256,9 +256,9 @@ with tab3:
     cpdf, ctxt = st.columns(2)
     with cpdf:
         pdf_file = st.file_uploader("📄 PDF: Livro de Apuração (ICMS)", type=["pdf"], key="sn_pdf")
-        pdf_file_st = st.file_uploader("📄 PDF: Livro de ICMS ST", type=["pdf"], key="sn_pdf_st")
+        txt_file = st.file_uploader("📚 TXT p/ confronto", type=["txt"], key="sn_txt")
     with ctxt:
-        txt_file = st.file_uploader("📚 TXT p/ confronto (coluna 2 = lançamento, coluna 4 = valor, col. 8 = descrição)", type=["txt"], key="sn_txt")
+        pdf_file_st = st.file_uploader("📄 PDF: Livro de ICMS ST", type=["pdf"], key="sn_pdf_st")
 
     # Verifica base CFOP
     if not base_map:
@@ -266,7 +266,7 @@ with tab3:
 
     # Processar PDF ICMS
     try:
-        pdf_lanc_tot, log_df, cfop_sem_mapa = process_icms_pdf(pdf_file, base_map)
+        pdf_lanc_tot, log_df, cfop_sem_mapa, comp_map_icms = process_icms_pdf(pdf_file, base_map)
         if cfop_sem_mapa:
             st.warning(f"CFOP (ICMS) sem mapeamento na base: {', '.join(sorted(set(cfop_sem_mapa)))}")
 
@@ -278,15 +278,17 @@ with tab3:
     except Exception as e:
         st.error(f"Erro processando PDF ICMS: {e}")
         pdf_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
+        comp_map_icms = {}
 
     # Processar PDF ICMS ST
     try:
-        st_lanc_tot, cfop_st_sem_mapa = process_icms_st_pdf(pdf_file_st, base_map)
+        st_lanc_tot, cfop_st_sem_mapa, comp_map_st = process_icms_st_pdf(pdf_file_st, base_map)
         if cfop_st_sem_mapa:
             st.warning(f"CFOP (ICMS ST) sem mapeamento na base (icms_subst): {', '.join(sorted(set(cfop_st_sem_mapa)))}")
     except Exception as e:
         st.error(f"Erro processando PDF ICMS ST: {e}")
         st_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
+        comp_map_st = {}
 
     # Processar TXT
     txt_servicos = pd.DataFrame()
@@ -295,7 +297,7 @@ with tab3:
 
         # Separar serviços prestados do TXT
         if not txt_lanc_tot.empty:
-            txt_sem_servicos, txt_servicos = filter_servicos_prestados_txt(txt_lanc_tot)
+            txt_sem_servicos, txt_servicos = filter_servicos_prestados_txt(txt_lanc_tot, txt_desc)
         else:
             txt_sem_servicos = txt_lanc_tot
     except Exception as e:
@@ -304,9 +306,12 @@ with tab3:
         txt_sem_servicos = pd.DataFrame(columns=["lancamento","valor"])
         txt_desc = pd.DataFrame(columns=["lancamento","descricao"])
 
-    # Composição por lançamento
+    # Unir composições ICMS + ICMS ST
     comp_map_union = {}
-    # Simular composição CFOP (seria necessário refatorar mais código para manter essa funcionalidade)
+    for lanc, cfops in comp_map_icms.items():
+        comp_map_union.setdefault(lanc, set()).update(cfops)
+    for lanc, cfops in comp_map_st.items():
+        comp_map_union.setdefault(lanc, set()).update(cfops)
 
     st.divider()
     st.subheader("🔎 Comparação — Livro ICMS & ICMS ST (PDF) × Lote Contábil (TXT)")
