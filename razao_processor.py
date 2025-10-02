@@ -10,6 +10,15 @@ from utils import clean_code_main, to_number_br_main, extract_desc_before_first_
 
 
 # =============================================================================
+# Constantes - Códigos de Serviços Prestados
+# =============================================================================
+CODIGOS_SERVICOS_PRESTADOS = {
+    "00141", "00142", "00143", "80083", "80514",
+    "80535", "80107", "00000", "00406"
+}
+
+
+# =============================================================================
 # Funções de Processamento de Razão
 # =============================================================================
 def read_razao_txt(file) -> pd.DataFrame:
@@ -98,3 +107,31 @@ def calculate_comparison_metrics(comp: pd.DataFrame, bi_total: pd.DataFrame, raz
 def is_comparison_perfect(metrics: Dict[str, int]) -> bool:
     """Verifica se a comparação está perfeita (sem divergências)."""
     return metrics["div_count"] == 0 and metrics["ok_count"] > 0
+
+
+# =============================================================================
+# Funções para Filtrar Serviços Prestados
+# =============================================================================
+def filter_servicos_prestados(razao_total: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Separa lançamentos de serviços prestados do razão principal.
+
+    Args:
+        razao_total: DataFrame com dados do razão consolidado
+
+    Returns:
+        tuple: (razao_sem_servicos, razao_servicos)
+            - razao_sem_servicos: DataFrame sem os códigos de serviços
+            - razao_servicos: DataFrame apenas com os códigos de serviços
+    """
+    if razao_total.empty:
+        return razao_total, pd.DataFrame(columns=razao_total.columns)
+
+    # Criar máscara para identificar serviços prestados
+    mask_servicos = razao_total["lancamento"].isin(CODIGOS_SERVICOS_PRESTADOS)
+
+    # Separar em dois DataFrames
+    razao_servicos = razao_total[mask_servicos].copy()
+    razao_sem_servicos = razao_total[~mask_servicos].copy()
+
+    return razao_sem_servicos, razao_servicos

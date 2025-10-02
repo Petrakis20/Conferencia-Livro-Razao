@@ -21,12 +21,13 @@ from bi_processor import (
 )
 from razao_processor import (
     consolidate_razao_files, compare_bi_vs_razao,
-    calculate_comparison_metrics, is_comparison_perfect
+    calculate_comparison_metrics, is_comparison_perfect,
+    filter_servicos_prestados
 )
 from simples_nacional import (
     process_icms_pdf, process_icms_st_pdf, parse_txt_lancamento_valor_desc,
     compare_simples_nacional, calculate_simples_nacional_metrics,
-    is_simples_nacional_perfect
+    is_simples_nacional_perfect, filter_servicos_prestados_txt
 )
 from ui_components import (
     display_analysis_kpis, display_comparison_kpis, display_simples_nacional_kpis,
@@ -190,25 +191,31 @@ with tab2:
     st.divider()
 
     # Processar Razões
+    razao_servicos = pd.DataFrame()
     try:
         razao_total = consolidate_razao_files(razao_files)
         if not razao_total.empty:
+            # Separar serviços prestados
+            razao_sem_servicos, razao_servicos = filter_servicos_prestados(razao_total)
+
             st.subheader("📒 Razão consolidado (todos TXT)")
-            st.dataframe(razao_total, use_container_width=True, height=240)
+            st.dataframe(razao_sem_servicos, use_container_width=True, height=240)
         else:
             st.info("Envie ao menos um arquivo TXT de Razão.")
+            razao_sem_servicos = razao_total
     except Exception as e:
         st.error(f"Erro processando razões: {e}")
         razao_total = pd.DataFrame(columns=["lancamento","valor_razao","descricao"])
+        razao_sem_servicos = razao_total
 
     st.divider()
 
-    # Comparação
-    if not bi_total.empty and not razao_total.empty:
+    # Comparação (usar razão sem serviços)
+    if not bi_total.empty and not razao_sem_servicos.empty:
         st.subheader("✅ Comparação BI × Razão por Lançamento")
-        comp = compare_bi_vs_razao(bi_total, razao_total)
+        comp = compare_bi_vs_razao(bi_total, razao_sem_servicos)
 
-        metrics = calculate_comparison_metrics(comp, bi_total, razao_total)
+        metrics = calculate_comparison_metrics(comp, bi_total, razao_sem_servicos)
         display_comparison_kpis(
             metrics["bi_count"], metrics["razao_count"],
             metrics["div_count"], metrics["ok_count"]
@@ -226,9 +233,16 @@ with tab2:
         with cdl1:
             create_download_buttons(bi_total, "BI por Lançamento")
         with cdl2:
-            create_download_buttons(razao_total, "Razão Consolidado")
+            create_download_buttons(razao_sem_servicos, "Razão Consolidado")
         with cdl3:
             create_download_buttons(comp, "Comparação BI Razão")
+
+        # Exibir tabela de serviços prestados APÓS o relatório principal
+        if not razao_servicos.empty:
+            st.divider()
+            st.subheader("🔧 Serviços Prestados (TXT)")
+            st.info(f"Esses códigos são referentes a serviços prestados e foram removidos do relatório principal: {len(razao_servicos)} registros")
+            st.dataframe(razao_servicos, use_container_width=True, height=200)
     else:
         st.info("Para comparar, envie ao menos um BI e ao menos um TXT de Razão.")
 
@@ -275,11 +289,19 @@ with tab3:
         st_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
 
     # Processar TXT
+    txt_servicos = pd.DataFrame()
     try:
         txt_lanc_tot, txt_desc = parse_txt_lancamento_valor_desc(txt_file)
+
+        # Separar serviços prestados do TXT
+        if not txt_lanc_tot.empty:
+            txt_sem_servicos, txt_servicos = filter_servicos_prestados_txt(txt_lanc_tot)
+        else:
+            txt_sem_servicos = txt_lanc_tot
     except Exception as e:
         st.error(f"Erro processando TXT: {e}")
         txt_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
+        txt_sem_servicos = pd.DataFrame(columns=["lancamento","valor"])
         txt_desc = pd.DataFrame(columns=["lancamento","descricao"])
 
     # Composição por lançamento
@@ -289,10 +311,10 @@ with tab3:
     st.divider()
     st.subheader("🔎 Comparação — Livro ICMS & ICMS ST (PDF) × Lote Contábil (TXT)")
 
-    # Comparação final
-    comp = compare_simples_nacional(pdf_lanc_tot, st_lanc_tot, txt_lanc_tot, txt_desc, comp_map_union)
+    # Comparação final (usar TXT sem serviços)
+    comp = compare_simples_nacional(pdf_lanc_tot, st_lanc_tot, txt_sem_servicos, txt_desc, comp_map_union)
 
-    metrics = calculate_simples_nacional_metrics(comp, pdf_lanc_tot, st_lanc_tot, txt_lanc_tot)
+    metrics = calculate_simples_nacional_metrics(comp, pdf_lanc_tot, st_lanc_tot, txt_sem_servicos)
     display_simples_nacional_kpis(
         metrics["pdf_lanc_count"], metrics["rz_count"],
         metrics["div_count"], metrics["ok_count"]
@@ -314,6 +336,13 @@ with tab3:
         create_download_buttons(st_lanc_tot, "Livro ICMS ST por Lançamento")
     with cdl3:
         create_download_buttons(comp, "Comparação ICMS ST TXT")
+
+    # Exibir tabela de serviços prestados APÓS o relatório principal
+    if not txt_servicos.empty:
+        st.divider()
+        st.subheader("🔧 Serviços Prestados (TXT)")
+        st.info(f"Esses códigos são referentes a serviços prestados e foram removidos do relatório principal: {len(txt_servicos)} registros")
+        st.dataframe(txt_servicos, use_container_width=True, height=200)
 
 
 # =============================================================================

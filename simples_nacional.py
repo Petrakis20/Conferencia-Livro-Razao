@@ -19,6 +19,15 @@ from sn_pdf import (
 
 
 # =============================================================================
+# Constantes - Códigos de Serviços Prestados
+# =============================================================================
+CODIGOS_SERVICOS_PRESTADOS = {
+    "00141", "00142", "00413", "80083", "80514",
+    "80535", "80107", "00000", "00406"
+}
+
+
+# =============================================================================
 # Funções de Processamento de PDF
 # =============================================================================
 def process_icms_pdf(pdf_file, base_map: Dict[str, Dict]) -> Tuple[pd.DataFrame, pd.DataFrame, List[str]]:
@@ -307,3 +316,31 @@ def calculate_simples_nacional_metrics(comp: pd.DataFrame, pdf_icms: pd.DataFram
 def is_simples_nacional_perfect(metrics: Dict[str, int]) -> bool:
     """Verifica se a análise do Livro de ICMS x Lote Contábil está perfeita."""
     return metrics["div_count"] == 0 and metrics["ok_count"] > 0
+
+
+# =============================================================================
+# Funções para Filtrar Serviços Prestados
+# =============================================================================
+def filter_servicos_prestados_txt(txt_lanc_tot: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Separa lançamentos de serviços prestados do TXT principal.
+
+    Args:
+        txt_lanc_tot: DataFrame com dados do TXT consolidado
+
+    Returns:
+        tuple: (txt_sem_servicos, txt_servicos)
+            - txt_sem_servicos: DataFrame sem os códigos de serviços
+            - txt_servicos: DataFrame apenas com os códigos de serviços
+    """
+    if txt_lanc_tot.empty:
+        return txt_lanc_tot, pd.DataFrame(columns=txt_lanc_tot.columns)
+
+    # Criar máscara para identificar serviços prestados
+    mask_servicos = txt_lanc_tot["lancamento"].isin(CODIGOS_SERVICOS_PRESTADOS)
+
+    # Separar em dois DataFrames
+    txt_servicos = txt_lanc_tot[mask_servicos].copy()
+    txt_sem_servicos = txt_lanc_tot[~mask_servicos].copy()
+
+    return txt_sem_servicos, txt_servicos
