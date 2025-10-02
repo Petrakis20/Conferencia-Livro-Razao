@@ -7,7 +7,7 @@ import json
 import pandas as pd
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from utils import normalize_code
+from utils import clean_code_main
 
 
 # =============================================================================

@@ -344,12 +344,14 @@ def format_comparison_table(comp: pd.DataFrame) -> pd.DataFrame:
     if format_dict:
         styled = styled.format(format_dict)
 
-    # Aplica cores
+    # Aplica cores - verde quando diferença é 0, vermelho quando diferente de 0
     diff_cols = ["dif", "Diferença"]
     for col in diff_cols:
         if col in comp.columns:
+            # Verifica se a diferença é 0 (considerando valores numéricos)
+            diff_zero = comp[col].fillna(0).abs() < 0.01  # Tolerância para erros de ponto flutuante
             styled = styled.apply(
-                lambda s: pd.Series(np.where(ok_mask, "color:green", "color:red"), index=comp.index),
+                lambda s: pd.Series(np.where(diff_zero, "color:green", "color:red"), index=comp.index),
                 subset=[col]
             )
 

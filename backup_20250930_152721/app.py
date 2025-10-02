@@ -16,8 +16,7 @@ from cfop_analyzer import (
 )
 from bi_processor import (
     load_bi_strict, bi_excluir_lixo, load_bi_es,
-    aggregate_bi_all, load_bi_servico, filter_cancelada, load_bi_multisheet,
-    load_bi_strict_multisheet
+    aggregate_bi_all, load_bi_servico, filter_cancelada
 )
 from razao_processor import (
     consolidate_razao_files, compare_bi_vs_razao,
@@ -81,9 +80,6 @@ tab1, tab2, tab3 = st.tabs([
 # =============================================================================
 with tab1:
     st.header("Parte 1 — Análise do BI (CFOP × Base CFOP)")
-    st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
-    st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
-
     st.write("Cabeçalhos obrigatórios **estritos**:")
     st.code(" | ".join([
         "CFOP", "Lanc. Cont. Vl. Contábil", "Lanc. Cont. Vl. ICMS",
@@ -92,22 +88,34 @@ with tab1:
     st.write("Colunas opcionais de **valores** (se presentes, serão exibidas quando houver diferença/zerado):")
     st.code(" | ".join(["Valor Contábil", "Vl. ICMS", "Vl. ST", "Vl. IPI"]), language="text")
 
-    bi_file = st.file_uploader("📊 Arquivo BI único (.xls/.xlsx)", type=["xlsx", "xls"], key="p1_bi_file")
+    bi_entrada = st.file_uploader("BI Entrada (obrigatório)", type=["csv", "xlsx", "xls"], key="p1_entrada")
+    bi_saida = st.file_uploader("BI Saída (opcional)", type=["csv", "xlsx", "xls"], key="p1_saida")
 
-    bi_all = None
-    if bi_file is not None:
+    dfs = []
+    if bi_entrada is not None:
         try:
-            bi_all = load_bi_strict_multisheet(bi_file, "BI")
-            if bi_all is not None and not bi_all.empty:
-                st.success(f"✅ Arquivo processado com sucesso: {len(bi_all)} registros encontrados")
+            df_ent = load_bi_strict(bi_entrada, "BI Entrada")
+            if df_ent is not None:
+                df_ent["origem"] = "Entrada"
+                dfs.append(df_ent)
         except Exception as e:
-            st.error(f"Erro ao processar arquivo BI: {e}")
+            st.error(f"Erro no BI Entrada: {e}")
+
+    if bi_saida is not None:
+        try:
+            df_sai = load_bi_strict(bi_saida, "BI Saída")
+            if df_sai is not None:
+                df_sai["origem"] = "Saída"
+                dfs.append(df_sai)
+        except Exception as e:
+            st.error(f"Erro no BI Saída: {e}")
 
     if not base_map:
         st.error("Base de CFOP não carregada. Informe um caminho válido na sidebar.")
-    elif bi_all is None or bi_all.empty:
-        st.info("Envie um arquivo de BI para conferir.")
+    elif len(dfs) == 0:
+        st.info("Envie ao menos um arquivo de BI para conferir.")
     else:
+        bi_all = pd.concat(dfs, ignore_index=True)
         bi_all = bi_excluir_lixo(bi_all)
 
         result_df = analyze_bi_against_base(bi_all, base_map)
@@ -139,11 +147,14 @@ with tab1:
 # TAB 2: Conferência BI × Razão (TXT)
 # =============================================================================
 with tab2:
-    st.header("Parte 2 — Conferência BI (Entradas/Saídas) × Razão (TXT)")
-    st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
-    st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
-
-    bi_file = st.file_uploader("📊 Arquivo BI único (.xls/.xlsx)", type=["xls","xlsx"], key="bi_file")
+    st.header("Parte 2 — Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        bi_ent = st.file_uploader("📥 BI Entradas (.xls/.xlsx)", type=["xls","xlsx"], key="bi_ent")
+    with c2:
+        bi_sai = st.file_uploader("📤 BI Saídas (.xls/.xlsx)", type=["xls","xlsx"], key="bi_sai")
+    with c3:
+        bi_srv = st.file_uploader("🧾 BI Serviços (.xls/.xlsx)", type=["xls","xlsx"], key="bi_srv")
 
     razao_files = st.file_uploader("📚 Razões TXT (pode enviar vários)", type=["txt"], accept_multiple_files=True)
 
@@ -152,28 +163,34 @@ with tab2:
     # Processar BIs
     bi_parts = []
 
-    if bi_file is not None:
+    if bi_ent is not None:
         try:
-            result_entrada, result_saida = load_bi_multisheet(bi_file)
-
-            if result_entrada is not None:
-                bi_df_ent, cfop_ent = result_entrada
-                agg_ent = aggregate_bi_all(bi_df_ent)
-                agg_ent["origem"] = "entradas"
-                bi_parts.append(agg_ent)
-                st.success("✅ Aba 'Entrada' processada com sucesso.")
-
-            if result_saida is not None:
-                bi_df_sai, cfop_sai = result_saida
-                agg_sai = aggregate_bi_all(bi_df_sai)
-                agg_sai["origem"] = "saidas"
-                bi_parts.append(agg_sai)
-                st.success("✅ Aba 'Saída' processada com sucesso.")
-
-            if result_entrada is None and result_saida is None:
-                st.error("Nenhuma aba 'Entrada' ou 'Saída' foi encontrada no arquivo.")
+            bi_df_ent, cfop_ent = load_bi_es(bi_ent)
+            agg_ent = aggregate_bi_all(bi_df_ent)
+            agg_ent["origem"] = "entradas"
+            bi_parts.append(agg_ent)
+            st.success("BI Entradas carregado.")
         except Exception as e:
-            st.error(f"Erro ao processar arquivo BI: {e}")
+            st.error(f"Erro no BI Entradas: {e}")
+
+    if bi_sai is not None:
+        try:
+            bi_df_sai, cfop_sai = load_bi_es(bi_sai)
+            agg_sai = aggregate_bi_all(bi_df_sai)
+            agg_sai["origem"] = "saidas"
+            bi_parts.append(agg_sai)
+            st.success("BI Saídas carregado.")
+        except Exception as e:
+            st.error(f"Erro no BI Saídas: {e}")
+
+    if bi_srv is not None:
+        try:
+            agg_srv, cfop_srv, faltas_srv = load_bi_servico(bi_srv)
+            agg_srv["origem"] = "servicos"
+            bi_parts.append(agg_srv)
+            st.success("BI Serviços carregado.")
+        except Exception as e:
+            st.error(f"Erro no BI Serviços: {e}")
 
     # BI — Soma por Lançamento
     if bi_parts:
