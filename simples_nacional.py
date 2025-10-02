@@ -350,4 +350,15 @@ def filter_servicos_prestados_txt(txt_lanc_tot: pd.DataFrame, txt_desc: pd.DataF
     if txt_desc is not None and not txt_desc.empty and not txt_servicos.empty:
         txt_servicos = txt_servicos.merge(txt_desc, on="lancamento", how="left")
 
+    # Renomear e reordenar colunas para exibição
+    if not txt_servicos.empty:
+        txt_servicos = txt_servicos.rename(columns={
+            "lancamento": "Lançamento",
+            "descricao": "Descrição",
+            "valor": "Valor"
+        })
+        # Reordenar colunas: Lançamento | Descrição | Valor
+        cols_order = ["Lançamento", "Descrição", "Valor"]
+        txt_servicos = txt_servicos[[c for c in cols_order if c in txt_servicos.columns]]
+
     return txt_sem_servicos, txt_servicos

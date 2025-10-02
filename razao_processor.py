@@ -134,4 +134,15 @@ def filter_servicos_prestados(razao_total: pd.DataFrame) -> tuple[pd.DataFrame, 
     razao_servicos = razao_total[mask_servicos].copy()
     razao_sem_servicos = razao_total[~mask_servicos].copy()
 
+    # Renomear e reordenar colunas para exibição
+    if not razao_servicos.empty:
+        razao_servicos = razao_servicos.rename(columns={
+            "lancamento": "Lançamento",
+            "descricao": "Descrição",
+            "valor_razao": "Valor"
+        })
+        # Reordenar colunas: Lançamento | Descrição | Valor
+        cols_order = ["Lançamento", "Descrição", "Valor"]
+        razao_servicos = razao_servicos[[c for c in cols_order if c in razao_servicos.columns]]
+
     return razao_sem_servicos, razao_servicos

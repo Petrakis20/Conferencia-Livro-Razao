@@ -32,7 +32,7 @@ from simples_nacional import (
 from ui_components import (
     display_analysis_kpis, display_comparison_kpis, display_simples_nacional_kpis,
     show_success_message, create_status_filters, apply_filters,
-    create_download_buttons, format_comparison_table
+    create_download_buttons, format_comparison_table, create_comparison_download_buttons
 )
 
 
@@ -40,8 +40,8 @@ from ui_components import (
 # Configuração da Página
 # =============================================================================
 st.set_page_config(page_title="Pipeline Fiscal • BI → CFOP/ Razão", layout="wide")
-st.title("📊 Pipeline Fiscal")
-st.caption("① Análise do BI (CFOP × Base CFOP)  →  ② Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
+st.title("📊 Conferência Input Fiscal")
+# st.caption("① Análise do BI (CFOP × Base CFOP)  →  ② Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
 
 
 # =============================================================================
@@ -82,16 +82,16 @@ tab1, tab2, tab3 = st.tabs([
 # =============================================================================
 with tab1:
     st.header("Parte 1 — Análise do BI (CFOP × Base CFOP)")
-    st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
-    st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
+    # st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
+    # st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
 
-    st.write("Cabeçalhos obrigatórios **estritos**:")
-    st.code(" | ".join([
-        "CFOP", "Lanc. Cont. Vl. Contábil", "Lanc. Cont. Vl. ICMS",
-        "Lanc. Cont. Vl. Subst. Trib.", "Lanc. Cont. Vl. IPI"
-    ]), language="text")
-    st.write("Colunas opcionais de **valores** (se presentes, serão exibidas quando houver diferença/zerado):")
-    st.code(" | ".join(["Valor Contábil", "Vl. ICMS", "Vl. ST", "Vl. IPI"]), language="text")
+    # st.write("Cabeçalhos obrigatórios **estritos**:")
+    # st.code(" | ".join([
+    #     "CFOP", "Lanc. Cont. Vl. Contábil", "Lanc. Cont. Vl. ICMS",
+    #     "Lanc. Cont. Vl. Subst. Trib.", "Lanc. Cont. Vl. IPI"
+    # ]), language="text")
+    # st.write("Colunas opcionais de **valores** (se presentes, serão exibidas quando houver diferença/zerado):")
+    # st.code(" | ".join(["Valor Contábil", "Vl. ICMS", "Vl. ST", "Vl. IPI"]), language="text")
 
     bi_file = st.file_uploader("📊 Arquivo BI único (.xls/.xlsx)", type=["xlsx", "xls"], key="p1_bi_file")
 
@@ -141,8 +141,8 @@ with tab1:
 # =============================================================================
 with tab2:
     st.header("Parte 2 — Conferência BI (Entradas/Saídas) × Razão (TXT)")
-    st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
-    st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
+    # st.write("📋 Envie um único arquivo Excel com as abas: **Resumo**, **Saída** e **Entrada**")
+    # st.caption("Os dados úteis serão extraídos das abas 'Saída' e 'Entrada'. A aba 'Resumo' não será utilizada.")
 
     bi_file = st.file_uploader("📊 Arquivo BI único (.xls/.xlsx)", type=["xls","xlsx"], key="bi_file")
 
@@ -182,13 +182,11 @@ with tab2:
             pd.concat(bi_parts, ignore_index=True)
               .groupby("lancamento", as_index=False)["valor_bi"].sum()
         )
-        st.subheader("📊 BI — Soma por Lançamento")
-        st.dataframe(bi_total, use_container_width=True, height=280)
+        with st.expander("📊 BI — Soma por Lançamento", expanded=False):
+            st.dataframe(bi_total, use_container_width=True, height=280)
     else:
         bi_total = pd.DataFrame(columns=["lancamento","valor_bi"])
         st.info("Envie ao menos um BI (Entradas, Saídas ou Serviços).")
-
-    st.divider()
 
     # Processar Razões
     razao_servicos = pd.DataFrame()
@@ -198,8 +196,8 @@ with tab2:
             # Separar serviços prestados
             razao_sem_servicos, razao_servicos = filter_servicos_prestados(razao_total)
 
-            st.subheader("📒 Razão consolidado (todos TXT)")
-            st.dataframe(razao_sem_servicos, use_container_width=True, height=240)
+            with st.expander("📒 Razão consolidado (todos TXT)", expanded=False):
+                st.dataframe(razao_sem_servicos, use_container_width=True, height=240)
         else:
             st.info("Envie ao menos um arquivo TXT de Razão.")
             razao_sem_servicos = razao_total
@@ -228,14 +226,8 @@ with tab2:
         styled = format_comparison_table(comp)
         st.dataframe(styled, use_container_width=True, height=420)
 
-        # Downloads
-        cdl1, cdl2, cdl3 = st.columns(3)
-        with cdl1:
-            create_download_buttons(bi_total, "BI por Lançamento")
-        with cdl2:
-            create_download_buttons(razao_sem_servicos, "Razão Consolidado")
-        with cdl3:
-            create_download_buttons(comp, "Comparação BI Razão")
+        # Downloads - Apenas 2 botões para comparação
+        create_comparison_download_buttons(comp, "Comparação", key_prefix="parte2")
 
         # Exibir tabela de serviços prestados APÓS o relatório principal
         if not razao_servicos.empty:
@@ -303,8 +295,8 @@ with tab3:
     except Exception as e:
         st.error(f"Erro processando TXT: {e}")
         txt_lanc_tot = pd.DataFrame(columns=["lancamento","valor"])
+        txt_desc = pd.DataFrame(columns=["lancamento","descrição"])
         txt_sem_servicos = pd.DataFrame(columns=["lancamento","valor"])
-        txt_desc = pd.DataFrame(columns=["lancamento","descricao"])
 
     # Unir composições ICMS + ICMS ST
     comp_map_union = {}
@@ -333,14 +325,8 @@ with tab3:
     styled = format_comparison_table(comp)
     st.dataframe(styled, use_container_width=True, height=460, key="sn_comp_icms_icmsst")
 
-    # Downloads
-    cdl1, cdl2, cdl3 = st.columns(3)
-    with cdl1:
-        create_download_buttons(pdf_lanc_tot, "Livro ICMS por Lançamento")
-    with cdl2:
-        create_download_buttons(st_lanc_tot, "Livro ICMS ST por Lançamento")
-    with cdl3:
-        create_download_buttons(comp, "Comparação ICMS ST TXT")
+    # Downloads - Apenas 2 botões para comparação
+    create_comparison_download_buttons(comp, "Comparação", key_prefix="parte3")
 
     # Exibir tabela de serviços prestados APÓS o relatório principal
     if not txt_servicos.empty:

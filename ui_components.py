@@ -325,6 +325,259 @@ def make_excel_bytes(df: pd.DataFrame, sheet_name: str = "Relatorio") -> tuple:
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 
+def make_pdf_bytes(df: pd.DataFrame, title: str = "Relatório") -> bytes:
+    """Gera bytes do PDF para download."""
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import A4, landscape
+    from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.lib.units import cm
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+    import io
+
+    buf = io.BytesIO()
+    # Ajustar margens para caber mais conteúdo
+    doc = SimpleDocTemplate(
+        buf,
+        pagesize=landscape(A4),
+        topMargin=0.8*cm,
+        bottomMargin=0.8*cm,
+        leftMargin=0.5*cm,
+        rightMargin=0.5*cm
+    )
+    elements = []
+
+    # Preparar dados da tabela - formatar números
+    df_formatted = df.copy()
+
+    # Colunas numéricas que precisam de formatação (Parte 2 e Parte 3)
+    numeric_cols = ["Livro ICMS", "Livro ICMS ST", "Lote Contábil", "Diferença",
+                    "valor_bi", "valor_razao", "dif"]
+    for col in numeric_cols:
+        if col in df_formatted.columns:
+            df_formatted[col] = df_formatted[col].apply(
+                lambda x: f"{float(x):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+                if pd.notna(x) and x != "" else "0,00"
+            )
+
+    # Substituir valores NaN por string vazia
+    df_formatted = df_formatted.fillna("")
+
+    # Calcular largura disponível
+    available_width = landscape(A4)[0] - 1*cm
+
+    # Definir larguras das colunas em cm (mais controle)
+    col_widths_mapping = {
+        # Parte 3 (Livro ICMS)
+        "Composição do Lançamento (CFOP)": 4.5*cm,
+        "Lançamento": 2.2*cm,
+        "Descrição": 6*cm,
+        "Livro ICMS": 2.5*cm,
+        "Livro ICMS ST": 2.5*cm,
+        "Lote Contábil": 2.5*cm,
+        "Diferença": 2.2*cm,
+        "Status": 2*cm,
+        # Parte 2 (BI x Razão)
+        "lancamento": 2.5*cm,
+        "descricao": 7*cm,
+        "valor_bi": 3*cm,
+        "valor_razao": 3*cm,
+        "dif": 3*cm,
+        "ok": 2*cm
+    }
+
+    col_widths = [col_widths_mapping.get(col, 2*cm) for col in df_formatted.columns]
+
+    # Estilos para Paragraph
+    styles = getSampleStyleSheet()
+
+    header_style = ParagraphStyle(
+        'HeaderStyle',
+        parent=styles['Normal'],
+        fontSize=7,
+        alignment=TA_CENTER,
+        textColor=colors.whitesmoke,
+        fontName='Helvetica-Bold',
+        leading=9
+    )
+
+    cell_style = ParagraphStyle(
+        'CellStyle',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_LEFT,
+        fontName='Helvetica',
+        leading=8
+    )
+
+    cell_style_right = ParagraphStyle(
+        'CellStyleRight',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_RIGHT,
+        fontName='Helvetica',
+        leading=8
+    )
+
+    # Construir dados da tabela com Paragraphs para quebra de linha
+    data = []
+
+    # Cabeçalho
+    header_row = [Paragraph(str(col), header_style) for col in df_formatted.columns]
+    data.append(header_row)
+
+    # Colunas numéricas (índices podem variar, vamos identificar por nome)
+    numeric_col_indices = [i for i, col in enumerate(df_formatted.columns)
+                          if col in numeric_cols]
+
+    # Estilos para células OK (verde) e com erro (vermelho)
+    cell_style_green = ParagraphStyle(
+        'CellStyleGreen',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_LEFT,
+        fontName='Helvetica-Bold',
+        leading=8,
+        textColor=colors.HexColor('#16A34A')  # Verde
+    )
+
+    cell_style_red = ParagraphStyle(
+        'CellStyleRed',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_LEFT,
+        fontName='Helvetica-Bold',
+        leading=8,
+        textColor=colors.HexColor('#DC2626')  # Vermelho
+    )
+
+    cell_style_right_green = ParagraphStyle(
+        'CellStyleRightGreen',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_RIGHT,
+        fontName='Helvetica-Bold',
+        leading=8,
+        textColor=colors.HexColor('#16A34A')  # Verde
+    )
+
+    cell_style_right_red = ParagraphStyle(
+        'CellStyleRightRed',
+        parent=styles['Normal'],
+        fontSize=6.5,
+        alignment=TA_RIGHT,
+        fontName='Helvetica-Bold',
+        leading=8,
+        textColor=colors.HexColor('#DC2626')  # Vermelho
+    )
+
+    # Identificar índices das colunas de Status e Diferença/dif/ok
+    status_col_idx = None
+    diff_col_idx = None
+    ok_col_idx = None
+
+    for i, col in enumerate(df_formatted.columns):
+        if col == "Status":
+            status_col_idx = i
+        elif col in ["Diferença", "dif"]:
+            diff_col_idx = i
+        elif col == "ok":
+            ok_col_idx = i
+
+    # Corpo
+    for _, row in df_formatted.iterrows():
+        row_data = []
+
+        # Determinar se a linha está OK ou tem erro
+        is_ok = False
+        if status_col_idx is not None:
+            # Parte 3: Verificar coluna Status
+            is_ok = str(row.iloc[status_col_idx]).startswith("OK")
+        elif ok_col_idx is not None:
+            # Parte 2: Verificar coluna ok
+            is_ok = str(row.iloc[ok_col_idx]).lower() in ["true", "1", "yes"]
+
+        for i, (col_name, value) in enumerate(zip(df_formatted.columns, row)):
+            # Determinar o estilo baseado na coluna e no status
+            should_color = (i == status_col_idx or i == diff_col_idx or i == ok_col_idx)
+
+            if should_color:
+                # Aplicar cor verde ou vermelha
+                if is_ok:
+                    style = cell_style_right_green if i in numeric_col_indices else cell_style_green
+                else:
+                    style = cell_style_right_red if i in numeric_col_indices else cell_style_red
+            else:
+                # Estilo normal
+                style = cell_style_right if i in numeric_col_indices else cell_style
+
+            row_data.append(Paragraph(str(value), style))
+
+        data.append(row_data)
+
+    # Criar tabela
+    table = Table(data, colWidths=col_widths, repeatRows=1)
+
+    # Estilo da tabela
+    table.setStyle(TableStyle([
+        # Cabeçalho
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#4472C4')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+        ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, 0), 7),
+        ('TOPPADDING', (0, 0), (-1, 0), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 6),
+
+        # Corpo da tabela
+        ('VALIGN', (0, 1), (-1, -1), 'TOP'),
+        ('TOPPADDING', (0, 1), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 1), (-1, -1), 3),
+        ('LEFTPADDING', (0, 1), (-1, -1), 3),
+        ('RIGHTPADDING', (0, 1), (-1, -1), 3),
+
+        # Grid
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+
+        # Linhas alternadas
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#F2F2F2')]),
+    ]))
+
+    elements.append(table)
+    doc.build(elements)
+
+    return buf.getvalue()
+
+
+def create_comparison_download_buttons(df: pd.DataFrame, base_filename: str = "Comparação", key_prefix: str = "") -> None:
+    """Cria apenas 2 botões de download: Excel e PDF para comparação."""
+    col1, col2 = st.columns(2)
+
+    with col1:
+        excel_bytes, excel_name, excel_mime = make_excel_bytes(df, base_filename)
+        st.download_button(
+            "Baixar comparação (Excel)",
+            data=excel_bytes,
+            file_name=excel_name,
+            mime=excel_mime,
+            key=f"{key_prefix}_excel_download"
+        )
+
+    with col2:
+        try:
+            pdf_bytes = make_pdf_bytes(df, base_filename)
+            st.download_button(
+                "Baixar comparação (PDF)",
+                data=pdf_bytes,
+                file_name=f"{base_filename.lower().replace(' ', '_')}.pdf",
+                mime="application/pdf",
+                key=f"{key_prefix}_pdf_download"
+            )
+        except Exception as e:
+            st.error(f"Erro ao gerar PDF: {e}. Instale reportlab: pip install reportlab")
+
+
 # =============================================================================
 # Formatação de Tabelas
 # =============================================================================
