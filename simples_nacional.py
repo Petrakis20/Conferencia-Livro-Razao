@@ -288,10 +288,10 @@ def compare_simples_nacional(pdf_icms: pd.DataFrame, pdf_icms_st: pd.DataFrame,
     )
 
     comp.rename(columns={"lancamento": "Lançamento",
-                         "cfops": "Composição do Lançamento (CFOP)",
+                         "cfops": "CFOP",
                          "descricao": "Descrição"}, inplace=True)
 
-    cols_final = ["Composição do Lançamento (CFOP)", "Lançamento", "Descrição",
+    cols_final = ["CFOP", "Lançamento", "Descrição",
                   "Livro ICMS", "Livro ICMS ST", "Lote Contábil", "Diferença", "Status"]
     comp = comp.reindex(columns=[c for c in cols_final if c in comp.columns]).sort_values("Lançamento")
 

@@ -369,7 +369,7 @@ def make_pdf_bytes(df: pd.DataFrame, title: str = "Relatório") -> bytes:
     # Definir larguras das colunas em cm (mais controle)
     col_widths_mapping = {
         # Parte 3 (Livro ICMS)
-        "Composição do Lançamento (CFOP)": 4.5*cm,
+        "CFOP": 4.5*cm,
         "Lançamento": 2.2*cm,
         "Descrição": 6*cm,
         "Livro ICMS": 2.5*cm,
@@ -378,12 +378,12 @@ def make_pdf_bytes(df: pd.DataFrame, title: str = "Relatório") -> bytes:
         "Diferença": 2.2*cm,
         "Status": 2*cm,
         # Parte 2 (BI x Razão)
-        "lancamento": 2.5*cm,
-        "descricao": 7*cm,
-        "valor_bi": 3*cm,
-        "valor_razao": 3*cm,
-        "dif": 3*cm,
-        "ok": 2*cm
+        "Código de Lançamento": 2.5*cm,
+        "Descrição": 7*cm,
+        "Valor BI": 3*cm,
+        "Valor Razão": 3*cm,
+        "Diferença": 3*cm,
+        "Status": 2*cm
     }
 
     col_widths = [col_widths_mapping.get(col, 2*cm) for col in df_formatted.columns]

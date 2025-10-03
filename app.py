@@ -40,6 +40,17 @@ from ui_components import (
 # Configuração da Página
 # =============================================================================
 st.set_page_config(page_title="Pipeline Fiscal • BI → CFOP/ Razão", layout="wide")
+
+# CSS para aumentar fonte das tabs
+st.markdown("""
+<style>
+    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 st.title("📊 Conferência Input Fiscal")
 # st.caption("① Análise do BI (CFOP × Base CFOP)  →  ② Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
 
@@ -71,9 +82,9 @@ except Exception as e:
 # Abas Principais
 # =============================================================================
 tab1, tab2, tab3 = st.tabs([
-    "① Análise do BI (CFOP × Base CFOP)",
-    "② Conferência BI × Razão (TXT)",
-    "Livro de ICMS x Lote Contábil",
+    "① Análise do BI",
+    "② Conferência BI × Razão",
+    "Conferência Simples Nacional- Livro x Razão",
 ])
 
 
@@ -146,7 +157,7 @@ with tab2:
 
     bi_file = st.file_uploader("📊 Arquivo BI único (.xls/.xlsx)", type=["xls","xlsx"], key="bi_file")
 
-    razao_files = st.file_uploader("📚 Razões TXT (pode enviar vários)", type=["txt"], accept_multiple_files=True)
+    razao_files = st.file_uploader("📚 Razão TXT", type=["txt"], accept_multiple_files=True)
 
     st.divider()
 
@@ -223,11 +234,23 @@ with tab2:
         if is_comparison_perfect(metrics):
             show_success_message("Todas as comparações BI × Razão estão perfeitas - sem divergências!")
 
-        styled = format_comparison_table(comp)
+        # Renomear colunas para exibição
+        comp_display = comp.rename(columns={
+            "lancamento": "Código de Lançamento",
+            "descricao": "Descrição",
+            "valor_bi": "Valor BI",
+            "valor_razao": "Valor Razão",
+            "dif": "Diferença",
+            "ok": "Status"
+        })
+        # Formatar coluna Status
+        comp_display["Status"] = comp_display["Status"].apply(lambda x: "OK ✅" if x else "DIVERGÊNCIA ❌")
+
+        styled = format_comparison_table(comp_display)
         st.dataframe(styled, use_container_width=True, height=420)
 
         # Downloads - Apenas 2 botões para comparação
-        create_comparison_download_buttons(comp, "Comparação", key_prefix="parte2")
+        create_comparison_download_buttons(comp_display, "Comparação", key_prefix="parte2")
 
         # Exibir tabela de serviços prestados APÓS o relatório principal
         if not razao_servicos.empty:
@@ -248,7 +271,7 @@ with tab3:
     cpdf, ctxt = st.columns(2)
     with cpdf:
         pdf_file = st.file_uploader("📄 PDF: Livro de Apuração (ICMS)", type=["pdf"], key="sn_pdf")
-        txt_file = st.file_uploader("📚 TXT p/ confronto", type=["txt"], key="sn_txt")
+        txt_file = st.file_uploader("📚 TXT: Razão", type=["txt"], key="sn_txt")
     with ctxt:
         pdf_file_st = st.file_uploader("📄 PDF: Livro de ICMS ST", type=["pdf"], key="sn_pdf_st")
 
