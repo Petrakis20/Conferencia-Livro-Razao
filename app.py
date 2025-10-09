@@ -52,6 +52,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("📊 Conferência Input Fiscal")
+
+# Botão de download do manual
+manual_path = Path("Plataforma de Conferência Input Fiscal.pdf")
+if manual_path.exists():
+    with open(manual_path, "rb") as pdf_file:
+        pdf_bytes = pdf_file.read()
+        st.download_button(
+            label="📥 Baixar Manual da Plataforma",
+            data=pdf_bytes,
+            file_name="Manual_Plataforma_Conferencia_Input_Fiscal.pdf",
+            mime="application/pdf",
+            type="primary",
+            use_container_width=False
+        )
+
 # st.caption("① Análise do BI (CFOP × Base CFOP)  →  ② Conferência BI (Entradas/Saídas/Serviços) × Razão (TXT)")
 
 
