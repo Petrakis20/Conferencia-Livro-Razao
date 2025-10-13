@@ -400,14 +400,14 @@
   },
   "1406": {
     "nome": "COMPRA BEM ATV IM PER MERC SUJ SUB TRIB",
-    "contabil": null,
+    "contabil": "10131",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "1407": {
     "nome": "COMPRA USO CONS OPERAÇ MERC SUJ SUB TRIB",
-    "contabil": "80147",
+    "contabil": "10043",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -505,7 +505,7 @@
   },
   "1551": {
     "nome": "COMPRA DE BEM PARA O ATIVO IMOBILIZADO",
-    "contabil": null,
+    "contabil": "10131",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -596,14 +596,14 @@
   },
   "1652": {
     "nome": "COMPRA DE COMB. OU LUBR.P/ COMER.",
-    "contabil": "10001",
+    "contabil": "10101",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "1653": {
     "nome": "COMPRA DE COMB.OU LUBR. P/ CONS. FINAL",
-    "contabil": "80182",
+    "contabil": "10048",
     "icms": "80126",
     "ipi": null,
     "icms_subst": null
@@ -715,7 +715,7 @@
   },
   "1909": {
     "nome": "RETORNO BEM P/CONTA CONTRATO DE COMODATO",
-    "contabil": null,
+    "contabil": "80123",
     "icms": "80100",
     "ipi": null,
     "icms_subst": null
@@ -736,14 +736,14 @@
   },
   "1912": {
     "nome": "ENTRADA MERCAD OU BEM RECEB P/DEMONSTRAÇ",
-    "contabil": "80164",
+    "contabil": "10028",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "1913": {
     "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAÇ",
-    "contabil": null,
+    "contabil": "10030",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -757,14 +757,14 @@
   },
   "1915": {
     "nome": "ENTRADA MERC BEM RECEBIDO P/CONSER REPAR",
-    "contabil": "80148",
+    "contabil": "10034",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "1916": {
     "nome": "RETORNO MERC BEM RECEBIDO P/CONSER REPAR",
-    "contabil": "80148",
+    "contabil": "10034",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1296,14 +1296,14 @@
   },
   "2406": {
     "nome": "COMPRA BEM ATIV OPERAÇ MERC SUJ SUB TRIB",
-    "contabil": null,
+    "contabil": "10131",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "2407": {
     "nome": "COMPRA USO CONS OPERAÇ MERC SUJ SUB TRIB",
-    "contabil": "80147",
+    "contabil": "10043",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1387,7 +1387,7 @@
   },
   "2551": {
     "nome": "COMPRA DE BEM PARA O ATIVO IMOBILIZADO",
-    "contabil": null,
+    "contabil": "10131",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1569,7 +1569,7 @@
   },
   "2909": {
     "nome": "RETORNO BEM P/CONTA CONTRATO DE COMODATO",
-    "contabil": null,
+    "contabil": "80123",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1597,7 +1597,7 @@
   },
   "2913": {
     "nome": "RETORNO MERCAD OU BEM RECEB P/DEMONSTRAÇ",
-    "contabil": null,
+    "contabil": "10030",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1611,14 +1611,14 @@
   },
   "2915": {
     "nome": "ENTRADA MERC BEM RECEBIDO P/CONSER REPAR",
-    "contabil": "80148",
+    "contabil": "10034",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "2916": {
     "nome": "RETORNO MERC BEM RECEBIDO P/CONSER REPAR",
-    "contabil": null,
+    "contabil": "10014",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -2787,14 +2787,14 @@
   },
   "5908": {
     "nome": "REMESSA BEM POR CONTA CONTRATO COMODATO",
-    "contabil": null,
+    "contabil": "80124",
     "icms": null,
     "ipi": null,
     "icms_subst": null
   },
   "5909": {
     "nome": "RETORNO BEM REC P/CONTA CONTR COMODATO",
-    "contabil": null,
+    "contabil": "80124",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -2836,7 +2836,7 @@
   },
   "5915": {
     "nome": "REMESSA MERCAD OU BEM P/CONSERTO REPARO",
-    "contabil": "80159",
+    "contabil": "10025",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -3851,7 +3851,7 @@
   },
   "6915": {
     "nome": "REMESSA MERCAD OU BEM P/CONSERTO REPARO",
-    "contabil": "80159",
+    "contabil": "10025",
     "icms": null,
     "ipi": null,
     "icms_subst": null

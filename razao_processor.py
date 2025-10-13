@@ -13,7 +13,7 @@ from utils import clean_code_main, to_number_br_main, extract_desc_before_first_
 # Constantes - Códigos de Serviços Prestados
 # =============================================================================
 CODIGOS_SERVICOS_PRESTADOS = {
-    "00141", "00142", "00143", "80083", "80514",
+    "00141", "00142", "00143", "00144", "80083", "80514",
     "80535", "80107", "00000", "00406"
 }
 
