@@ -3109,8 +3109,8 @@
   },
   "6120": {
     "nome": "VENDA MERC A T ENT DEST ADQ P/VEND A ORD",
-    "contabil": null,
-    "icms": null,
+    "contabil": "10015",
+    "icms": "10016",
     "ipi": null,
     "icms_subst": null
   },

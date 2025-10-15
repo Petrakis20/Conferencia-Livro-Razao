@@ -41,9 +41,41 @@ def compare_row(cfop_code: str, row: Dict[str, Optional[str]], base_map: Dict[st
     }
     base = base_map.get(str(cfop)) if cfop is not None else None
 
+    # Verificar ausência de lançamento automático quando valor != 0 mas código está vazio
+    # Pares: (chave_lancamento, chave_valor, label)
+    pares_verificacao = [
+        ("contabil", "valor_contabil", "Contábil"),
+        ("icms", "vl_icms", "ICMS"),
+        ("icms_subst", "vl_st", "ICMS Subst. Trib."),
+        ("ipi", "vl_ipi", "IPI")
+    ]
+
+    ausencia_lancamento = []
+    for lanc_key, valor_key, lbl in pares_verificacao:
+        valor = row.get(valor_key)
+        lancamento = found.get(lanc_key)
+
+        # Verifica se o valor é diferente de zero e não vazio
+        valor_existe = False
+        if valor is not None:
+            try:
+                valor_num = float(valor)
+                valor_existe = valor_num != 0.0
+            except (ValueError, TypeError):
+                valor_existe = False
+
+        # Se valor existe (!=0) mas lançamento está vazio -> ausência de lançamento automático
+        if valor_existe and lancamento is None:
+            ausencia_lancamento.append(f"{lbl}: valor {valor} sem lançamento automático")
+
     if base is None:
-        status = "⚠️ CFOP não cadastrado"
-        details = "CFOP não existe na base."
+        # Se CFOP não está na base, mas há valores sem lançamento, marcar como ausência
+        if ausencia_lancamento:
+            status = "🟡 Ausência de lançamento automático"
+            details = "; ".join(ausencia_lancamento)
+        else:
+            status = "⚠️ CFOP não cadastrado"
+            details = "CFOP não existe na base."
         expected = None
     else:
         expected = {
@@ -74,10 +106,15 @@ def compare_row(cfop_code: str, row: Dict[str, Optional[str]], base_map: Dict[st
                 valores_resumo.append(f"{label}={v}")
         resumo_valores = " | ".join(valores_resumo) if valores_resumo else ""
 
+        # Prioridade: mismatches > ausência de lançamento > zeros > OK
         if mismatches:
             status = "❌ Código de lançamento incorreto"
             det = "; ".join(mismatches + zeros)
             details = f"{det}" + (f"  •  Valores (BI): {resumo_valores}" if resumo_valores else "")
+        elif ausencia_lancamento:
+            # Nova condição: ausência de lançamento automático quando valor != 0
+            status = "🟡 Ausência de lançamento automático"
+            details = "; ".join(ausencia_lancamento + zeros) + (f"  •  Valores (BI): {resumo_valores}" if resumo_valores else "")
         elif zeros:
             status = "🟡 Ausência de lançamento automático"
             details = "; ".join(zeros) + (f"  •  Valores (BI): {resumo_valores}" if resumo_valores else "")
