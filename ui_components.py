@@ -588,7 +588,7 @@ def format_comparison_table(comp: pd.DataFrame) -> pd.DataFrame:
     styled = comp.style
 
     # Formata colunas numéricas se existirem
-    numeric_cols = ["valor_bi", "valor_razao", "dif", "Livro ICMS", "Livro ICMS ST", "Lote Contábil", "Diferença"]
+    numeric_cols = ["valor_bi", "valor_razao", "dif", "Valor BI", "Valor Razão", "Livro ICMS", "Livro ICMS ST", "Lote Contábil", "Diferença"]
     format_dict = {}
     for col in numeric_cols:
         if col in comp.columns:
