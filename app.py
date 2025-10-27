@@ -54,7 +54,7 @@ st.markdown("""
 st.title("📊 Conferência Input Fiscal")
 
 # Botão de download do manual
-manual_path = Path("Plataforma de Conferência Input Fiscal.pdf")
+manual_path = Path("Manual Plataforma Input Fiscal.pdf")
 if manual_path.exists():
     with open(manual_path, "rb") as pdf_file:
         pdf_bytes = pdf_file.read()
