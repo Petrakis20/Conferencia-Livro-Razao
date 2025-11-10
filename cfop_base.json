@@ -1212,7 +1212,7 @@
   },
   "2303": {
     "nome": "AQUISIÇÃO SERVIÇ COMUNIC P/ESTAB COMERCL",
-    "contabil": null,
+    "contabil": "10042",
     "icms": null,
     "ipi": null,
     "icms_subst": null
