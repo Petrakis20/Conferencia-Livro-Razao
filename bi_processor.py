@@ -6,6 +6,7 @@ Responsável por carregar, limpar e processar dados do Business Intelligence.
 import io
 import pandas as pd
 import numpy as np
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from utils import (
     clean_code_main, is_empty_code_main, to_number_br_main,
@@ -491,21 +492,36 @@ def load_bi_multisheet(file) -> Tuple[Optional[pd.DataFrame], Optional[pd.DataFr
     """
     Carrega um único arquivo Excel com as abas 'Saída' e 'Entrada'.
     Retorna duas tuplas: (bi_df_saida, cfop_saida), (bi_df_entrada, cfop_entrada)
+
+    Args:
+        file: Pode ser um objeto de arquivo (UploadedFile) ou caminho de arquivo (str/Path)
     """
     if file is None:
         return None, None
 
-    raw = file.read()
-    bio = io.BytesIO(raw)
-
-    try:
-        xls = pd.ExcelFile(bio, engine="openpyxl")
-    except Exception:
+    # Verifica se é um caminho de arquivo (string) ou objeto de arquivo
+    if isinstance(file, (str, Path)):
+        # É um caminho de arquivo - abre diretamente
         try:
-            bio = io.BytesIO(raw)
-            xls = pd.ExcelFile(bio, engine="xlrd")
-        except Exception as e:
-            raise ValueError(f"Não foi possível abrir o arquivo Excel: {e}")
+            xls = pd.ExcelFile(file, engine="openpyxl")
+        except Exception:
+            try:
+                xls = pd.ExcelFile(file, engine="xlrd")
+            except Exception as e:
+                raise ValueError(f"Não foi possível abrir o arquivo Excel: {e}")
+    else:
+        # É um objeto de arquivo (UploadedFile) - lê os bytes
+        raw = file.read()
+        bio = io.BytesIO(raw)
+
+        try:
+            xls = pd.ExcelFile(bio, engine="openpyxl")
+        except Exception:
+            try:
+                bio = io.BytesIO(raw)
+                xls = pd.ExcelFile(bio, engine="xlrd")
+            except Exception as e:
+                raise ValueError(f"Não foi possível abrir o arquivo Excel: {e}")
 
     # Verificar abas disponíveis
     available_sheets = xls.sheet_names
@@ -669,21 +685,37 @@ def load_bi_strict_multisheet(file, label_for_errors: str) -> Optional[pd.DataFr
     """
     Carrega arquivo Excel único com abas 'Entrada' e 'Saída' usando validação estrita.
     Retorna DataFrame consolidado com ambas as abas.
+
+    Args:
+        file: Pode ser um objeto de arquivo (UploadedFile) ou caminho de arquivo (str/Path)
+        label_for_errors: Label para mensagens de erro
     """
     if file is None:
         return None
 
-    raw = file.read()
-    bio = io.BytesIO(raw)
-
-    try:
-        xls = pd.ExcelFile(bio, engine="openpyxl")
-    except Exception:
+    # Verifica se é um caminho de arquivo (string) ou objeto de arquivo
+    if isinstance(file, (str, Path)):
+        # É um caminho de arquivo - abre diretamente
         try:
-            bio = io.BytesIO(raw)
-            xls = pd.ExcelFile(bio, engine="xlrd")
-        except Exception as e:
-            raise ValueError(f"{label_for_errors}: não foi possível abrir o arquivo Excel: {e}")
+            xls = pd.ExcelFile(file, engine="openpyxl")
+        except Exception:
+            try:
+                xls = pd.ExcelFile(file, engine="xlrd")
+            except Exception as e:
+                raise ValueError(f"{label_for_errors}: não foi possível abrir o arquivo Excel: {e}")
+    else:
+        # É um objeto de arquivo (UploadedFile) - lê os bytes
+        raw = file.read()
+        bio = io.BytesIO(raw)
+
+        try:
+            xls = pd.ExcelFile(bio, engine="openpyxl")
+        except Exception:
+            try:
+                bio = io.BytesIO(raw)
+                xls = pd.ExcelFile(bio, engine="xlrd")
+            except Exception as e:
+                raise ValueError(f"{label_for_errors}: não foi possível abrir o arquivo Excel: {e}")
 
     # Verificar abas disponíveis
     available_sheets = xls.sheet_names

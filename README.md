@@ -1,146 +1,226 @@
-# Sistema de Conferência Fiscal
+# 📊 Sistema de Conferência Input Fiscal
 
-Sistema modular para análise e conferência de dados fiscais, com interface web desenvolvida em Streamlit.
+Sistema automatizado para análise e conferência de dados fiscais do Alterdata, com validação de CFOPs e comparação BI × Razão.
 
-## 📁 Estrutura do Projeto
+---
 
+## 🚀 Início Rápido
+
+### Windows
+1. Siga o guia completo: **[GUIA_WINDOWS.md](GUIA_WINDOWS.md)**
+2. Ou simplesmente execute: **`start.bat`** (duplo clique)
+
+### macOS/Linux
+1. Instale dependências: `pip install -r requirements.txt`
+2. Execute: `streamlit run app.py`
+3. Veja: [INSTALL_ODBC_MACOS.md](INSTALL_ODBC_MACOS.md) para instalar ODBC Driver
+
+---
+
+## 📚 Documentação
+
+| Documento | Descrição |
+|-----------|-----------|
+| **[GUIA_WINDOWS.md](GUIA_WINDOWS.md)** | 🪟 Guia completo de instalação e uso no Windows |
+| **[README_ALTERDATA.md](README_ALTERDATA.md)** | 🔄 Documentação completa da extração Alterdata BI |
+| **[INSTALL_ODBC_MACOS.md](INSTALL_ODBC_MACOS.md)** | 🍎 Instalação do ODBC Driver no macOS |
+
+---
+
+## ✨ Funcionalidades
+
+### 🔄 Extração Alterdata BI
+- Conexão direta ao SQL Server do Alterdata
+- Extração automática de dados de Entrada e Saída
+- Validação de empresas por período
+- Geração de arquivos Excel compatíveis
+
+### ① Análise do BI (CFOP × Base)
+- Validação de CFOPs contra base de referência
+- Detecção de códigos de lançamento incorretos
+- Identificação de CFOPs não cadastrados
+- Métricas e KPIs visuais
+
+### ② Conferência BI × Razão
+- Comparação automática de lançamentos
+- Identificação de divergências
+- Separação de serviços prestados
+- Relatórios detalhados
+
+### ③ Conferência Simples Nacional
+- Validação de Livro de ICMS × Lote Contábil
+- Suporte a ICMS e ICMS ST
+- Análise de PDF e TXT
+
+---
+
+## 🔧 Requisitos
+
+### Todos os Sistemas
+- Python 3.8 ou superior
+- Navegador web moderno
+
+### Windows
+- ODBC Driver 18 for SQL Server
+- Acesso à rede do SQL Server
+
+### macOS/Linux
+- ODBC Driver 18 for SQL Server
+- UnixODBC (instalado automaticamente)
+
+---
+
+## ⚙️ Configuração
+
+### 1. Credenciais SQL Server
+
+Edite `Alterdata_BI/.env`:
+
+```env
+DB_HOST=seu_servidor\instancia
+DB_USER=seu_usuario
+DB_PASS=sua_senha
+DB_NAME=ALTERDATA_PACK
 ```
-conferencia-livro-razao/
-├── app.py                      # Aplicação principal (nova versão modular)
-├── conferencia-livro-razao.py  # Versão original (manter como backup)
-├── utils.py                    # Funções utilitárias gerais
-├── cfop_analyzer.py           # Análise e comparação de CFOP
-├── bi_processor.py            # Processamento de arquivos BI
-├── razao_processor.py         # Processamento de arquivos de Razão
-├── simples_nacional.py        # Módulo do Simples Nacional
-├── ui_components.py           # Componentes de interface/UI
-├── sn_pdf.py                  # Parser de PDFs do Simples Nacional
-├── cfop_base.json            # Base de dados CFOP
-└── requirements.txt          # Dependências do projeto
+
+⚠️ **Importante**: Não commite este arquivo no Git!
+
+### 2. Base de CFOPs
+
+O arquivo `cfop_base.json` na raiz do projeto contém os mapeamentos de CFOPs.
+
+---
+
+## 📖 Como Usar
+
+### Opção 1: Windows (Recomendado)
+```batch
+# Duplo clique em:
+start.bat
 ```
 
-## 🚀 Como Executar
-
-### Versão Modular (Recomendada)
+### Opção 2: Linha de Comando
 ```bash
+# Criar ambiente virtual (primeira vez)
+python -m venv venv
+
+# Ativar ambiente virtual
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Instalar dependências
+pip install -r requirements.txt
+
+# Executar sistema
 streamlit run app.py
 ```
 
-### Versão Original (Backup)
+### Opção 3: Python Direto
 ```bash
-streamlit run conferencia-livro-razao.py
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-## 📚 Módulos do Sistema
+---
 
-### 1. **utils.py** - Funções Utilitárias
-- Normalização de texto e códigos
-- Conversão de valores brasileiros
-- Limpeza de dados
-- Funções auxiliares de arquivo
+## 🎯 Fluxo de Trabalho
 
-### 2. **cfop_analyzer.py** - Análise CFOP
-- Carregamento da base CFOP (JSON)
-- Comparação de códigos de lançamento
-- Validação contra base de dados
-- Cálculo de métricas de análise
+```
+1. Extração (Aba 🔄)
+   ↓
+   Conecta ao Alterdata → Extrai dados → Gera Excel
+   ↓
+2. Análise CFOP (Aba ①)
+   ↓
+   Valida CFOPs → Identifica problemas → Gera relatório
+   ↓
+3. Conferência BI × Razão (Aba ②)
+   ↓
+   Compara lançamentos → Detecta divergências → Relatório final
+```
 
-### 3. **bi_processor.py** - Processamento BI
-- Leitura de arquivos BI (Excel/CSV)
-- Processamento de Entradas/Saídas/Serviços
-- Detecção automática de colunas
-- Limpeza e agregação de dados
+---
 
-### 4. **razao_processor.py** - Processamento Razão
-- Leitura de arquivos TXT de razão
-- Consolidação de múltiplos arquivos
-- Comparação BI vs Razão
-- Cálculo de divergências
+## 🐛 Solução de Problemas
 
-### 5. **simples_nacional.py** - Livro de ICMS x Lote Contábil
-- Processamento de PDFs (ICMS/ICMS ST)
-- Processamento de TXT contábil
-- Mapeamento CFOP → Lançamentos
-- Comparação PDF vs TXT
+### Windows
+Consulte [GUIA_WINDOWS.md](GUIA_WINDOWS.md) - Seção "Solução de Problemas"
 
-### 6. **ui_components.py** - Interface do Usuário
-- Componentes KPI estilizados
-- Animação de fogos de artifício 🎆
-- Filtros e controles
-- Funções de download
-- Formatação de tabelas
+### Erro: "Credenciais não encontradas"
+- Verifique se `Alterdata_BI/.env` existe e está configurado corretamente
 
-## 🎯 Funcionalidades Principais
+### Erro: "ODBC Driver não encontrado"
+- Windows: Instale ODBC Driver 18 ([link](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server))
+- macOS: Siga [INSTALL_ODBC_MACOS.md](INSTALL_ODBC_MACOS.md)
 
-### Aba 1: Análise do BI (CFOP × Base CFOP)
-- Validação de códigos de lançamento
-- Comparação contra base CFOP
-- Identificação de divergências
-- KPIs de validação
+### Erro de conexão SQL Server
+1. Verifique se SQL Server está rodando
+2. Teste conexão com SQL Server Management Studio (SSMS)
+3. Confirme credenciais no `.env`
+4. Verifique firewall (porta 1433)
 
-### Aba 2: Conferência BI × Razão (TXT)
-- Processamento de BI (Entradas/Saídas/Serviços)
-- Consolidação de arquivos de razão
-- Comparação por lançamento
-- Análise de divergências
+---
 
-### Aba 3: Livro de ICMS x Lote Contábil
-- Análise de PDFs de livros fiscais
-- Comparação com lote contábil
-- Mapeamento automático via base CFOP
-- Validação de consistência
+## 📦 Estrutura do Projeto
 
-## 🎉 Animações de Sucesso
+```
+Conferencia-Livro-Razao/
+├── app.py                      # Aplicação principal Streamlit
+├── alterdata_connector.py      # Conexão SQL Server
+├── company_validator.py        # Validação de empresas
+├── bi_processor.py            # Processamento de BI
+├── razao_processor.py         # Processamento de Razão
+├── cfop_analyzer.py           # Análise de CFOPs
+├── simples_nacional.py        # Conferência Simples Nacional
+├── ui_components.py           # Componentes de interface
+├── utils.py                   # Funções utilitárias
+├── cfop_base.json            # Base de CFOPs
+├── requirements.txt          # Dependências Python
+├── start.bat                 # Script de inicialização Windows
+├── Alterdata_BI/
+│   ├── .env                  # Credenciais (não commitar!)
+│   └── params.txt            # Configuração de empresas
+└── temp_bi/                  # Arquivos gerados (temporário)
+```
 
-O sistema inclui uma animação de fogos de artifício que é disparada automaticamente quando:
-- **Aba 1**: Todas as análises CFOP estão OK (sem divergências)
-- **Aba 2**: Todas as comparações BI × Razão estão OK
-- **Aba 3**: Todas as análises do Livro de ICMS x Lote Contábil estão OK
+---
 
-## 📋 Requisitos
+## 🔒 Segurança
 
-Veja o arquivo `requirements.txt` para a lista completa de dependências.
+- ✅ Credenciais armazenadas em `.env` (fora do Git)
+- ✅ Senha nunca exibida na interface
+- ✅ Conexões com `TrustServerCertificate` para ambientes internos
+- ✅ Validação de permissões por empresa e período
 
-Principais bibliotecas:
-- **streamlit**: Interface web
-- **pandas**: Manipulação de dados
-- **numpy**: Operações numéricas
-- **openpyxl/xlrd**: Leitura de Excel
+---
 
-## 🔧 Configuração
+## 📊 Tecnologias
 
-1. **Base CFOP**: Configure o caminho do arquivo `cfop_base.json` na sidebar
-2. **Arquivos**: Faça upload dos arquivos BI/Razão nas respectivas abas
-3. **Análise**: O sistema processará automaticamente e exibirá os resultados
+- **Streamlit** - Interface web interativa
+- **Pandas** - Processamento de dados
+- **pyODBC** - Conexão SQL Server
+- **openpyxl** - Leitura/escrita Excel
+- **ReportLab** - Geração de PDFs
+- **pypdf** - Leitura de PDFs
 
-## 🎨 Melhorias da Refatoração
+---
 
-### ✅ Vantagens da Nova Estrutura:
-- **Modularidade**: Código organizado em módulos específicos
-- **Manutenibilidade**: Fácil localização e edição de funcionalidades
-- **Reutilização**: Funções podem ser importadas entre módulos
-- **Testabilidade**: Cada módulo pode ser testado independentemente
-- **Legibilidade**: Código mais limpo e documentado
-- **Escalabilidade**: Fácil adição de novas funcionalidades
+## 📝 Licença
 
-### 📁 Separação de Responsabilidades:
-- **Lógica de Negócio**: Separada da interface
-- **Processamento de Dados**: Isolado em módulos específicos
-- **Interface**: Componentes reutilizáveis
-- **Utilidades**: Funções comuns centralizadas
+Uso interno. Todos os direitos reservados.
 
-## 🔄 Migração
-
-Para migrar da versão original para a modular:
-1. Use `app.py` como arquivo principal
-2. Mantenha `conferencia-livro-razao.py` como backup
-3. Teste todas as funcionalidades na nova versão
-4. Configure dependências se necessário
+---
 
 ## 📞 Suporte
 
-Para dúvidas ou problemas:
-1. Verifique a estrutura de arquivos
-2. Confirme dependências instaladas
-3. Teste com arquivos de exemplo
-4. Consulte logs de erro no Streamlit
+- 📖 Documentação completa: [README_ALTERDATA.md](README_ALTERDATA.md)
+- 🪟 Guia Windows: [GUIA_WINDOWS.md](GUIA_WINDOWS.md)
+- 🍎 Guia macOS: [INSTALL_ODBC_MACOS.md](INSTALL_ODBC_MACOS.md)
+
+---
+
+**Versão:** 2.0
+**Última atualização:** Outubro 2025
+**Compatível com:** Windows 10+, macOS 10.14+, Linux (Ubuntu 20.04+)
