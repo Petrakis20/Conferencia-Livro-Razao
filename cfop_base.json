@@ -1892,7 +1892,7 @@
   "3556": {
     "nome": "COMPRA DE MATERIAL PARA USO OU CONSUMO",
     "contabil": "80127",
-    "icms": null,
+    "icms": "10002",
     "ipi": null,
     "icms_subst": null
   },
