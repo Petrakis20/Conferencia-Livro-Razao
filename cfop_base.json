@@ -1751,7 +1751,7 @@
   },
   "3128": {
     "nome": "COMPRA P/ UTILIZ PRESTAÇÃO SERVIÇ ISSQN",
-    "contabil": null,
+    "contabil": "80128",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -1891,7 +1891,7 @@
   },
   "3556": {
     "nome": "COMPRA DE MATERIAL PARA USO OU CONSUMO",
-    "contabil": null,
+    "contabil": "80127",
     "icms": null,
     "ipi": null,
     "icms_subst": null
