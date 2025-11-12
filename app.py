@@ -105,6 +105,7 @@ except Exception as e:
 # =============================================================================
 # Abas Principais
 # =============================================================================
+
 # tab0, 
 tab1, tab2, tab3 = st.tabs([
     # "🔄 Extração Alterdata BI",
@@ -130,28 +131,6 @@ tab1, tab2, tab3 = st.tabs([
 
 #     st.divider()
 
-#     # Status de conexão (sem exibir credenciais)
-#     st.subheader("⚙️ Conexão SQL Server")
-
-#     # Verifica se credenciais existem (sem exibir)
-#     host, database, user, _ = get_db_credentials()
-
-#     if all([host, database, user]):
-#         st.success("🔒 Credenciais carregadas de `Alterdata_BI/.env`")
-
-#         # Botão de teste de conexão
-#         if st.button("🔌 Testar Conexão", type="secondary"):
-#             with st.spinner("Testando conexão..."):
-#                 success, msg = test_connection_from_env()
-#                 if success:
-#                     st.success(msg)
-#                 else:
-#                     st.error(msg)
-#     else:
-#         st.error("⚠️ Credenciais não encontradas no arquivo `Alterdata_BI/.env`")
-#         st.caption("Verifique se o arquivo existe e contém: DB_HOST, DB_NAME, DB_USER, DB_PASS")
-
-#     st.divider()
 
 #     # Seleção de período e empresa
 #     st.subheader("📅 Período e Empresa")
