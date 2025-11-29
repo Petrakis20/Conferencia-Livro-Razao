@@ -106,9 +106,8 @@ except Exception as e:
 # Abas Principais
 # =============================================================================
 
-# tab0, 
-tab1, tab2, tab3 = st.tabs([
-    # "🔄 Extração Alterdata BI",
+tab0, tab1, tab2, tab3 = st.tabs([
+    "🔄 Extração Alterdata BI",
     "① Análise do BI",
     "② Conferência BI × Razão",
     "Livro de ICMS x Lote Contábil",
@@ -118,135 +117,138 @@ tab1, tab2, tab3 = st.tabs([
 # =============================================================================
 # TAB 0: Extração Alterdata BI
 # =============================================================================
-# with tab0:
-#     st.header("🔄 Extração de Dados do Alterdata")
-#     st.caption("Conecte-se ao banco de dados Alterdata e extraia relatórios de BI automaticamente")
+with tab0:
+    st.header("🔄 Extração de Dados do Alterdata")
+    st.caption("Conecte-se ao banco de dados Alterdata e extraia relatórios de BI automaticamente")
 
-#     # Carrega configurações do params.txt
-#     params = parse_params_file()
+    # Carrega configurações do params.txt
+    params = parse_params_file()
 
-#     # Exibe informações sobre empresas configuradas
-#     with st.expander("📋 Empresas Configuradas (params.txt)", expanded=False):
-#         st.markdown(format_company_info(params))
+    # Exibe informações sobre empresas configuradas
+    with st.expander("📋 Empresas Configuradas (params.txt)", expanded=False):
+        st.markdown(format_company_info(params))
 
-#     st.divider()
+    st.divider()
 
 
-#     # Seleção de período e empresa
-#     st.subheader("📅 Período e Empresa")
+    # Seleção de período e empresa
+    st.subheader("📅 Período e Empresa")
 
-#     col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-#     with col1:
-#         start_date = st.date_input(
-#             "Data Inicial",
-#             value=datetime(2025, 9, 1),
-#             help="Data de início do período de extração"
-#         )
+    with col1:
+        start_date = st.date_input(
+            "Data Inicial",
+            value=datetime(2025, 9, 1),
+            help="Data de início do período de extração"
+        )
 
-#     with col2:
-#         end_date = st.date_input(
-#             "Data Final (exclusiva)",
-#             value=datetime(2025, 10, 1),
-#             help="Data final do período (não inclusa)"
-#         )
+    with col2:
+        end_date = st.date_input(
+            "Data Final (exclusiva)",
+            value=datetime(2025, 10, 1),
+            help="Data final do período (não inclusa)"
+        )
 
-#     with col3:
-#         company_code = st.text_input(
-#             "Código da Empresa",
-#             value="",
-#             help="Digite o código da empresa (será padronizado para 5 dígitos)",
-#             max_chars=5
-#         )
+    with col3:
+        company_code = st.text_input(
+            "Código da Empresa",
+            value="",
+            help="Digite o código da empresa (será padronizado para 5 dígitos)",
+            max_chars=5
+        )
 
-#     # Validação da empresa
-#     validation_result = None
-#     if company_code:
-#         is_valid, msg, day_block = validate_company_for_period(
-#             company_code,
-#             datetime.combine(start_date, datetime.min.time()),
-#             datetime.combine(end_date, datetime.min.time()),
-#             params
-#         )
+    # Validação da empresa
+    validation_result = None
+    if company_code:
+        is_valid, msg, day_block = validate_company_for_period(
+            company_code,
+            datetime.combine(start_date, datetime.min.time()),
+            datetime.combine(end_date, datetime.min.time()),
+            params
+        )
 
-#         if is_valid:
-#             st.success(f"✅ {msg}")
-#             validation_result = True
-#         else:
-#             st.error(f"❌ {msg}")
-#             validation_result = False
+        if is_valid:
+            st.success(f"✅ {msg}")
+            validation_result = True
+        else:
+            st.error(f"❌ {msg}")
+            validation_result = False
 
-#     # Município (opcional)
-#     with st.expander("⚙️ Configurações Avançadas", expanded=False):
-#         municipio_id = st.number_input(
-#             "ID Município (opcional)",
-#             value=None,
-#             min_value=0,
-#             help="Deixe vazio para NULL"
-#         )
+    # Município (opcional)
+    with st.expander("⚙️ Configurações Avançadas", expanded=False):
+        municipio_id = st.number_input(
+            "ID Município (opcional)",
+            value=None,
+            min_value=0,
+            help="Deixe vazio para NULL"
+        )
 
-#     st.divider()
+    st.divider()
 
-#     # Botão de extração
-#     can_extract = (
-#         company_code and
-#         all([host, database, user]) and  # Credenciais do .env carregadas
-#         validation_result is not False  # Pode ser True ou None (não validado ainda)
-#     )
+    # Obtém credenciais do .env para validação
+    host, database, user, password = get_db_credentials()
 
-#     if st.button("🚀 Extrair Dados e Gerar BI", type="primary", disabled=not can_extract):
-#         if not can_extract:
-#             st.warning("Preencha o código da empresa e verifique se as credenciais estão configuradas no .env")
-#         else:
-#             with st.spinner(f"Extraindo dados da empresa {company_code.zfill(5)}..."):
-#                 # Converte datas para datetime
-#                 start_dt = datetime.combine(start_date, datetime.min.time())
-#                 end_dt = datetime.combine(end_date, datetime.min.time())
+    # Botão de extração
+    can_extract = (
+        company_code and
+        all([host, database, user]) and  # Credenciais do .env carregadas
+        validation_result is not False  # Pode ser True ou None (não validado ainda)
+    )
 
-#                 # Extrai dados usando credenciais do .env
-#                 df_entrada, df_saida, msg_extract = extract_bi_data_from_env(
-#                     company_code=company_code,
-#                     start_date=start_dt,
-#                     end_date=end_dt,
-#                     municipio_id=municipio_id if municipio_id else None
-#                 )
+    if st.button("🚀 Extrair Dados e Gerar BI", type="primary", disabled=not can_extract):
+        if not can_extract:
+            st.warning("Preencha o código da empresa e verifique se as credenciais estão configuradas no .env")
+        else:
+            with st.spinner(f"Extraindo dados da empresa {company_code.zfill(5)}..."):
+                # Converte datas para datetime
+                start_dt = datetime.combine(start_date, datetime.min.time())
+                end_dt = datetime.combine(end_date, datetime.min.time())
 
-#                 if df_entrada is None or df_saida is None:
-#                     st.error(msg_extract)
-#                 else:
-#                     st.success(msg_extract)
+                # Extrai dados usando credenciais do .env
+                df_entrada, df_saida, msg_extract = extract_bi_data_from_env(
+                    company_code=company_code,
+                    start_date=start_dt,
+                    end_date=end_dt,
+                    municipio_id=municipio_id if municipio_id else None
+                )
 
-#                     # Gera arquivo Excel
-#                     with st.spinner("Gerando arquivo Excel..."):
-#                         filepath, msg_excel = generate_excel_file(
-#                             df_entrada=df_entrada,
-#                             df_saida=df_saida,
-#                             company_code=company_code,
-#                             start_date=start_dt,
-#                             end_date=end_dt
-#                         )
+                if df_entrada is None or df_saida is None:
+                    st.error(msg_extract)
+                else:
+                    st.success(msg_extract)
 
-#                         if filepath:
-#                             st.success(msg_excel)
+                    # Gera arquivo Excel
+                    with st.spinner("Gerando arquivo Excel..."):
+                        filepath, msg_excel = generate_excel_file(
+                            df_entrada=df_entrada,
+                            df_saida=df_saida,
+                            company_code=company_code,
+                            start_date=start_dt,
+                            end_date=end_dt
+                        )
 
-#                             # Salva caminho do arquivo na sessão para uso nas outras abas
-#                             st.session_state["alterdata_bi_file"] = filepath
-#                             st.session_state["alterdata_bi_company"] = company_code.zfill(5)
+                        if filepath:
+                            st.success(msg_excel)
 
-#                             # Oferece download
-#                             with open(filepath, 'rb') as f:
-#                                 st.download_button(
-#                                     label="📥 Baixar Arquivo Excel Gerado",
-#                                     data=f.read(),
-#                                     file_name=Path(filepath).name,
-#                                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-#                                     type="primary"
-#                                 )
+                            # Salva caminho do arquivo na sessão para uso nas outras abas
+                            st.session_state["alterdata_bi_file"] = filepath
+                            st.session_state["alterdata_bi_company"] = company_code.zfill(5)
 
-#                             st.info("✅ Arquivo gerado e salvo! Agora você pode usar nas abas '① Análise do BI' e '② Conferência BI × Razão'.")
+                            # Oferece download
+                            with open(filepath, 'rb') as f:
+                                st.download_button(
+                                    label="📥 Baixar Arquivo Excel Gerado",
+                                    data=f.read(),
+                                    file_name=Path(filepath).name,
+                                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                    type="primary"
+                                )
 
-#                         else:
-#                             st.error(msg_excel)
+                            st.info("✅ Arquivo gerado e salvo! Agora você pode usar nas abas '① Análise do BI' e '② Conferência BI × Razão'.")
+
+                        else:
+                            st.error(msg_excel)
 
 
 # =============================================================================
