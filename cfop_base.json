@@ -85,7 +85,7 @@
   },
   "1126": {
     "nome": "COMPRA P/UTILIZAÇÃO NA PRESTAÇÃO SERVIÇO",
-    "contabil": null,
+    "contabil": "10113",
     "icms": null,
     "ipi": null,
     "icms_subst": null
@@ -2402,7 +2402,7 @@
   },
   "5401": {
     "nome": "VENDA PROD E OP P SUJ REG SUB TRIB C SUB",
-    "contabil": null,
+    "contabil": "10072",
     "icms": null,
     "ipi": null,
     "icms_subst": null
